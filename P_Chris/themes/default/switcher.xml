@@ -1,0 +1,18 @@
+<mmsdialog>
+    <description author = "" email  = "" desc   = ""/>
+	<mainwindow class="switcher_mainwindow" name="switcherMainWindow" >
+		<childwindow name="switcher_menubar" 
+			alignment="top-right" dx="0px" dy="0px" h="100%" w="100%" 
+		        fadein="false" fadeout="false" movein="up" moveout="down"
+		   	margin="0" bgcolor="#00000000" selbgcolor="#00000000" border.color="#00000000" 
+			border.thickness="0" debug="false" >
+		 <vbox>
+			 <gap size="50px" />
+			 <hbox>
+				 <gap size="180px" />
+				 <menu class="switcher_menu" name="switcher_menu"/>
+			 </hbox>
+		 </vbox>
+		</childwindow>
+	</mainwindow>
+</mmsdialog>
