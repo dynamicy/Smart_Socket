@@ -1,6 +1,3 @@
-/////////////////////////////////////////////////
-// Serial port interface program               //
-/////////////////////////////////////////////////
 #include <stdio.h> // standard input / output functions
 #include <string.h> // string function definitions
 #include <unistd.h> // UNIX standard function definitions
@@ -9,7 +6,7 @@
 #include <termios.h> // POSIX terminal control definitionss
 #include <time.h>   // time calls
 
-
+//Hello GIT
 int open_port(char* tty_name)
 {
 	
