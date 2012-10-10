@@ -8,14 +8,18 @@ import java.util.*;
 import java.net.*;
 import java.io.BufferedOutputStream;
 import org.osgi.framework.ServiceReference;
+
+
 import java.net.InetSocketAddress;
 import java.net.Socket;
 
 
 
-public class Activator implements BundleActivator {
+public class Activator extends TimerTask implements BundleActivator {
 
 	private static BundleContext context;
+	
+	Timer timer = new Timer();
 	
 	Get_Media_URL service = new Get_Media_URL_Interface(); 	
 	
@@ -26,7 +30,7 @@ public class Activator implements BundleActivator {
 	MyServiceInterface1 service1 = new MyService1(); 
 	 
 	 
-	
+	public static boolean flag = false;
 	
 	
 	
@@ -41,7 +45,7 @@ public class Activator implements BundleActivator {
   //public static native int Close();
   //public static native int readd();
   public static native String stringFromJNI();
-	
+  public static native String stringFromJNI1();
 	
 	
 	
@@ -51,6 +55,22 @@ public class Activator implements BundleActivator {
 		return context;
 	}
 
+	public void run(){
+		 
+		
+		url =  stringFromJNI1();
+		
+		if(!url.equals(""))	{
+		    System.out.println(url+"\n");
+		    flag = true;		    
+		}
+		
+		if(flag)
+			timer.cancel();
+		
+	}
+	
+	
 	/*
 	 * (non-Javadoc)
 	 * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
@@ -66,7 +86,10 @@ public class Activator implements BundleActivator {
 		  
 		  context.registerService(MyServiceInterface1.class.getName(), service1, null);
 		  
+		  stringFromJNI();
 		  
+		  
+		  timer.schedule(new Activator(), 0,3000);
 		  
 		  //System.out.println(Init());
 		  //System.out.println(Write('q'));
@@ -79,8 +102,7 @@ public class Activator implements BundleActivator {
 		  //System.out.println("!!"+url);
 		  //System.out.println("This is my first service");
 		
-		   url =  stringFromJNI();
-		   System.out.println(url+"\n");
+		   
 
 			
 		//context.registerService(MyServiceInterface1.class.getName(), service1, null);
@@ -99,7 +121,7 @@ public class Activator implements BundleActivator {
 		Activator.context = null;
 		//System.out.println("This is my first service and stop");
 		// System.out.println(Close());
-
+		timer.cancel();
 	}
 
 }

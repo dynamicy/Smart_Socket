@@ -11,7 +11,7 @@
 #include <netdb.h>
 
 
-int port = 10200;
+int port = 8080;
 
 int main(int argc, char *argv[])
 
@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 
   char  buf[8192];
 
-  char  *str="http://140.116.226.211/123.txt 0 0";
+  char  *str="q 0 0";
 
 
   /* 建立server IPv4位址 */
@@ -88,6 +88,7 @@ while(1){
   }
 
   printf("\nResponse from server: \n\n%s\n", buf);
+  sleep(5);  //每5傳一次   
 }
 
 
