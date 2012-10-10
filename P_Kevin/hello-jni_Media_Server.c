@@ -23,10 +23,11 @@
 
 int port = 10200;
 
-
-int flag = 0;
-
-  struct sockaddr_in    sin;
+jstring
+Java_one_Activator_stringFromJNI( JNIEnv* env,
+                                                  jobject thiz )
+{
+   struct sockaddr_in    sin;
 
   struct sockaddr_in    pin;
 
@@ -44,12 +45,6 @@ int flag = 0;
 
   float c;
 
-
-jstring
-Java_one_Activator_stringFromJNI( JNIEnv* env,
-                                                  jobject thiz )
-{
-   
   /* 建立socket */
 
   mysock = socket(AF_INET, SOCK_STREAM, 0);
@@ -92,26 +87,19 @@ Java_one_Activator_stringFromJNI( JNIEnv* env,
 
   }
 
-  printf("Accepting connections for url ........\n");
-/* 接受client端連結 */
-tempsock = accept(mysock, (struct sockaddr *)&pin, &addrsize);
-}
+  printf("Accepting connections ...\n");
 
 
-jstring
-Java_one_Activator_stringFromJNI1( JNIEnv* env,jobject thiz )
-{
+  while(1) {
 
+        /* 接受client端連結 */
 
-
-
-  while(1) {        
-
-        
-        //printf("\n收到url : ");  
+        tempsock = accept(mysock, (struct sockaddr *)&pin, &addrsize);
+        printf("\n收到url : ");  
         if (tempsock == -1){
 
                 perror("call to accept");
+
                 exit(1);
 
         }
@@ -121,7 +109,7 @@ Java_one_Activator_stringFromJNI1( JNIEnv* env,jobject thiz )
         /* 接收client端傳來的訊息 */
 
         len1=recv(tempsock, str, 100, 0);
-	printf("\n收到url : ");  
+
         //printf("\n收到字元數:");
         str[len1]=0;
 
@@ -146,31 +134,22 @@ Java_one_Activator_stringFromJNI1( JNIEnv* env,jobject thiz )
                 c=atof(str3)*1.05;
 
                 //sprintf(buf,"品號為 %s\n品名為 %s\n含稅價為: %.2f\n",str1, str2, c);
-		
-		flag = 1;
-		//return (*env)->NewStringUTF(env, &str1);
+		return (*env)->NewStringUTF(env, &str1);
  
 
         }
 
         /* 將處理過的訊息傳回給client端 */
+
         len2 = strlen(buf);
 
-        if (send(tempsock, "ok", len2, 0) == -1) {
+        if (send(tempsock, buf, len2, 0) == -1) {
 
                 perror("call to send");
 
                 exit(1);
 
         }
-
-
-
-        if(flag==1){
-	flag = 0;
-	return (*env)->NewStringUTF(env, &str1);
-	}
-
 
         /* 關閉與client端的連線 */
 

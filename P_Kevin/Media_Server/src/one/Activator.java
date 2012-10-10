@@ -9,7 +9,6 @@ import java.net.*;
 import java.io.BufferedOutputStream;
 import org.osgi.framework.ServiceReference;
 
-
 import java.net.InetSocketAddress;
 import java.net.Socket;
 
@@ -29,9 +28,6 @@ public class Activator extends TimerTask implements BundleActivator {
 	
 	MyServiceInterface1 service1 = new MyService1(); 
 	 
-	 
-	public static boolean flag = false;
-	
 	
 	
 	static{
@@ -55,20 +51,15 @@ public class Activator extends TimerTask implements BundleActivator {
 		return context;
 	}
 
+	
 	public void run(){
-		 
+
 		
-		url =  stringFromJNI1();
-		
-		if(!url.equals(""))	{
-		    System.out.println(url+"\n");
-		    flag = true;		    
-		}
-		
-		if(flag)
-			timer.cancel();
-		
+	       url =  stringFromJNI1();
+		   System.out.println(url+"\n");
 	}
+	
+	
 	
 	
 	/*
@@ -77,7 +68,7 @@ public class Activator extends TimerTask implements BundleActivator {
 	 */
 	public void start(BundleContext bundleContext) throws Exception {
 		
-		Activator.context = bundleContext;
+		  Activator.context = bundleContext;
 		
 		  context.registerService(Get_Media_URL.class.getName(), service, null); 
 		  
@@ -87,9 +78,6 @@ public class Activator extends TimerTask implements BundleActivator {
 		  context.registerService(MyServiceInterface1.class.getName(), service1, null);
 		  
 		  stringFromJNI();
-		  
-		  
-		  timer.schedule(new Activator(), 0,3000);
 		  
 		  //System.out.println(Init());
 		  //System.out.println(Write('q'));
@@ -104,7 +92,7 @@ public class Activator extends TimerTask implements BundleActivator {
 		
 		   
 
-			
+		   timer.schedule(new Activator(), 0,3000);
 		//context.registerService(MyServiceInterface1.class.getName(), service1, null);
 		
 	}

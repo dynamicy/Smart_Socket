@@ -13,9 +13,6 @@
 
 int port = 10200;
 
-int send_flag = 0;
-
-
 int main(int argc, char *argv[])
 
 {
@@ -44,53 +41,61 @@ int main(int argc, char *argv[])
 
 
   /* 建立socket */
+
 while(1){
+
 
   mysock = socket(AF_INET, SOCK_STREAM, 0);
 
   if (mysock == -1) {
-        perror("call to socket");
-        exit(1);
-  }
 
+        perror("call to socket");
+
+        exit(1);
+
+  }
 
   /* 連結server */
-  if (connect(mysock, (void *)&pin, sizeof(pin)) == -1) {
-        perror("call to connect");
-        exit(1);
-  }
 
+  if (connect(mysock, (void *)&pin, sizeof(pin)) == -1) {
+
+        perror("call to connect");
+
+        exit(1);
+
+  }
 
   /* 將str字串傳給 server */
+
   //printf("Sending message %s to server ...\n", str);
 
-
-if(send_flag ==0){
-
   if (send(mysock, str, strlen(str), 0) == -1) {
+
         perror("Error in send\n");
+
         exit(1);
+
   }
-send_flag=1;
-}
-
-
-
 
   /* 接收 server 回傳的訊息 */
 
   if (recv(mysock, buf, 8192, 0) == -1) {
+
         perror("Error in receiving\n");
+
         exit(1);
+
   }
 
-
-
-
-printf("\nResponse from server: \n\n%s\n", buf);
-
-
+  printf("\nResponse from server: \n\n%s\n", buf);
 }
+
+
+
+
+
+
+
 
 
   /* 關閉與server的連線 */
