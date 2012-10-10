@@ -23,11 +23,7 @@
 
 int port = 10200;
 
-jstring
-Java_one_Activator_stringFromJNI( JNIEnv* env,
-                                                  jobject thiz )
-{
-   struct sockaddr_in    sin;
+  struct sockaddr_in    sin;
 
   struct sockaddr_in    pin;
 
@@ -44,6 +40,13 @@ Java_one_Activator_stringFromJNI( JNIEnv* env,
   int           i, len1, len2;
 
   float c;
+
+
+
+jstring
+Java_one_Activator_stringFromJNI( JNIEnv* env,jobject thiz )
+{
+
 
   /* 建立socket */
 
@@ -87,15 +90,23 @@ Java_one_Activator_stringFromJNI( JNIEnv* env,
 
   }
 
-  printf("Accepting connections ...\n");
+  printf("Accepting connections url.....\n");
+}
 
+
+
+
+jstring
+Java_one_Activator_stringFromJNI1( JNIEnv* env,
+                                                  jobject thiz )
+{
 
   while(1) {
 
         /* 接受client端連結 */
 
         tempsock = accept(mysock, (struct sockaddr *)&pin, &addrsize);
-        printf("\n收到url : ");  
+       
         if (tempsock == -1){
 
                 perror("call to accept");
@@ -109,13 +120,30 @@ Java_one_Activator_stringFromJNI( JNIEnv* env,
         /* 接收client端傳來的訊息 */
 
         len1=recv(tempsock, str, 100, 0);
-
+ 	printf("\n收到url : ");  
         //printf("\n收到字元數:");
         str[len1]=0;
 
         //printf("received from client: %s\n", str);
 
         /* 分析處理client端傳來的訊息 */
+
+	len2 = strlen(buf);
+
+        if (send(tempsock, "okok!!", 10, 0) == -1) {
+
+                perror("call to send");
+
+                exit(1);
+
+        }
+
+
+
+
+
+
+
 
         if (len1 > 0) {
 
@@ -163,17 +191,20 @@ Java_one_Activator_stringFromJNI( JNIEnv* env,
 //return;
 }
 
+jint
+Java_one_Activator_stringFromJNI2( JNIEnv* env,jobject thiz )
+{
+   
+   int a = send(tempsock, "go", 10, 0);
+
+   if (a==-1)
+      return 0;    
+  else 
+     return 1;
 
 
 
-
-
-
-
-
-
-
-
+}
 
 
 

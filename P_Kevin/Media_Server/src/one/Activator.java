@@ -42,7 +42,7 @@ public class Activator extends TimerTask implements BundleActivator {
   //public static native int readd();
   public static native String stringFromJNI();
   public static native String stringFromJNI1();
-	
+  public static native int stringFromJNI2();
 	
 	
 	//MyServiceInterface1 service1 = new MyService1();

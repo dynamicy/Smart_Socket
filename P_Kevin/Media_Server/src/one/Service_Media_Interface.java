@@ -11,6 +11,8 @@ public class Service_Media_Interface implements Service_Media{
 	
  public int myservicefunction() 
  { 
+	 
+	 /*
     	try { 
     		//server ip
             InetAddress address = InetAddress.getByName("140.116.226.227");
@@ -26,6 +28,15 @@ public class Service_Media_Interface implements Service_Media{
         }
     	
     	return check;
+    	
+    	*/
+    	check = Activator.stringFromJNI2();
+	 
+	    return check;
+	 
+	 
+	 
+    	
    
   };
 } 

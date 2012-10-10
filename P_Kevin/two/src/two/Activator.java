@@ -50,7 +50,7 @@ public class Activator extends TimerTask implements BundleActivator {
 			ServiceReference ref = context.getServiceReference(Service_Media.class.getName());
 			service_alive = (Service_Media)context.getService(ref); 
 			int a = service_alive.myservicefunction();	
-			System.out.println("ping : "+a);		
+			System.out.println("alive"+a);	
 		  }
 	  
 	  
