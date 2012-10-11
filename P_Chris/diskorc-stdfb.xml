@@ -11,7 +11,7 @@
         <parameter name="prefix"      value="./" />
         <parameter name="sysconfig"   value="./" />
         <parameter name="data"        value="./" />
-        <parameter name="theme"       value="default" />
+        <parameter name="theme"       value="" />
         
         <!-- if you set the firstplugin with an available pluginid, the MMSSwitcher
              switches direct to this plugin during startup -->
@@ -25,18 +25,13 @@
         <parameter name="inputmode"   value="CLICK" />
     </global>
     
-    <!-- database settings for plugins -->
-    <dbsettings type="config">
-        <parameter name="database" value="./configdb" />
-    </dbsettings>
-
     <graphics>
         <!-- set to true if the application should switch to fullscreen -->
         <parameter name="fullscreen"  value="false" />
         
         <!-- resolution -->
-        <parameter name="xres"        value="640" />
-        <parameter name="yres"        value="360" />
+        <parameter name="xres"        value="800" />
+        <parameter name="yres"        value="600" />
         
         <!-- graphics backend: fbdev, x11 or dfb -->
         <parameter name="backend"     value="fbdev" />

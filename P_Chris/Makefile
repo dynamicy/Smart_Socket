@@ -14,13 +14,9 @@ endif
 
 all:
 	$(CXX) -g $(DISKO_INC) main.cpp $(DISKO_LIBS) -o demo
-	$(CXX) -g -fPIC $(DISKO_INC) plugins/mybackend/mybackend.cpp $(DISKO_LIBS) -shared -o plugins/mybackend/libmybackendplugin.so
-	$(CXX) -g -fPIC $(DISKO_INC) plugins/mycentral/mycentral.cpp $(DISKO_LIBS) -shared -o plugins/mycentral/libmycentralplugin.so
 
 clean:
 	rm -f *.o
 	rm -f demo
-	rm -f plugins/mybackend/libmybackendplugin.so
-	rm -f plugins/mycentral/libmycentralplugin.so
 	rm -f logfile
 
