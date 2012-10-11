@@ -11,9 +11,11 @@ export DISKO_LIBS=$(shell pkg-config --libs disko) $(shell pkg-config --libs-onl
 endif
 endif
 
+#INCLUDE = -I inc/
+SRC = src/
 
 all:
-	$(CXX) -g $(DISKO_INC) main.cpp $(DISKO_LIBS) -o demo
+	$(CXX) $(INCLUDE) -g $(DISKO_INC) $(SRC)main.cpp $(DISKO_LIBS) -o demo
 
 clean:
 	rm -f *.o

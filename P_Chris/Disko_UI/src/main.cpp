@@ -31,7 +31,7 @@
 int main(int argc, char *argv[]) 
 {
 	// initialize disko
-	mmsInit(MMSINIT_WINDOWS, argc, argv, "./diskorc.xml", "Server UI", "Server UI");
+	mmsInit(MMSINIT_WINDOWS, argc, argv, "web/diskorc.xml", "Server UI", "Server UI");
 
 	try 
 	{
@@ -40,8 +40,8 @@ int main(int argc, char *argv[])
 		MMSDialogManager dm2;
 
 		// load the windows
-		MMSWindow *window  = dm.loadDialog("./main.xml");
-		MMSWindow *window2 = dm2.loadDialog("./main2.xml");
+		MMSWindow *window  = dm.loadDialog("web/main.xml");
+		MMSWindow *window2 = dm2.loadDialog("web/main2.xml");
 
 		// start show sequence of the main/root windows
 		window->show();
