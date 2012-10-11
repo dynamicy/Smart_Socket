@@ -19,4 +19,3 @@ clean:
 	rm -f *.o
 	rm -f demo
 	rm -f logfile
-

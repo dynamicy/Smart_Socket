@@ -1,5 +1,4 @@
 <mmsrc version="1.7.0">
-
     <global>
         <!-- logfile location (only written if disko built with messages=y) -->
         <parameter name="logfile"     value="./logfile" />

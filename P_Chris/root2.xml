@@ -1,9 +1,6 @@
 <mmsdialog>
-    <description
-    	author = "disko tutorial"
-    	email  = "disko@morphine.tv"
-    	desc   = ""
-   	/>
-	<rootwindow w="100%" h="100%" margin="0" alignment="center" border.thickness="0" bgcolor="#00000000" bgimage="./vladstudio_xeroxplain_800x600.png" opacity="255" />
+    <description author = "Chris" email  = "dynamicycs@gmail.com" desc   = ""/>
+    <rootwindow w="100%" h="100%" margin="0" alignment="center" border.thickness="0" 
+	    bgcolor="#00000000" bgimage="./vladstudio_xeroxplain_800x600.png" opacity="255" />
 </mmsdialog>
 

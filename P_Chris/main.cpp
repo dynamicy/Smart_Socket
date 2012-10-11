@@ -28,43 +28,47 @@
 
 #include <mms.h>
 
-int main(int argc, char *argv[]) {
-
+int main(int argc, char *argv[]) 
+{
 	// initialize disko
-	mmsInit(MMSINIT_WINDOWS, argc, argv, "./diskorc.xml",
-			"Disko Tutorial: firststeps/04", "DT: firststeps/04");
+	mmsInit(MMSINIT_WINDOWS, argc, argv, "./diskorc.xml", "Server UI", "Server UI");
 
-	try {
+	try 
+	{
 		// one dialog manager for each window loaded from xml
 		MMSDialogManager dm;
 		MMSDialogManager dm2;
-		MMSDialogManager dm3;
-		MMSDialogManager dm4;
 
 		// load the windows
-		MMSWindow *window  = dm.loadDialog("./root.xml");
-		MMSWindow *window2 = dm2.loadDialog("./main.xml");
-		MMSWindow *window3 = dm3.loadDialog("./root2.xml");
-		MMSWindow *window4 = dm4.loadDialog("./main2.xml");
+		MMSWindow *window  = dm.loadDialog("./main.xml");
+		MMSWindow *window2 = dm2.loadDialog("./main2.xml");
 
 		// start show sequence of the main/root windows
 		window->show();
 		sleep(2);
+
+		MMSLabel *label = (MMSLabel *)dm["label1"];
+		label->setText("Updated");
+		sleep(1);
+		label->setText("Hello");
+		sleep(1);
+		label->setText("World");
+		sleep(1);
+
 		window2->show();
 		sleep(2);
-		window3->show();
-		sleep(2);
-		window4->show();
-		sleep(2);
+
+		while(1);
 
 		// now we get access to the child windows of the window4
-		MMSChildWindow *childwin1 = dynamic_cast<MMSChildWindow*>(window4->searchForWindow("childwin1"));
-		MMSChildWindow *childwin2 = dynamic_cast<MMSChildWindow*>(window4->searchForWindow("childwin2"));
-		MMSChildWindow *childwin3 = dynamic_cast<MMSChildWindow*>(window4->searchForWindow("childwin3"));
-		MMSChildWindow *childwin4 = dynamic_cast<MMSChildWindow*>(window4->searchForWindow("childwin4"));
+//		MMSChildWindow *childwin1 = dynamic_cast<MMSChildWindow*>(window4->searchForWindow("childwin1"));
+//		MMSChildWindow *childwin2 = dynamic_cast<MMSChildWindow*>(window4->searchForWindow("childwin2"));
+//		MMSChildWindow *childwin3 = dynamic_cast<MMSChildWindow*>(window4->searchForWindow("childwin3"));
+//		MMSChildWindow *childwin4 = dynamic_cast<MMSChildWindow*>(window4->searchForWindow("childwin4"));
 
 		// until user press <ctrl+c> or <power> button on the remote control
-		while (1) {
+/*		while (1) 
+		{
 			childwin1->hide();
 			sleep(2);
 			childwin1->show();
@@ -82,9 +86,11 @@ int main(int argc, char *argv[]) {
 			childwin4->hide();
 			sleep(2);
 		}
+*/		
 		return 0;
 	}
-	catch(MMSError *error) {
+	catch(MMSError *error) 
+	{
 		fprintf(stderr, "Abort due to: %s\n", error->getMessage().c_str());
 		return 1;
 	}

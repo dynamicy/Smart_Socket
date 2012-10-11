@@ -1,5 +1,4 @@
 <mmstheme name="default">
-
     <!-- my label class -->
     <class
         name = "myLabelClass"
@@ -93,6 +92,4 @@
         border.margin    = "0"
         border.rcorners  = "false"
   	/>
-
-
 </mmstheme>
