@@ -11,11 +11,16 @@ export DISKO_LIBS=$(shell pkg-config --libs disko) $(shell pkg-config --libs-onl
 endif
 endif
 
-#INCLUDE = -I inc/
+INCLUDE = -I inc/
 SRC = src/
+CFLAGS = -O0 -g3 -c
 
-all:
-	$(CXX) $(INCLUDE) -g $(DISKO_INC) $(SRC)main.cpp $(DISKO_LIBS) -o demo
+demo: media_tool.o main.o
+	$(CXX) $(DISKO_INC) media_tool.o main.o $(DISKO_LIBS) -o $@
+main.o:
+	$(CXX) $(INCLUDE) $(CFLAGS) $(DISKO_INC) $(SRC)main.cpp $(DISKO_LIBS)
+media_tool.o:
+	$(CXX) $(INCLUDE) $(CFLAGS) $(DISKO_INC) $(SRC)media_tool.cpp $(DISKO_LIBS)
 
 clean:
 	rm -f *.o
