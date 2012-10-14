@@ -20,6 +20,8 @@
 
 #include <unistd.h>
 
+#include   <asm/ioctls.h>
+
 
 int port = 10200;
 
@@ -33,11 +35,11 @@ int port = 10200;
 
   int           addrsize;
 
-  char  str[100],str1[20],str2[20],str3[20];
+  char  str[100],str1[20],str2[20],str3[20],str4[100];
 
   char  buf[100];
 
-  int           i, len1, len2;
+  int           i, len1, len2,len3;
 
   float c;
 
@@ -95,10 +97,8 @@ Java_one_Activator_stringFromJNI( JNIEnv* env,jobject thiz )
 
 
 
-
 jstring
-Java_one_Activator_stringFromJNI1( JNIEnv* env,
-                                                  jobject thiz )
+Java_one_Activator_stringFromJNI1( JNIEnv* env,jobject thiz )
 {
 
   while(1) {
@@ -108,11 +108,8 @@ Java_one_Activator_stringFromJNI1( JNIEnv* env,
         tempsock = accept(mysock, (struct sockaddr *)&pin, &addrsize);
        
         if (tempsock == -1){
-
                 perror("call to accept");
-
                 exit(1);
-
         }
 
  
@@ -129,7 +126,7 @@ Java_one_Activator_stringFromJNI1( JNIEnv* env,
         /* 分析處理client端傳來的訊息 */
 
 	len2 = strlen(buf);
-
+/*
         if (send(tempsock, "okok!!", 10, 0) == -1) {
 
                 perror("call to send");
@@ -137,14 +134,7 @@ Java_one_Activator_stringFromJNI1( JNIEnv* env,
                 exit(1);
 
         }
-
-
-
-
-
-
-
-
+*/
         if (len1 > 0) {
 
                 strcpy(str1,strtok(str," "));
@@ -181,7 +171,7 @@ Java_one_Activator_stringFromJNI1( JNIEnv* env,
 
         /* 關閉與client端的連線 */
 
-        close(tempsock);
+        //close(tempsock);
 
   }
   return 0;
@@ -191,21 +181,37 @@ Java_one_Activator_stringFromJNI1( JNIEnv* env,
 //return;
 }
 
+
+
 jint
 Java_one_Activator_stringFromJNI2( JNIEnv* env,jobject thiz )
 {
    
-   int a = send(tempsock, "go", 10, 0);
-
-   if (a==-1)
-      return 0;    
-  else 
-     return 1;
-
-
-
+   int a = send(tempsock, "go", 10, 0); // send mesg to server
+   
 }
 
+
+jint
+Java_one_Activator_stringFromJNI3( JNIEnv* env,jobject thiz )
+{
+   
+   u_long has = 1;                   //讓下面recv不是block的
+   ioctl(tempsock, FIONBIO , &has);  //讓下面recv不是block的
+   len3=recv(tempsock, str4, 100, 0);
+   
+   if(len3>0){
+   if (str4[0]=='t'){   //表示有收到回傳      
+     str4[0] = 'z';     //設初始值
+     
+     return 1;    
+   }
+  }
+
+  else                 //表示沒有收到回傳
+       return 0;
+
+}
 
 
 

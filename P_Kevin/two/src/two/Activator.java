@@ -15,8 +15,11 @@ public class Activator extends TimerTask implements BundleActivator {
 
 	Timer timer = new Timer();
 	public static String req = "";
+	public static int a = 9;
 	Get_Media_URL service_receiver; 
 	Service_Media service_alive; 
+	
+	
 	
 	public static native String stringFromJNI();
 	public static native String stringFromJNI1();
@@ -42,6 +45,7 @@ public class Activator extends TimerTask implements BundleActivator {
 		service_receiver = (Get_Media_URL)context.getService(ref);
 		String a = service_receiver.myservicefunction();	
 		System.out.println("url:"+a);
+		req = "qwer";
 	  }
 	  
 	  
@@ -50,7 +54,8 @@ public class Activator extends TimerTask implements BundleActivator {
 			ServiceReference ref = context.getServiceReference(Service_Media.class.getName());
 			service_alive = (Service_Media)context.getService(ref); 
 			int a = service_alive.myservicefunction();	
-			System.out.println("alive"+a);	
+			System.out.println("alive : "+a);
+			req = "qwer";
 		  }
 	  
 	  

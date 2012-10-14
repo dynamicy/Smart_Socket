@@ -94,11 +94,6 @@ while(1){
 
 
 
-
-
-
-
-
   /* 關閉與server的連線 */
 
   close(mysock);

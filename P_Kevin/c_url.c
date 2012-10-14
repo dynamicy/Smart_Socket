@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
   char  buf[8192];
 
   char  *str="http://140.116.226.211/123.txt 0 0";
-  
+  char  *str1="tt 0 0";
   int flag = 0;
 
   /* 建立server IPv4位址 */
@@ -83,25 +83,28 @@ flag = 1;
 
 }
 
+while(1)
+{
+
+
   /* 接收 server 回傳的訊息 */
-
   if (recv(mysock, buf, 8192, 0) == -1) {
-
         perror("Error in receiving\n");
-
         exit(1);
-
+  }
+printf("@%c",buf[0]);
+  if(buf[0]=='g'){
+    if (send(mysock, str1, strlen(str1), 0) == -1) {
+        perror("Error in send\n");
+        exit(1);
+   buf[0]=='z';
   }
 
-  printf("\nResponse from server: \n\n%s\n", buf);
 }
 
-
-
-
-
-
-
+  printf("\nResponse from server: \n\n%s\n", buf);
+ }
+}
 
 
   /* 關閉與server的連線 */

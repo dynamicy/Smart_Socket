@@ -43,6 +43,8 @@ public class Activator extends TimerTask implements BundleActivator {
   public static native String stringFromJNI();
   public static native String stringFromJNI1();
   public static native int stringFromJNI2();
+  public static native int stringFromJNI3();
+  
 	
 	
 	//MyServiceInterface1 service1 = new MyService1();
@@ -69,15 +71,20 @@ public class Activator extends TimerTask implements BundleActivator {
 	public void start(BundleContext bundleContext) throws Exception {
 		
 		  Activator.context = bundleContext;
-		
+		  
+		  stringFromJNI();
+		  
 		  context.registerService(Get_Media_URL.class.getName(), service, null); 
 		  
 		  context.registerService(Service_Media.class.getName(), check_media_server, null);
 		  
 		  
+		  
+		  
+		  
 		  context.registerService(MyServiceInterface1.class.getName(), service1, null);
 		  
-		  stringFromJNI();
+		  
 		  
 		  //System.out.println(Init());
 		  //System.out.println(Write('q'));
