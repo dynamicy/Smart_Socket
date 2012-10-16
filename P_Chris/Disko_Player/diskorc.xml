@@ -34,17 +34,17 @@
         <parameter name="backend"     value="x11" />
         
         <!-- graphics outputtype depending on given backend, xvshm, xshm -->
-        <parameter name="outputtype"  value="XVSHM" />
+        <parameter name="outputtype"  value="xshm" />
         
         <!-- videolayer settings -->
         <parameter name="videolayerid"          value="0" />
-        <parameter name="videolayerpixelformat" value="RGB32" />
+        <parameter name="videolayerpixelformat" value="YV12" />
         <parameter name="videolayeroptions"     value="" />
         <parameter name="videolayerbuffermode"  value="BACKSYSTEM" />
 
         <!-- gfxlayer settings -->
         <parameter name="graphicslayerid"          value="0" />
-        <parameter name="graphicslayerpixelformat" value="RGB32" />
+        <parameter name="graphicslayerpixelformat" value="YV12" />
         <parameter name="graphicslayeroptions"     value="" />
         <parameter name="graphicslayerbuffermode"  value="BACKSYSTEM" />
         
@@ -68,8 +68,8 @@
         <parameter name="pointer"     value="external" />
         
         <!-- internal pixelformat settings -->
-        <parameter name="graphicswindowpixelformat"  value="RGB32" />
-	<parameter name="graphicssurfacepixelformat" value="RGB32" />
+        <parameter name="graphicswindowpixelformat"  value="YV12" />
+	<parameter name="graphicssurfacepixelformat" value="YV12" />
 
 	<!-- true => false -->
 	<parameter name="extendedaccel" value="false" />
@@ -86,7 +86,7 @@
 	<parameter name="xpos"        value="0"          />
 	<parameter name="ypos"        value="0"          />
 	<!-- YUY2, YV12, UYVY -->
-	<parameter name="pixelformat" value="UYVY"       />
+	<parameter name="pixelformat" value="YV12"       />
 	<parameter name="options"     value=""           />
 	<parameter name="buffermode"  value="BACKSYSTEM" />
 </videolayer>
