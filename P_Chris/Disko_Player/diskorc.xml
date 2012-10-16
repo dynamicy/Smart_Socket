@@ -86,7 +86,7 @@
 	<parameter name="xpos"        value="0"          />
 	<parameter name="ypos"        value="0"          />
 	<!-- YUY2, YV12, UYVY -->
-	<parameter name="pixelformat" value="YUY2"       />
+	<parameter name="pixelformat" value="UYVY"       />
 	<parameter name="options"     value=""           />
 	<parameter name="buffermode"  value="BACKSYSTEM" />
 </videolayer>

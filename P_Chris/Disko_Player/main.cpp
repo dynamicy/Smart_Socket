@@ -26,11 +26,12 @@ int main(int argc, char *argv[])
 	if (video) 
 	{
 		    // play a video, demo.mp4
-		    video->startPlaying("url");
+		    video->startPlaying("http://www.cs.ccu.edu.tw/~u93410102/demo.mp4");
 	}
 
 
 	// until user press <ctrl+c> or <power> button on the remote control
-	while (1) sleep(1);
+	while (1) 
+		sleep(1);
 	return 0;
 }
