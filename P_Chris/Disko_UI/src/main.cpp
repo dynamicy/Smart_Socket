@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 		MMSRootWindow *window = new MMSRootWindow("","100%","100%", MMSALIGNMENT_CENTER, MMSW_VIDEO);
 		MMSVideo *video = NULL;
 		
-		MMSWindow *window2  = dm.loadDialog("web/main.xml");
+		MMSWindow *window2  = dm.loadDialog("web/main2.xml");
 
 
 		MMSLabel *label = (MMSLabel *)dm["label1"];
