@@ -39,67 +39,46 @@ int main(int argc, char *argv[])
 
 	try 
 	{
+		// backend_window: for playing video in the backend
+
 		// one dialog manager for each window loaded from xml
-		MMSDialogManager dm;
+		MMSDialogManager welcome_dm;
+		MMSDialogManager menu_dm;
 
-		// load the windows
-		MMSRootWindow *window = new MMSRootWindow("","100%","100%", MMSALIGNMENT_CENTER, MMSW_VIDEO);
-		MMSVideo *video = NULL;
+		// load the windows, rootwindow is used for playing video
+		MMSRootWindow *backend_window = new MMSRootWindow("","100%","100%", MMSALIGNMENT_CENTER, MMSW_VIDEO);
+		MMSVideo *backend_video = NULL;
 		
-		MMSWindow *window2  = dm.loadDialog("web/main2.xml");
+		MMSWindow *welcome_window  = welcome_dm.loadDialog("web/welcome.xml");
+		MMSWindow *menu_window  = menu_dm.loadDialog("web/menu.xml");
 
-
-		MMSLabel *label = (MMSLabel *)dm["label1"];
-		label->setText("Updated");
+		welcome_window->show();
 		sleep(1);
-		label->setText("Hello");
+		welcome_window->hide();
 		sleep(1);
-		label->setText("World");
+		
+		menu_window->show();
 		sleep(1);
-
-		window2->show();
+		menu_window->hide();
 		sleep(2);
 
-		if (window) 
+		if(backend_window) 
 		{
-			// show it
-			window->show();
+			backend_window->show();
 			// construct video class
-			video = new MMSVideo(window);
+			backend_video = new MMSVideo(backend_window);
 		}
 
-		if (video) 
-		{
+		if(backend_video) 
+		{ 	
 			// play a video, demo.mp4
-			video->startPlaying("http://www.cs.ccu.edu.tw/~u93410102/demo.mp4");
+			backend_video->startPlaying("http://www.cs.ccu.edu.tw/~u93410102/demo.mp4");
 		}
 
-		// now we get access to the child windows of the window4
-		MMSChildWindow *childwin1 = dynamic_cast<MMSChildWindow*>(window2->searchForWindow("childwin1"));
-		MMSChildWindow *childwin2 = dynamic_cast<MMSChildWindow*>(window2->searchForWindow("childwin2"));
-		MMSChildWindow *childwin3 = dynamic_cast<MMSChildWindow*>(window2->searchForWindow("childwin3"));
-		MMSChildWindow *childwin4 = dynamic_cast<MMSChildWindow*>(window2->searchForWindow("childwin4"));
-
-		// until user press <ctrl+c> or <power> button on the remote control
-		while (1) 
+		while(1)
 		{
-			childwin1->hide();
-			sleep(2);
-			childwin1->show();
-			sleep(2);
-			childwin2->hide();
-			sleep(2);
-			childwin2->show();
-			sleep(2);
-			childwin3->hide();
-			sleep(2);
-			childwin3->show();
-			sleep(2);
-			childwin4->show();
-			sleep(2);
-			childwin4->hide();
-			sleep(2);
-		}	
+//			menu_window->show();
+		}
 		return 0;
 	}
 

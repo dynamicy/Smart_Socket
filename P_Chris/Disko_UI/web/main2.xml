@@ -1,9 +1,8 @@
 <mmsdialog>
     <description author = "Chris" email  = "dynamicycs@gmail.com" desc   = ""/>
-	<mainwindow w="80%" h="80%" margin="0" alignment="center" border.thickness="0" bgcolor="#000000a0"
-	            opacity="255" movein="left" own_surface="true">
+	<mainwindow w="100%" h="100%" margin="0" alignment="center" border.thickness="0" bgcolor="#00000000"
+	            opacity="250" movein="left" own_surface="true">
 		    
-		<label class="myLabelClass" name="label1" text="Hello World" />
 		<childwindow name="childwin1" alignment="top-left" w="120px" h="90px" dx="70px" dy="50px"
 	                 bgcolor="#000000ff" border.thickness="2" border.color="#ffffffff"
 	                 movein="left" fadeout="true" show="true">
