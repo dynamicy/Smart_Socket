@@ -73,16 +73,15 @@ int main(int argc, char *argv[])
 			// play a video, demo.mp4
 			video->startPlaying("http://www.cs.ccu.edu.tw/~u93410102/demo.mp4");
 		}
-		while(1);
 
 		// now we get access to the child windows of the window4
-//		MMSChildWindow *childwin1 = dynamic_cast<MMSChildWindow*>(window4->searchForWindow("childwin1"));
-//		MMSChildWindow *childwin2 = dynamic_cast<MMSChildWindow*>(window4->searchForWindow("childwin2"));
-//		MMSChildWindow *childwin3 = dynamic_cast<MMSChildWindow*>(window4->searchForWindow("childwin3"));
-//		MMSChildWindow *childwin4 = dynamic_cast<MMSChildWindow*>(window4->searchForWindow("childwin4"));
+		MMSChildWindow *childwin1 = dynamic_cast<MMSChildWindow*>(window2->searchForWindow("childwin1"));
+		MMSChildWindow *childwin2 = dynamic_cast<MMSChildWindow*>(window2->searchForWindow("childwin2"));
+		MMSChildWindow *childwin3 = dynamic_cast<MMSChildWindow*>(window2->searchForWindow("childwin3"));
+		MMSChildWindow *childwin4 = dynamic_cast<MMSChildWindow*>(window2->searchForWindow("childwin4"));
 
 		// until user press <ctrl+c> or <power> button on the remote control
-/*		while (1) 
+		while (1) 
 		{
 			childwin1->hide();
 			sleep(2);
@@ -100,8 +99,7 @@ int main(int argc, char *argv[])
 			sleep(2);
 			childwin4->hide();
 			sleep(2);
-		}
-*/		
+		}	
 		return 0;
 	}
 
