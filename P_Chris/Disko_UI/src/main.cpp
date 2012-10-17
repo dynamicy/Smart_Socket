@@ -31,21 +31,23 @@
 int main(int argc, char *argv[]) 
 {
 	// initialize disko
-	mmsInit(MMSINIT_WINDOWS, argc, argv, "web/diskorc.xml", "Server UI", "Server UI");
+	if(!mmsInit(MMSINIT_WINDOWS, argc, argv, "web/diskorc.xml", "Server UI", "Server UI"))
+	{
+		printf("[Error] Please check your diskorc.xml\n");
+		return -1;
+	}
 
 	try 
 	{
 		// one dialog manager for each window loaded from xml
 		MMSDialogManager dm;
-		MMSDialogManager dm2;
 
 		// load the windows
-		MMSWindow *window  = dm.loadDialog("web/main.xml");
-		MMSWindow *window2 = dm2.loadDialog("web/main2.xml");
+		MMSRootWindow *window = new MMSRootWindow("","100%","100%", MMSALIGNMENT_CENTER, MMSW_VIDEO);
+		MMSVideo *video = NULL;
+		
+		MMSWindow *window2  = dm.loadDialog("web/main.xml");
 
-		// start show sequence of the main/root windows
-		window->show();
-		sleep(2);
 
 		MMSLabel *label = (MMSLabel *)dm["label1"];
 		label->setText("Updated");
@@ -58,6 +60,19 @@ int main(int argc, char *argv[])
 		window2->show();
 		sleep(2);
 
+		if (window) 
+		{
+			// show it
+			window->show();
+			// construct video class
+			video = new MMSVideo(window);
+		}
+
+		if (video) 
+		{
+			// play a video, demo.mp4
+			video->startPlaying("http://www.cs.ccu.edu.tw/~u93410102/demo.mp4");
+		}
 		while(1);
 
 		// now we get access to the child windows of the window4
@@ -89,6 +104,7 @@ int main(int argc, char *argv[])
 */		
 		return 0;
 	}
+
 	catch(MMSError *error) 
 	{
 		fprintf(stderr, "Abort due to: %s\n", error->getMessage().c_str());

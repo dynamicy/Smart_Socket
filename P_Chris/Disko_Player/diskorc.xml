@@ -34,7 +34,7 @@
         <parameter name="backend"     value="x11" />
         
         <!-- graphics outputtype depending on given backend, xvshm, xshm -->
-        <parameter name="outputtype"  value="xshm" />
+        <parameter name="outputtype"  value="xvshm" />
         
         <!-- videolayer settings -->
         <parameter name="videolayerid"          value="0" />
@@ -85,7 +85,7 @@
 	<parameter name="yres"        value="480"        />
 	<parameter name="xpos"        value="0"          />
 	<parameter name="ypos"        value="0"          />
-	<!-- YUY2, YV12, UYVY -->
+	<!-- RGB32, YV12, UYVY -->
 	<parameter name="pixelformat" value="YV12"       />
 	<parameter name="options"     value=""           />
 	<parameter name="buffermode"  value="BACKSYSTEM" />
