@@ -57,7 +57,7 @@ public class Activator extends TimerTask implements BundleActivator {
 	public void run(){
 
 		
-	       url =  stringFromJNI1();
+	       url = stringFromJNI1();
 		   System.out.println(url+"\n");
 	}
 	

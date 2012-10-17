@@ -44,7 +44,6 @@ int port = 10200;
   float c;
 
 
-
 jstring
 Java_one_Activator_stringFromJNI( JNIEnv* env,jobject thiz )
 {
@@ -121,20 +120,10 @@ Java_one_Activator_stringFromJNI1( JNIEnv* env,jobject thiz )
         //printf("\n收到字元數:");
         str[len1]=0;
 
-        //printf("received from client: %s\n", str);
-
         /* 分析處理client端傳來的訊息 */
 
 	len2 = strlen(buf);
-/*
-        if (send(tempsock, "okok!!", 10, 0) == -1) {
 
-                perror("call to send");
-
-                exit(1);
-
-        }
-*/
         if (len1 > 0) {
 
                 strcpy(str1,strtok(str," "));
@@ -167,18 +156,10 @@ Java_one_Activator_stringFromJNI1( JNIEnv* env,jobject thiz )
 
                 exit(1);
 
-        }
-
-        /* 關閉與client端的連線 */
-
-        //close(tempsock);
-
+        }    
   }
   return 0;
 
-//return (*env)->NewStringUTF(env, "Hello from JNI !\n");
-//printf("Hello world!\n");
-//return;
 }
 
 
@@ -186,9 +167,7 @@ Java_one_Activator_stringFromJNI1( JNIEnv* env,jobject thiz )
 jint
 Java_one_Activator_stringFromJNI2( JNIEnv* env,jobject thiz )
 {
-   
-   int a = send(tempsock, "go", 10, 0); // send mesg to server
-   
+   int a = send(tempsock, "go", 10, 0); // send mesg to server   
 }
 
 

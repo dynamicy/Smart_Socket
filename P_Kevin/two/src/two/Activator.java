@@ -23,15 +23,14 @@ public class Activator extends TimerTask implements BundleActivator {
 	
 	public static native String stringFromJNI();
 	public static native String stringFromJNI1();
-	
+	public static native int seturl(char c);
 	
 	
 	
 	static{
         System.load("/system/lib/libhello-jni123.so");
 		//System.loadLibrary("hello-jni");
-	   }
-	
+	   }	
 	
 	public void run(){
 
@@ -43,8 +42,25 @@ public class Activator extends TimerTask implements BundleActivator {
 	  if(req.equalsIgnoreCase("q")){			
 		ServiceReference ref = context.getServiceReference(Get_Media_URL.class.getName());
 		service_receiver = (Get_Media_URL)context.getService(ref);
-		String a = service_receiver.myservicefunction();	
+		String a = service_receiver.myservicefunction();
+		return_url(a);		
 		System.out.println("url:"+a);
+		
+		if(a!=null){		
+		a += "\n";
+		
+		
+		//把字串傳到下面的jni 中的中的.c檔
+		char[] url_temp = new char[a.length()];
+		for(int i = 0; i< a.length();i++)
+			 url_temp[i] = a.charAt(i);	
+		for(int i = 0; i< a.length();i++)
+			seturl(url_temp[i]);
+		
+		//seturl(url_temp[3]);
+		}
+		else
+		  System.out.println("NULL");
 		req = "qwer";
 	  }
 	  
@@ -55,6 +71,7 @@ public class Activator extends TimerTask implements BundleActivator {
 			service_alive = (Service_Media)context.getService(ref); 
 			int a = service_alive.myservicefunction();	
 			System.out.println("alive : "+a);
+			
 			req = "qwer";
 		  }
 	  
@@ -74,14 +91,9 @@ public class Activator extends TimerTask implements BundleActivator {
 	public void start(BundleContext bundleContext) throws Exception{
 		Activator.context = bundleContext;
 		
-		stringFromJNI();	
-		 
+		stringFromJNI();		 
 	
 	timer.schedule(new Activator(), 0,3000);
-	
-	
-	
-			
 }
 	
 
@@ -93,5 +105,10 @@ public class Activator extends TimerTask implements BundleActivator {
 		Activator.context = null;
 		timer.cancel();
 	}
+	
+	public String return_url(String url){return url;}
+	
+	
+	
 
 }

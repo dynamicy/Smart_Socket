@@ -24,19 +24,20 @@ int temp = 1;
 
   int           addrsize;
 
-  char  str[100],str1[20],str2[20],str3[20];
+  char  str[100];
 
   char  buf[100];
 
-  int           i, len1, len2;
+  int           i, len1, len2,j=0,len3;
 
   float c;
 
-
+  char  str2[100];
+  
+  int flag=0;
 
 jstring
-Java_two_Activator_stringFromJNI( JNIEnv* env,
-                                                  jobject thiz )
+Java_two_Activator_stringFromJNI( JNIEnv* env,jobject thiz )
 {
 
 
@@ -92,9 +93,7 @@ Java_two_Activator_stringFromJNI( JNIEnv* env,
 
 
 jstring
-Java_two_Activator_stringFromJNI1( JNIEnv* env,
-                                                  jobject thiz ){
-
+Java_two_Activator_stringFromJNI1( JNIEnv* env,jobject thiz ){
 
   while(1){
 
@@ -109,11 +108,9 @@ Java_two_Activator_stringFromJNI1( JNIEnv* env,
 
                 exit(1);
 
-        }
- 
+        } 
 
         /* 接收client端傳來的訊息 */
-
         len1=recv(tempsock, str, 100, 0);
 
         //printf("\n收到字元數:");
@@ -124,36 +121,19 @@ Java_two_Activator_stringFromJNI1( JNIEnv* env,
         /* 分析處理client端傳來的訊息 */
 
         if (len1 > 0) {
-
-                strcpy(str1,strtok(str," "));
-		//printf("收到request");  
-                //printf("第 1 個字串為: %s\n",str1);             
-
-                strcpy(str2,strtok(NULL," "));
-
-                //printf("第 2 個字串為: %s\n",str2);             
-
-                strcpy(str3,strtok(NULL," "));
-
-                //printf("第 3 個字串為: %s\n",str3);
-
-                c=atof(str3)*1.05;
-
-                //sprintf(buf,"品號為 %s\n品名為 %s\n含稅價為: %.2f\n",str1, str2, c);    
-		//sprintf(buf,"qqqq");              
+                
 		temp = 0;
 
 		//有return就會離開while 迴圈
-		if(str1[0]=='q')		
+		if(str[0]=='q')
 		  //sprintf(buf,"q");
-		  return (*env)->NewStringUTF(env, &str1);
-		else if(str1[0]=='p')
+		  return (*env)->NewStringUTF(env, &str);
+		else if(str[0]=='p')
 		  //sprintf(buf,"p");
-		  return (*env)->NewStringUTF(env, &str1);
+		  return (*env)->NewStringUTF(env, &str);
 		else 
 		  //sprintf(buf,"no");
-		  return (*env)->NewStringUTF(env, "command error");
-                
+		  return (*env)->NewStringUTF(env, &str);                
         }
 
         /* 將處理過的訊息傳回給client端 */
@@ -165,20 +145,58 @@ Java_two_Activator_stringFromJNI1( JNIEnv* env,
                 perror("call to send");
 
                 exit(1);
-
         }
 
         /* 關閉與client端的連線 */
 
         close(tempsock);
-
   }
 
   return 0;
-//return (*env)->NewStringUTF(env, "Hello from JNI !\n");
-//printf("Hello world!\n");
-//return;
 }
+
+jint
+Java_two_Activator_seturl(JNIEnv* env,jobject thiz,char c)
+{ 
+     
+     if(c !='\n'){
+       str2[j] = c;
+       j++;
+     }
+
+     else{
+
+	j=0;
+	int y = 0;
+        for(y=0;y<sizeof(str2);y++)
+        printf("%c",str2[y]);
+	flag = 1;
+    }
+
+
+    len3 = strlen(str2);
+
+    if(flag==1)
+      if (send(tempsock, str2, len3, 0) == -1) {
+                perror("call to send");
+                exit(1);
+        }
+      else{
+	 flag = 0;
+	}
+
+
+    
+}
+
+
+
+
+
+
+
+
+
 
 
 
