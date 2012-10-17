@@ -26,3 +26,7 @@ clean:
 	rm -f *.o
 	rm -f demo
 	rm -f logfile
+	rm -f *.taff
+	rm -f pic/*.taff
+	rm -f themes/default/*.taff
+	rm -f web/*.taff
