@@ -15,7 +15,6 @@
         <!-- if you set the firstplugin with an available pluginid, the MMSSwitcher
              switches direct to this plugin during startup -->
         <parameter name="firstplugin" value="" />
-        
         <parameter name="shutdown"    value="false" />
         <parameter name="shutdowncmd" value="" />
         
@@ -29,24 +28,26 @@
         <parameter name="fullscreen"  value="false" />
         
         <!-- resolution -->
-        <parameter name="xres"        value="800" />
-        <parameter name="yres"        value="600" />
+        <parameter name="xres"        value="1280" />
+        <parameter name="yres"        value="775" />
         
         <!-- graphics backend: fbdev, x11 or dfb -->
         <parameter name="backend"     value="x11" />
         
         <!-- graphics outputtype depending on given backend -->
-        <parameter name="outputtype"  value="XVSHM" />
+        <parameter name="outputtype"  value="xvshm" />
         
         <!-- videolayer settings -->
         <parameter name="videolayerid"          value="0" />
-        <parameter name="videolayerpixelformat" value="RGB32" />
+	
+	<!-- Video format change to YV12 -->
+        <parameter name="videolayerpixelformat" value="ARGB" />
         <parameter name="videolayeroptions"     value="" />
         <parameter name="videolayerbuffermode"  value="BACKSYSTEM" />
 
         <!-- gfxlayer settings -->
         <parameter name="graphicslayerid"          value="0" />
-        <parameter name="graphicslayerpixelformat" value="RGB32" />
+        <parameter name="graphicslayerpixelformat" value="YV12" />
         <parameter name="graphicslayeroptions"     value="" />
         <parameter name="graphicslayerbuffermode"  value="BACKSYSTEM" />
         
@@ -72,11 +73,23 @@
         <!-- internal pixelformat settings -->
         <parameter name="graphicswindowpixelformat"  value="ARGB" />
         <parameter name="graphicssurfacepixelformat" value="ARGB" />
-        
-        <parameter name="extendedaccel" value="true" />
+
+        <!-- ????? -->
+        <parameter name="extendedaccel" value="false" />
         <parameter name="allocmethod"   value="malloc" />
         
         <!-- hide application on startup, until show() is called -->
 	    <parameter name="hideapplication" value="false" />
     </graphics>
+    <videolayer>
+	    <parameter name="id"          value="1"          />
+	    <parameter name="xres"        value="1280"        />
+	    <parameter name="yres"        value="775"        />
+	    <parameter name="xpos"        value="0"          />
+	    <parameter name="ypos"        value="0"          />
+	    <!-- RGB32, YV12, UYVY -->
+	    <parameter name="pixelformat" value="YV12"       />
+	    <parameter name="options"     value=""           />
+	    <parameter name="buffermode"  value="BACKSYSTEM" />
+    </videolayer>
 </mmsrc>

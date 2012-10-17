@@ -31,64 +31,57 @@
 int main(int argc, char *argv[]) 
 {
 	// initialize disko
-	mmsInit(MMSINIT_WINDOWS, argc, argv, "web/diskorc.xml", "Server UI", "Server UI");
+	if(!mmsInit(MMSINIT_WINDOWS, argc, argv, "web/diskorc.xml", "Server UI", "Server UI"))
+	{
+		printf("[Error] Please check your diskorc.xml\n");
+		return -1;
+	}
 
 	try 
 	{
+		// backend_window: for playing video in the backend
+
 		// one dialog manager for each window loaded from xml
-		MMSDialogManager dm;
-		MMSDialogManager dm2;
+		MMSDialogManager welcome_dm;
+		MMSDialogManager menu_dm;
 
-		// load the windows
-		MMSWindow *window  = dm.loadDialog("web/main.xml");
-		MMSWindow *window2 = dm2.loadDialog("web/main2.xml");
+		// load the windows, rootwindow is used for playing video
+		MMSRootWindow *backend_window = new MMSRootWindow("","100%","100%", MMSALIGNMENT_CENTER, MMSW_VIDEO);
+		MMSVideo *backend_video = NULL;
+		
+		MMSWindow *welcome_window  = welcome_dm.loadDialog("web/welcome.xml");
+		MMSWindow *menu_window  = menu_dm.loadDialog("web/menu.xml");
 
-		// start show sequence of the main/root windows
-		window->show();
+		welcome_window->show();
+		sleep(1);
+		welcome_window->hide();
+		sleep(1);
+		
+		menu_window->show();
+		sleep(1);
+		menu_window->hide();
 		sleep(2);
 
-		MMSLabel *label = (MMSLabel *)dm["label1"];
-		label->setText("Updated");
-		sleep(1);
-		label->setText("Hello");
-		sleep(1);
-		label->setText("World");
-		sleep(1);
-
-		window2->show();
-		sleep(2);
-
-		while(1);
-
-		// now we get access to the child windows of the window4
-//		MMSChildWindow *childwin1 = dynamic_cast<MMSChildWindow*>(window4->searchForWindow("childwin1"));
-//		MMSChildWindow *childwin2 = dynamic_cast<MMSChildWindow*>(window4->searchForWindow("childwin2"));
-//		MMSChildWindow *childwin3 = dynamic_cast<MMSChildWindow*>(window4->searchForWindow("childwin3"));
-//		MMSChildWindow *childwin4 = dynamic_cast<MMSChildWindow*>(window4->searchForWindow("childwin4"));
-
-		// until user press <ctrl+c> or <power> button on the remote control
-/*		while (1) 
+		if(backend_window) 
 		{
-			childwin1->hide();
-			sleep(2);
-			childwin1->show();
-			sleep(2);
-			childwin2->hide();
-			sleep(2);
-			childwin2->show();
-			sleep(2);
-			childwin3->hide();
-			sleep(2);
-			childwin3->show();
-			sleep(2);
-			childwin4->show();
-			sleep(2);
-			childwin4->hide();
-			sleep(2);
+			backend_window->show();
+			// construct video class
+			backend_video = new MMSVideo(backend_window);
 		}
-*/		
+
+		if(backend_video) 
+		{ 	
+			// play a video, demo.mp4
+			backend_video->startPlaying("http://www.cs.ccu.edu.tw/~u93410102/demo.mp4");
+		}
+
+		while(1)
+		{
+//			menu_window->show();
+		}
 		return 0;
 	}
+
 	catch(MMSError *error) 
 	{
 		fprintf(stderr, "Abort due to: %s\n", error->getMessage().c_str());
