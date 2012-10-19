@@ -7,7 +7,6 @@ MMWindow::MMWindow()
 	{
 		// load the windows
 		welcome_window = welcome_dm.loadDialog("web/welcome.xml");
-		menu_window = menu_dm.loadDialog("web/menu.xml");
 	} 
 	catch(MMSError *e) 
 	{
