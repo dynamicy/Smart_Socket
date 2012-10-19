@@ -26,28 +26,26 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include <wm.h>
+#include <mmw.h>
 #include <common.h>
 
 int main(int argc, char *argv[]) 
 {
 	// initialize disko
-	if(!mmsInit(MMSINIT_WINDOWS | MMSINIT_INPUTS, argc, argv, DISCO_RC_LOCATION, "Server UI", "Server UI"))
+	if(!mmsInit(MMSINIT_WINDOWS | MMSINIT_INPUTS, argc, argv, DISKO_RC_LOCATION, "Server UI", "Server UI"))
 	{
 		printf("[Error] Please check your diskorc.xml\n");
 		return -1;
 	}
 
-
 	try 
 	{
-		WManager member;
+		MMWindow member;
 		member.start();
 
 		pause();
 		return 0;
 	}
-
 	catch(MMSError *error) 
 	{
 		fprintf(stderr, "Abort due to: %s\n", error->getMessage().c_str());
