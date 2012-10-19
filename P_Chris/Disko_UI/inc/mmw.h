@@ -9,10 +9,12 @@ private:
 	// one dialog manager for each window loaded from xml
         MMSDialogManager welcome_dm;
 	MMSDialogManager menu_dm;
+	MMSDialogManager weather_dm;
 
 	// load the windows
 	MMSWindow *welcome_window;
 	MMSWindow *menu_window;
+	MMSWindow *weather_window;
 public:
         MMWindow();
         ~MMWindow();
