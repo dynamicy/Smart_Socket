@@ -1,4 +1,5 @@
 <mmsrc version="1.7.0">
+
     <global>
         <!-- logfile location (only written if disko built with messages=y) -->
         <parameter name="logfile"     value="./logfile" />
@@ -15,6 +16,7 @@
         <!-- if you set the firstplugin with an available pluginid, the MMSSwitcher
              switches direct to this plugin during startup -->
         <parameter name="firstplugin" value="" />
+        
         <parameter name="shutdown"    value="false" />
         <parameter name="shutdowncmd" value="" />
         
@@ -39,8 +41,6 @@
         
         <!-- videolayer settings -->
         <parameter name="videolayerid"          value="0" />
-	
-	<!-- Video format change to YV12 -->
         <parameter name="videolayerpixelformat" value="ARGB" />
         <parameter name="videolayeroptions"     value="" />
         <parameter name="videolayerbuffermode"  value="BACKSYSTEM" />
@@ -73,9 +73,8 @@
         <!-- internal pixelformat settings -->
         <parameter name="graphicswindowpixelformat"  value="ARGB" />
         <parameter name="graphicssurfacepixelformat" value="ARGB" />
-
-        <!-- ????? -->
-        <parameter name="extendedaccel" value="false" />
+        
+        <parameter name="extendedaccel" value="true" />
         <parameter name="allocmethod"   value="malloc" />
         
         <!-- hide application on startup, until show() is called -->

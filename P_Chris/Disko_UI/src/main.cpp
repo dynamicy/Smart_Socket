@@ -26,59 +26,25 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include <mms.h>
+#include <wm.h>
+#include <common.h>
 
 int main(int argc, char *argv[]) 
 {
 	// initialize disko
-	if(!mmsInit(MMSINIT_WINDOWS, argc, argv, "web/diskorc.xml", "Server UI", "Server UI"))
+	if(!mmsInit(MMSINIT_WINDOWS | MMSINIT_INPUTS, argc, argv, DISCO_RC_LOCATION, "Server UI", "Server UI"))
 	{
 		printf("[Error] Please check your diskorc.xml\n");
 		return -1;
 	}
 
+
 	try 
 	{
-		// backend_window: for playing video in the backend
+		WManager member;
+		member.start();
 
-		// one dialog manager for each window loaded from xml
-		MMSDialogManager welcome_dm;
-		MMSDialogManager menu_dm;
-
-		// load the windows, rootwindow is used for playing video
-		MMSRootWindow *backend_window = new MMSRootWindow("","100%","100%", MMSALIGNMENT_CENTER, MMSW_VIDEO);
-		MMSVideo *backend_video = NULL;
-		
-		MMSWindow *welcome_window  = welcome_dm.loadDialog("web/welcome.xml");
-		MMSWindow *menu_window  = menu_dm.loadDialog("web/menu.xml");
-
-		welcome_window->show();
-		sleep(1);
-		welcome_window->hide();
-		sleep(1);
-		
-		menu_window->show();
-		sleep(1);
-		menu_window->hide();
-		sleep(2);
-
-		if(backend_window) 
-		{
-			backend_window->show();
-			// construct video class
-			backend_video = new MMSVideo(backend_window);
-		}
-
-		if(backend_video) 
-		{ 	
-			// play a video, demo.mp4
-			backend_video->startPlaying("http://www.cs.ccu.edu.tw/~u93410102/demo.mp4");
-		}
-
-		while(1)
-		{
-//			menu_window->show();
-		}
+		pause();
 		return 0;
 	}
 
@@ -88,4 +54,3 @@ int main(int argc, char *argv[])
 		return 1;
 	}
 }
-
