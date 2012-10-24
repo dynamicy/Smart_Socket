@@ -30,15 +30,14 @@ MMWindow::~MMWindow()
 
 void MMWindow::start() 
 {
+	// start show sequence of the main/root windows
+	this->menu_window->show();
+
 	if(this->backend_window)
 	{
 		this->backend_window->show();
 		this->backend_video = new MMSVideo(this->backend_window);
 	}
-	// start show sequence of the main/root windows
-//	this->welcome_window->show();
-//	sleep(1);
-//	this->menu_window->show();
 //	sleep(1);
 /*
 	this->media_window->show();
@@ -56,10 +55,25 @@ void MMWindow::media_control(char *control)
 
 	if(this->backend_video)
 	{
-		if(strcmp(control, "play") == 0)
+		if(strcmp(control, "play1") == 0)
 		{
 			cout<<"play"<<endl;
 			this->backend_video->startPlaying("http://www.cs.ccu.edu.tw/~u93410102/demo.mp4");
+		}
+		else if(strcmp(control, "play2") == 0)
+		{
+			cout<<"play"<<endl;
+			this->backend_video->startPlaying("http://www.cs.ccu.edu.tw/~u93410102/demox.mp4");
+		}
+		else if(strcmp(control, "play3") == 0)
+		{
+			cout<<"play"<<endl;
+			this->backend_video->startPlaying("http://www.cs.ccu.edu.tw/~u93410102/demo2.mp4");
+		}
+		else if(strcmp(control, "play4") == 0)
+		{
+			cout<<"play"<<endl;
+			this->backend_video->startPlaying("http://www.cs.ccu.edu.tw/~u93410102/demo3.mp4");
 		}
 		else if(strcmp(control, "pause") == 0)
 		{
