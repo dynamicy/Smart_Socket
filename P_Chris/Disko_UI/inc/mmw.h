@@ -21,11 +21,17 @@ private:
 	MMSWindow *media_window;
 	MMSWindow *device_window;
 	MMSWindow *news_window;
+
+	// load the windows, rootwindow is used for playing video 
+	MMSRootWindow *backend_window;
+	MMSVideo *backend_video;
+
 public:
         MMWindow();
         ~MMWindow();
 
-        void start();
+        void start(void);
+        void media_control(char *);
 };
 
 #endif /* __MMW_H__ */

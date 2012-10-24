@@ -42,6 +42,15 @@ int main(int argc, char *argv[])
 	{
 		MMWindow member;
 		member.start();
+//		member.media_control("play");
+//		sleep(3);
+//		member.media_control("pause");
+//		sleep(3);
+//		member.media_control("slow");
+//		sleep(3);
+//		member.media_control("fast");
+//		sleep(3);
+//		member.media_control("stop");
 
 		pause();
 		return 0;
