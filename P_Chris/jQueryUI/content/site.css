@@ -1,0 +1,545 @@
+﻿html, body { position:static; overflow:auto;}
+body {
+	font-size: 13px;
+	font-family: Segoe WP, Segoe UI, Verdana, Helvetica, Sans-Serif;
+	margin: 0;
+	padding: 0;
+}
+a:link {
+	color: #fff;
+	text-decoration: underline;
+}
+
+a:visited {
+	color: #fff;
+}
+.light a:link, .light a:visited { color:#000; }
+a:hover {
+	color: #1d60ff;
+	text-decoration: none;
+}
+
+a:active {
+	color: #12eb87;
+}
+.list-tile.skills .flip-list>li>div>a:link { cursor:default; }
+p, ul {
+	margin: 0px;
+	padding:0px;
+	line-height: 1.6em;
+}
+
+header,
+footer,
+nav,
+section {
+	display: block;
+}
+
+/* HEADINGS   
+----------------------------------------------------------*/
+h2, h3, h4, h5, h6 
+{
+	font-weight:normal;
+	font-size: 1.5em;
+	color: #fff;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+.light h2, .light h3, .light h4, .light h5, .light h6 { color:#000; }
+h2 
+{
+	padding-bottom:10px;
+	font-size:20px;
+	font-weight:normal;
+}
+#tiles>h2 { padding: 0 0 10px 10px; }
+#twitterFeed>h2 { padding-bottom:23px; }
+h3 {
+	font-size: 2.25em;
+	clear:both;
+	margin:10px 0px 0px;
+}
+
+h4 {
+	font-size: 1.8em;
+	margin:6px 0px 0px;
+}
+
+h5, h6 {
+	font-size: 1.5em;
+	margin:4px 0px 0px;
+}
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+.page 
+{   
+	width: 98%;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}
+
+header, #header {
+	position: relative;
+	margin-bottom: 0px;
+	color: #fff;
+	padding: 60px 6% 0 6%;
+	*padding-top:70px;
+}
+
+header h1, #header h1 {    
+	position:absolute;
+	top:-60px;
+	margin: 0;
+	border: none;
+}
+ #header h1>a,#header h1>a:hover,#header h1>a:visited { text-decoration:none; color:#fff; font-size: 140px !important; font-weight: normal; }
+.light #header h1>a,.light #header h1>a:hover,.light #header h1>a:visited { color:#000; }
+.in-app header,.in-app h2 { display:none; }
+.wordstreamerhelp h3 { margin-top:-5px; }
+#main {
+	padding: 0px 5% 90px 6%;
+	background-color:transparent;
+	margin:25px 0 0px 0;
+	overflow:hidden;
+}
+.in-app #main { margin:-25px 0 0 0; }
+pre,code { font-size: 13px; margin: 0; padding: 0; max-width:980px; }
+.demo pre, .demo code { width:980px; }
+#tiles
+{
+	overflow: hidden;
+	position: relative;
+	max-width: 880px;
+	float:left;
+	margin:0px;
+	padding-bottom:100px;
+}
+.about #tiles { max-width:640px; }
+.tiles>.extra-info { font-size:12px; padding-left:12px; }
+.code-options { table-layout:fixed; width:95%; }
+.code-options .syntaxhighlighter { *min-height:30px; }
+.code-options .syntaxhighlighter * { font-size:11px !important; }
+.code-options .oName { font-size: 11px }
+.code-label { font-size: 13px; position:relative; top:5px; *top:0px; }
+.example-code-label { font-style:italic; font-size: 11px; position:relative; top:8px; *top:0px; }
+.footnote { font-style:italic; font-size: 11px; position:relative; top:-5px; *top:0px; }
+.smallNote { font-style:italic; font-size: 11px; }
+
+.download-options label { position:relative; top:7px; padding:0px 10px; font-size:18px; }
+.download-btn { color:#fff; float:left; padding:10px 10px 10px 20px; box-shadow: 1px 1px 5px #3c3c3c; border-radius:6px; display:block; margin:20px 0 20px 60px; min-height:72px; width:180px; text-decoration:none !important; font-size:18px; 
+    -webkit-transition:background-color .5s ease;
+    -moz-transition:background-color .5s ease;
+    -ms-transition:background-color .5s ease;
+    -o-transition:background-color .5s ease;
+    transition:background-color .5s ease;
+}
+.download-btn:hover { background-color:rgb(240,150,9) !important; }
+.light .download-btn:link, .light .download-btn:hover, .download-btn:hover { color:#fff; }
+.download-btn .modules { display:block; font-size:12px; padding-top:4px; }
+#tiles .flip-list>li>div.flip-front { background-color:#fff !important; }
+.nineTiles { background-image:url('/content/images/skills/mcsd.jpg'); }
+#twitterFeed {
+	height: 480px;
+	float: left;
+	width: 280px;
+	font-size: 10px;
+	line-height:12px;
+	margin:5px 20px 0 10px;
+}
+#twitterFeed>div { overflow: auto; }
+#twitterFeed>div>div { margin:9px 0; position:relative; overflow:hidden; }
+#twitterFeed>div>div>a.pic{ clear:left; height:50px; width:48px; display:block; float:left; margin:0 5px 0 0; }
+#twitterFeed>div>div>a>img { border:none; vertical-align:middle; }
+#twitterFeed>div>div>a.pic>img { max-height:48px; max-width:48px; vertical-align:top; }
+
+#disqus_thread { width:980px; }
+#disqus_thread h3 { font-size:1.1em; }
+#dsq-pagination>.dsq-more-button { font-size:24px !important; }
+footer, 
+#footer 
+{
+   
+}
+.light footer,.light #footer 
+{  
+	
+}
+.live-tile>ul
+{
+	list-style-type:square;
+	list-style-position:inside;
+	padding:10px;
+}
+.live-tile>ul.copy-list  
+{
+	list-style-position:outside; 
+	padding-left:24px;
+	*padding-left:20px;
+}
+.live-tile>ul>li
+{
+	padding:0 0 3px 0;
+}
+.live-tile>ul.copy-list>li
+{    
+  font-size:11px;
+}
+/*font colors for non accented tile content */
+
+.wordstreamer .live-tile>ul.copy-list>li
+{    
+  font-size:11px;
+}
+.light.wordstreamer .live-tile>ul.copy-list>li,.light.wordstreamer .live-tile>p
+{
+	color:#000;
+}
+ul.nav-list { font-size:16px !important; }
+a.full { padding:12px; text-decoration:none !important; font-size:17px; font-weight:bold; }
+/* ADDITIONAL MENU */
+
+/* FORM LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset {
+	border: 1px solid #ddd;
+	padding: 0 1.4em 1.4em 1.4em;
+	margin: 0 0 1.5em 0;
+}
+
+legend {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+textarea {
+	min-height: 75px;
+}
+
+input[type="text"], 
+input[type="password"] {
+	border: 1px solid #ccc;
+	padding: 2px;
+	font-size: 1.2em;
+	color: #444;
+	width: 200px;
+}
+
+select {
+	border: 1px solid #ccc;
+	padding: 2px;
+	font-size: 1.2em;
+	color: #444;
+}
+
+input[type="submit"] {
+	font-size: 1.2em;
+	padding: 5px;
+}
+
+/* metrojs projects page */
+.copy { min-height:600px; }
+.copy nav { width:40%;float:left; margin-bottom:19px; }
+.copy nav ul li 
+{
+	list-style-type: none;
+	margin-top:5px;
+}
+.copy nav>ul>li>ul>li  
+{   
+	padding-left: 16px; 
+}
+
+.copy nav>ul a { 
+	border-left-width: 3px;
+	border-left-style: solid;
+	font-size:1.2em;
+	padding: 0 0 3px 7px;
+	text-decoration: none;
+}
+.light .copy nav>ul a { 
+   color:#000;
+}
+.light .copyTile { color:#000; }
+.dark .copyTile { color:#fff; }
+.in-app .copyTile { font-size:18px; }
+.fiddles { clear:both; position:relative; overflow:hidden; }
+.fiddleNav>ul
+{
+	float:left;
+	font-size:15px;
+}
+.fiddleNav ul
+{   
+	margin:0px; padding:0px;
+	list-style:none !important;
+}
+.fiddleNav>ul>li ul  
+{    
+	font-size:13px;
+	list-style-position:inside !important;
+	padding-bottom:20px;
+	width:240px;
+}
+.fiddleNav li { margin:0px; padding:0px !important;}
+.fiddleNav li a:link,.fiddleNav li a:active { text-decoration:none; border-bottom:1px dashed #fff; }
+.light .fiddleNav li a:link,.light .fiddleNav li a:active { text-decoration:none; border-bottom:1px dashed #000; }
+/* TABLE
+----------------------------------------------------------*/
+
+table {
+	border: none;
+	border-collapse: collapse;
+	font-size:11px;
+}
+
+table td {
+	padding: 8px 6px;
+	border: solid 1px #fff;
+	vertical-align:top;
+}
+
+table th {
+	padding: 6px 5px;
+	text-align: left;
+	border: solid 1px #fff;
+	font-size:12px;
+	font-weight:normal;
+	white-space:nowrap;
+}
+
+.light table, .light table td, .light table th { border:1px solid #000; }
+/* MISC  
+----------------------------------------------------------*/
+.clear {
+	clear: both;
+}
+
+.error {
+	color: Red;
+}
+
+.center
+{
+	text-align:center;
+}
+
+.left 
+{
+	float:left;
+}
+
+.right
+{
+	float:right;
+}
+
+.strike 
+{
+	text-decoration:line-through;
+}
+.open-source{
+	font-size:11px;
+	font-style:italic;
+}
+
+nav, 
+#menucontainer {
+	margin: 0px;
+}
+
+.copy { margin:10px; max-width:1024px; }
+.copy ul { list-style-position: inside; }
+
+#logindisplay {
+	font-size: 1.1em;
+	display: block;
+	text-align: right;
+	margin: 10px;
+	color: White;
+}
+
+#logindisplay a:link {
+	color: white;
+	text-decoration: underline;
+}
+
+#logindisplay a:visited {
+	color: white;
+	text-decoration: underline;
+}
+
+#logindisplay a:hover {
+	color: white;
+	text-decoration: none;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+	color: #ff0000;
+}
+
+.field-validation-valid {
+	display: none;
+}
+
+.input-validation-error {
+	border: 1px solid #ff0000;
+	background-color: #ffeeee;
+}
+
+.validation-summary-errors {
+	font-weight: bold;
+	color: #ff0000;
+}
+
+.validation-summary-valid {
+	display: none;
+}
+
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+.display-label, 
+.editor-label {
+	margin: 1em 0 0 0;
+}
+
+.display-field, 
+.editor-field {
+	margin: 0.5em 0 0 0;
+}
+
+.text-box {
+	width: 30em;
+}
+
+.text-box.multi-line {
+	height: 6.5em;
+}
+
+.tri-state {
+	width: 6em;
+}
+
+/* Sprites */
+.nineTiles.skills .skill  
+{
+	background-image:url('/content/images/skills/sprite_skills_small.png'); 
+	width: 60px; 
+	height: 60px; 
+}
+.nineTiles .skill.ajax{ background-position: 0 0;  } 
+.nineTiles .skill.android{ background-position: 0 -62px;  } 
+.nineTiles .skill.aspnet{ background-position: 0 -124px;  } 
+.nineTiles .skill.dotnet{ background-position: 0 -186px;  } 
+.nineTiles .skill.ios{ background-position: 0 -248px;  } 
+.nineTiles .skill.jquery{ background-position: 0 -310px;  } 
+.nineTiles .skill.json{ background-position: 0 -372px;  } 
+.nineTiles .skill.kinect{ background-position: 0 -434px;  } 
+.nineTiles .skill.mcsd{ background-position: 0 -496px;  } 
+.nineTiles .skill.monodev{ background-position: 0 -558px;  } 
+.nineTiles .skill.mvc{ background-position: 0 -620px;  } 
+.nineTiles .skill.sharepoint{ background-position: 0 -682px;  } 
+.nineTiles .skill.silverlight{ background-position: 0 -744px;  } 
+.nineTiles .skill.sitefinity{ background-position: 0 -806px;  } 
+.nineTiles .skill.telerik{ background-position: 0 -868px;  } 
+.nineTiles .skill.vstudio{ background-position: 0 -930px;  } 
+.nineTiles .skill.winmobile{ background-position: 0 -992px;  } 
+.nineTiles .skill.winphone{ background-position: 0 -1054px;  } 
+.nineTiles .skill.xcode{ background-position: 0 -1116px;  } 
+.nineTiles .skill.xml{ background-position: 0 -1178px;  } 
+.nineTiles .skill.xna{ background-position: 0 -1240px;  } 
+
+.live-tile.skills>div>img{
+background-image:url('/content/images/skills/sprite_skills.png'); 
+}
+.live-tile>div>img.skill-HTML5{ background-position: 0 0; } 
+.live-tile>div>img.skill-ajax{ background-position: 0 -182px; } 
+.live-tile>div>img.skill-android{ background-position: 0 -364px; } 
+.live-tile>div>img.skill-aspnet{ background-position: 0 -546px; } 
+.live-tile>div>img.skill-css3{ background-position: 0 -728px; } 
+.live-tile>div>img.skill-dotnet{ background-position: 0 -910px; } 
+.live-tile>div>img.skill-ios{ background-position: 0 -1092px; } 
+.live-tile>div>img.skill-jquery{ background-position: 0 -1274px; } 
+.live-tile>div>img.skill-json{ background-position: 0 -1456px; } 
+.live-tile>div>img.skill-kinect{ background-position: 0 -1638px; } 
+.live-tile>div>img.skill-mcsd{ background-position: 0 -1820px; } 
+.live-tile>div>img.skill-monodev{ background-position: -182px 0; } 
+.live-tile>div>img.skill-mvc{ background-position: -182px -182px; } 
+.live-tile>div>img.skill-sharepoint{ background-position: -182px -364px; } 
+.live-tile>div>img.skill-silverlight{ background-position: -182px -546px; } 
+.live-tile>div>img.skill-sitefinity{ background-position: -182px -728px; } 
+.live-tile>div>img.skill-telerik{ background-position: -182px -910px; } 
+.live-tile>div>img.skill-vstudio{ background-position: -182px -1092px; } 
+.live-tile>div>img.skill-w3c{ background-position: -182px -1274px; } 
+.live-tile>div>img.skill-winmobile{ background-position: -182px -1456px; } 
+.live-tile>div>img.skill-winphone{ background-position: -182px -1638px; } 
+.live-tile>div>img.skill-xcode{ background-position: -182px -1820px; } 
+.live-tile>div>img.skill-xml{ background-position: -364px 0; } 
+.live-tile>div>img.skill-xna{ background-position: -364px -182px; } 
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 1025px) 
+{
+	.page { width:98%; padding:0px; }
+	#header { padding-left:2%; }
+	#main { width:100%; padding-left:2%; }
+	#tiles { padding-bottom:100px; width:480px; }
+	.about #tiles { width:640px; }
+	.projects-lfikinect #tiles { padding-bottom:100px; width:640px; }
+	h2.home { width:460px; }
+	.live-tile, .list-tile { margin:10px !important; }
+	#twitterFeed { margin-left:0px; width:311px; float:left; }
+	h2.tweets { width:320px; }
+	pre,code { max-width:100%; }
+	.code-options { table-layout:fixed; width:100%; }
+	.code-options th,.code-options td, .oName { font-size: 12px !important; padding:2px;}
+	.demo pre, .demo code { width:90%; overflow:auto; }
+	#disqus_thread { width:95%; }
+}
+@media screen and (max-width: 841px) 
+{
+   #header h1>a,#header h1>a:hover,#header h1>a:visited { font-size: 88px !important; }
+   div#title { top:-50px; }
+   body, div.copy, p, a, span { font-size:16px !important; }
+   .metroBig { font-size:36px !important; }
+   body.projects #main { width:90% !important; }
+   .home #tiles { width: 410px; }
+   .live-tile>p>a,.live-tile>div>p>a { font-size:12px !important; }
+   #twitterFeed { min-width: 250px; }
+   #twitterFeed,#twitterFeed a, .live-tile p { font-size:11px !important; }
+   .appbar a.etc, .appbar a.etc:hover, .appbar a.etc:visited { font-size:32px !important; }
+   .appbar .charm-title { font-size:10px !important; }
+   .wordstreamerhelp #header h1>a,.wordstreamerhelp #header h1>a:hover,.wordstreamerhelp #header h1>a:visited { font-size:72px !important; }
+.wordstreamerhelp header h1,.wordstreamerhelp #header h1{top:-20px; }
+.wordstreamerhelp h3 { margin-left:2px !important; }
+.wordstreamerhelp .tile-title { font-size:10px !important; padding-bottom:2px !important; }
+.wordstreamerhelp.in-app .tile-title { font-size:16px !important; }
+.wordstreamerhelp #tiles p { font-size:12px !important; }
+.wordstreamerhelp .live-tile p { padding: 2px !important;}
+.wordstreamerhelp .metroBig { font-size:16px !important; line-height: 20px !important; }
+.wordstreamerhelp .live-tile.banner .metroBig { font-size:24px !important; line-height: 24px !important; }
+body.wordstreamerhelp #main .live-tile.banner>p { font-size:18px !important; line-height: 24px !important; }
+.wordstreamerhelp .live-tile.me .metroBig { font-size:36px !important; line-height: 26px !important; }
+.wordstreamerhelp .smallNote { font-size:11px !important; }
+.wordstreamerhelp ul.copy-list { list-style-position:outside; padding:2px 10px 0px 20px !important; line-height: 15px !important; }
+.wordstreamerhelp ul.copy-list>li { font-size:10px !important; padding:0px !important; margin:0px !important; }
+}
+@media screen and (max-width: 780px) 
+{
+	#twitterFeed { width: 220px; }
+}
+@media screen and (max-width: 481px) 
+{
+  /*div.live-tile, div.live-tile>div { width:120px; height:120px; }
+  .wordstreamerhelp div.live-tile, .wordstreamerhelp div.live-tile>div { width:160px; height:160px; }*/
+   #header h1>a,#header h1>a:hover,#header h1>a:visited { font-size: 72px !important; }
+   div#title { top:-30px; }
+   
+   a.full { padding:3px; }
+}
