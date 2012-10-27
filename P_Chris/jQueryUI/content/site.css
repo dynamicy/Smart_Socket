@@ -1,4 +1,9 @@
-﻿html, body { position:static; overflow:auto;}
+﻿html, body 
+{ 
+	position:static; 
+	overflow:auto;
+}
+
 body {
 	font-size: 13px;
 	font-family: Segoe WP, Segoe UI, Verdana, Helvetica, Sans-Serif;
@@ -91,7 +96,7 @@ header, #header {
 
 header h1, #header h1 {    
 	position:absolute;
-	top:-60px;
+	top:-10px;
 	margin: 0;
 	border: none;
 }

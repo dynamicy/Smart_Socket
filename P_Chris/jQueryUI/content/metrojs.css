@@ -1,5 +1,9 @@
+.metroBig 
+{ 
+	font-size:36px; 
+	line-height:36px; 
+}
 
-.metroBig { font-size:36px; line-height:36px; }
 .live-tile, .list-tile
 {
 	color:#fff;
@@ -10,11 +14,37 @@
 	position:relative;
 	width: 180px;
 }
-.live-tile.two-wide, .list-tile.two-wide { width:390px; }
-.live-tile.two-tall, .list-tile.two-tall { height:390px; }
-.live-tile img, .list-tile img { border:none; }
-.live-tile.me>.slide-back>a.metroBig { position:absolute; left:0; bottom:0; padding: 0 0 12px 12px; text-decoration:none; }
-.live-tile a:link, .live-tile a:visited { color:#fff; text-decoration:underline; }
+
+.live-tile.two-wide, .list-tile.two-wide 
+{ 
+	width:390px; 
+}
+
+.live-tile.two-tall, .list-tile.two-tall 
+{ 
+	height:390px; 
+}
+
+.live-tile img, .list-tile img 
+{ 
+	border:none; 
+}
+
+.live-tile.me>.slide-back>a.metroBig 
+{ 
+	position:absolute; 
+	left:0; 
+	bottom:0; 
+	padding: 0 0 12px 12px; 
+	text-decoration:none; 
+}
+
+.live-tile a:link, .live-tile a:visited 
+{ 
+	color:#fff; 
+	text-decoration:underline; 
+}
+
 .live-tile a:hover { color:#fff; text-decoration:none; }
 .live-tile p { font-size:13px; line-height: 16px; padding:10px; }
 .live-tile .tile-title, .list-tile .tile-title { position:absolute; bottom:0px; font-size:12px; left:0px; width:100%; padding:0 0 6px 6px; z-index:30; }
@@ -124,9 +154,6 @@ img.full , a.full
 {
    height:0px;
 }
-
-
-
 
 /***** Theme Definitions *****/
 .light { background-color:#fff; color:#000; }

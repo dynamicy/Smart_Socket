@@ -15,36 +15,55 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-(function () {
-jQuery.fn.metrojs = {};
+(function () 
+{
+	jQuery.fn.metrojs = {};
 
 
 /* Preload Images */
 // Usage: jQuery(['img1.jpg','img2.jpg']).metrojs.preloadImages(function(){ ... });
 // Callback function gets called after all images are preloaded
-jQuery.fn.metrojs.preloadImages = function (callback) {
+jQuery.fn.metrojs.preloadImages = function (callback) 
+{
     var checklist = jQuery(this).toArray();
     var $img = jQuery("<img style='display:none;'>").appendTo("body");
-    jQuery(this).each(function () {
-        $img.attr({ src: this }).load(function () {
+    
+    jQuery(this).each(function () 
+    {
+        $img.attr({ src: this }).load(function () 
+        {
             var src = jQuery(this).attr('src');
-            for (var i = 0; i < checklist.length; i++) {
-                if (checklist[i] == element) { checklist.splice(i, 1); }
+            for (var i = 0; i < checklist.length; i++) 
+            {
+                if (checklist[i] == element) 
+                { 
+                	checklist.splice(i, 1); 
+                }
             }
-            if (checklist.length == 0) { callback(); }
+            if (checklist.length == 0) 
+            { 
+            	callback(); 
+            }
         });
     });
     $img.remove();
-};	jQuery.fn.liveTile = function (method) {
-		if (pubMethods[method]) {
+};	jQuery.fn.liveTile = function (method) 
+	{
+		if (pubMethods[method]) 
+		{
 			var args = [];
-			for (var i = 1; i <= arguments.length; i++) {
+			for (var i = 1; i <= arguments.length; i++) 
+			{
 				args[i - 1] = arguments[i];
 			}
 			return pubMethods[method].apply(this, args);
-		} else if (typeof method === 'object' || !method) {
+		} 
+		else if (typeof method === 'object' || !method) 
+		{
 			return pubMethods.init.apply(this, arguments);
-		} else {
+		} 
+		else 
+		{
 			jQuery.error('Method ' + method + ' does not exist on jQuery.liveTile');
 		}
 	};
