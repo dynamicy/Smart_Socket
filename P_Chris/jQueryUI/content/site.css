@@ -10,16 +10,25 @@ body {
 	margin: 0;
 	padding: 0;
 }
-a:link {
+
+a:link 
+{
 	color: #fff;
 	text-decoration: underline;
 }
 
-a:visited {
+a:visited 
+{
 	color: #fff;
 }
-.light a:link, .light a:visited { color:#000; }
-a:hover {
+
+.light a:link, .light a:visited 
+{ 
+	color:#000; 
+}
+
+a:hover 
+{
 	color: #1d60ff;
 	text-decoration: none;
 }
@@ -37,7 +46,8 @@ p, ul {
 header,
 footer,
 nav,
-section {
+section 
+{
 	display: block;
 }
 
@@ -86,7 +96,8 @@ h5, h6 {
 	position: relative;
 }
 
-header, #header {
+header, #header 
+{
 	position: relative;
 	margin-bottom: 0px;
 	color: #fff;
@@ -94,7 +105,8 @@ header, #header {
 	*padding-top:70px;
 }
 
-header h1, #header h1 {    
+header h1, #header h1 
+{    
 	position:absolute;
 	top:-10px;
 	margin: 0;
@@ -103,8 +115,14 @@ header h1, #header h1 {
  #header h1>a,#header h1>a:hover,#header h1>a:visited { text-decoration:none; color:#fff; font-size: 140px !important; font-weight: normal; }
 .light #header h1>a,.light #header h1>a:hover,.light #header h1>a:visited { color:#000; }
 .in-app header,.in-app h2 { display:none; }
-.wordstreamerhelp h3 { margin-top:-5px; }
-#main {
+
+.wordstreamerhelp h3 
+{ 
+	margin-top:-5px; 
+}
+
+#main 
+{
 	padding: 0px 5% 90px 6%;
 	background-color:transparent;
 	margin:25px 0 0px 0;
