@@ -4,7 +4,8 @@
 	overflow:auto;
 }
 
-body {
+body 
+{
 	font-size: 13px;
 	font-family: Segoe WP, Segoe UI, Verdana, Helvetica, Sans-Serif;
 	margin: 0;
@@ -14,7 +15,7 @@ body {
 a:link 
 {
 	color: #fff;
-	text-decoration: underline;
+	text-decoration: none; /* underline / none */ 
 }
 
 a:visited 
@@ -33,9 +34,11 @@ a:hover
 	text-decoration: none;
 }
 
-a:active {
+a:active 
+{
 	color: #12eb87;
 }
+
 .list-tile.skills .flip-list>li>div>a:link { cursor:default; }
 p, ul {
 	margin: 0px;
@@ -107,7 +110,7 @@ header, #header
 
 header h1, #header h1 
 {    
-	position:absolute;
+	/*position:absolute;*/
 	top:-10px;
 	margin: 0;
 	border: none;
