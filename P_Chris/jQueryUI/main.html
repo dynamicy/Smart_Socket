@@ -19,6 +19,17 @@
 <script type="text/javascript" src="jquery.mousewheel.js"></script>
 <script type="text/javascript" src="page.js"></script>
 <script type="text/javascript" src="jquery.zweatherfeed.min.js"></script>
+<script src="http://yui.yahooapis.com/3.7.3/build/yui/yui-min.js"></script>
+
+<!--Theme-->
+<link href="http://cdn.wijmo.com/themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" title="rocket-jqueryui" />
+  
+<!--Wijmo Widgets CSS-->
+<link href="http://cdn.wijmo.com/jquery.wijmo-complete.all.2.2.0.min.css" rel="stylesheet" type="text/css" />
+  
+<!--Wijmo Widgets JavaScript-->
+<script src="http://cdn.wijmo.com/jquery.wijmo-open.all.2.2.0.min.js" type="text/javascript"></script>
+<script src="http://cdn.wijmo.com/jquery.wijmo-complete.all.2.2.0.min.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 	var box_skitter_large = null;
@@ -60,6 +71,26 @@ $(document).ready(function () {
 });
 </script>
 
+ <style type='text/css'>
+    #results{ width: 40%; margin-left: 30%; border: 1px solid gray; padding: 5px; height: 200px; overflow: auto; } 
+  </style>
+  <script type='text/javascript'>
+    // Parses returned response and extracts
+    // the title, links, and text of each news story.
+    function top_stories(o){
+      var items = o.query.results.item;
+      var output = '';
+      var no_items=items.length;
+      for(var i=0;i<no_items;i++){
+        var title = items[i].title;
+        var link = items[i].link;
+        var desc = items[i].description;
+        output += "<h3><a href='" + link + "'>"+title+"</a></h3>" + desc + "<hr/>";
+      }
+      // Place news stories in div tag
+      document.getElementById('results').innerHTML = output;  
+    }
+    </script>
 
 </head>
 
@@ -77,20 +108,14 @@ $(document).ready(function () {
 </header>
 	<article id="page-home" class="page active">
 	<section class="border-skitter content-width">
-<div class="box_skitter box_skitter_large">
-					<ul>
-						<li><a href="#cut"><img src="images/001.jpg" class="cut" /></a><div class="label_text"><p>cut</p></div></li>
-<li><a href="#swapBlocks"><img src="images/002.jpg" class="swapBlocks" /></a><div class="label_text"><p>swapBlocks</p></div></li>
-<li><a href="#swapBarsBack"><img src="images/003.jpg" class="swapBarsBack" /></a><div class="label_text"><p>swapBarsBack</p></div></li>
-<li><a href="#swapBars"><img src="images/004.jpg" class="swapBars" /></a><div class="label_text"><p>swapBars</p></div></li>
-<li><a href="#hideBars"><img src="images/005.jpg" class="hideBars" /></a><div class="label_text"><p>hideBars</p></div></li>
-<li><a href="#downBars"><img src="images/006.jpg" class="downBars" /></a><div class="label_text"><p>downBars</p></div></li>
-<li><a href="#upBars"><img src="images/007.jpg" class="upBars" /></a><div class="label_text"><p>upBars</p></div></li>
-<li><a href="#cubeShow"><img src="images/008.jpg" class="cubeShow" /></a><div class="label_text"><p>cubeShow</p></div></li>
-<li><a href="#circlesRotate"><img src="images/009.jpg" class="circlesRotate" /></a><div class="label_text"><p>circlesRotate</p></div></li>
-<li><a href="#circlesInside"><img src="images/010.jpg" class="circlesInside" /></a><div class="label_text"><p>circlesInside</p></div></li>
-					</ul>
-				</div>
+
+
+<video controls="controls" id="vid1" width="800" height="600">
+        <source src="http://cdn.wijmo.com/movies/wijmo.theora.ogv" type='video/ogg; codecs="theora, vorbis"'>
+        <source src="http://cdn.wijmo.com/movies/wijmo.mp4video.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+        HTML5 is required to see this video.
+</video>
+
 			</section>
 			<div id="box-customize-features">
 				<div id="bg-customize-features"></div>
@@ -269,7 +294,15 @@ $(document).ready(function () {
 		<article id="page-download" class="page">
 			<section class="content-width">
 				<h1>News</h1>
-				<div class="clear"></div>
+				
+				<div id='results'></div>
+  <script src='http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Frss.news.yahoo.com%2Frss%2Ftopstories%22&format=json&callback=cbfunc'>
+  </script> 
+				
+				<div class="clear">
+				
+				
+				
 			</div>
 			</section>
 		</article>
