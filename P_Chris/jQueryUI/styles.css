@@ -31,14 +31,14 @@ a, a img
 
 #page 
 { 
-	background:url(bg-header-repeat.png) repeat-x left top; 
+	background:url(images/bg-header-repeat.png) repeat-x left top; 
 	margin-bottom:50px; 
 }
 
 #header 
 { 
 	height:110px; 
-	background:url(bg-header.jpg) no-repeat center top; 
+	background:url(images/bg-header.jpg) no-repeat center top; 
 	margin:0 auto; 
 	margin-bottom:20px; 
 }
@@ -51,7 +51,7 @@ a, a img
 	margin:0px 0 0 0; 
 	overflow:hidden; 
 	text-indent:-9999em; 
-	background:url(logo.png) no-repeat center top;  
+	background:url(images/logo.png) no-repeat center top;  
 }
 
 #header nav 
@@ -91,7 +91,7 @@ a, a img
  	position:absolute;
  	overflow:hidden;
  	text-indent:-9999em; 
- 	background:url(bt-lang.png) no-repeat center top; 
+ 	background:url(images/bt-lang.png) no-repeat center top; 
  	right:0; 
  	top:0; 
  	-moz-transition:opacity 0.2s; 
@@ -148,23 +148,57 @@ a, a img
 
 /* =Pages
 -------------------------------------------------------------- */
-.page { display:none; position:relative; }
-.page.active { display:block; }
+.page 
+{ 
+	display:none; position:relative; 
+}
 
-.page h1 { font-size:36px; margin-bottom:20px; letter-spacing:-2px; }
-.page h2 { margin-bottom:20px; color:#777; }
-.page h3 { margin-bottom:20px; color:#999; }
+.page.active 
+{ 
+	display:block; 
+}
+
+.page h1 
+{ 
+	font-size:36px; 
+	margin-bottom:20px; 
+	letter-spacing:-2px; 
+}
+
+.page h2 
+{ 
+	margin-bottom:20px; 
+	color:#777; 
+}
+
+.page h3 
+{ 
+	margin-bottom:20px; 
+	color:#999; 
+}
 
 /* =Configurations
 -------------------------------------------------------------- */
 
 #box-bts-config { position:relative; z-index:3; }
 
-.bt-config { background:url(bt-config.png) no-repeat center top; width:120px; height:120px; text-align:center; position:relative; z-index:5; text-indent:-9999em; overflow:hidden; display:block; margin:0 auto; }
+.bt-config 
+{ 
+	background:url(images/bt-config.png) no-repeat center top; 
+	width:120px; 
+	height:120px; 
+	text-align:center; 
+	position:relative; 
+	z-index:5; 
+	text-indent:-9999em; 
+	overflow:hidden; 
+	display:block; 
+	margin:0 auto; 
+}
 
 #box-config 
 { 
-	background:url(bg-config.jpg) repeat left top; 
+	background:url(images/bg-config.jpg) repeat left top; 
 	margin-top:-60px; 
 	padding-bottom:10px; 
 	color:#fff; 
@@ -244,13 +278,13 @@ a, a img
 	overflow:hidden; 
 	width:64px; 
 	height:64px; 
-	background:url(bt-apply.png) no-repeat left top; 
+	background:url(images/bt-apply.png) no-repeat left top; 
 	display:none; 
 }
 
 #bt-apply:hover 
 { 
-	background:url(bt-apply-over.png) no-repeat left top; 
+	background:url(images/bt-apply-over.png) no-repeat left top; 
 }
 
 #box-your-code 
@@ -276,7 +310,7 @@ a, a img
 	width:100px; 
 	height:100px; 
 	opacity:0.2; 
-	background:url(bt-up.png) no-repeat left top; 
+	background:url(images/bt-up.png) no-repeat left top; 
 	text-indent:-9999em; 
 	overflow:hidden; 
 	cursor:pointer; 
@@ -385,7 +419,7 @@ a, a img
 	overflow:hidden; 
 	width:42px; 
 	height:42px; 
-	background:url(logo-thiago.png) no-repeat left top; 
+	background:url(images/logo-thiago.png) no-repeat left top; 
 	position:relative; 
 	z-index:10; 
 }
@@ -402,7 +436,7 @@ a, a img
 { 
 	position:absolute; 
 	z-index:9; 
-	background:url(bg-page.png) repeat left top;
+	background:url(images/bg-page.png) repeat left top;
 	opacity:0.8; 
 	width:100%; 
 	height:50px; 
@@ -571,7 +605,7 @@ a, a img
 { 
 	width:140px; 
 	height:140px; 
-	background:url(bt-download-wp.png) no-repeat left top; 
+	background:url(images/bt-download-wp.png) no-repeat left top; 
 	text-indent:-9999em; 
 	overflow:hidden; 
 	cursor:pointer; 
@@ -582,7 +616,7 @@ a, a img
 { 
 	width:140px; 
 	height:140px; 
-	background:url(bt-download-helper.png) no-repeat left top; 
+	background:url(images/bt-download-helper.png) no-repeat left top; 
 	text-indent:-9999em; 
 	overflow:hidden; 
 	cursor:pointer; 
@@ -593,7 +627,7 @@ a, a img
 { 
 	width:200px; 
 	height:200px; 
-	background:url(bt-download-stable.png) no-repeat left top; 
+	background:url(images/bt-download-stable.png) no-repeat left top; 
 	text-indent:-9999em; 
 	overflow:hidden; 
 	cursor:pointer; 
@@ -661,7 +695,7 @@ a, a img
 	overflow:hidden; 
 	top:0px; 
 	left:-150px; 
-	background:url(bg-config.jpg) repeat left top; 
+	background:url(images/bg-config.jpg) repeat left top; 
 	-moz-border-radius:0 3px 3px 0;
 	-webkit-border-radius:0 3px 3px 0;
 	border-radius:0 3px 3px 0; 
@@ -716,7 +750,7 @@ a, a img
 	position:absolute; 
 	top:130px; 
 	left:0px; 
-	background:url(bt-live-view.png) no-repeat left center; 
+	background:url(images/bt-live-view.png) no-repeat left center; 
 	text-indent:-9999em; 
 	overflow:hidden; 
 	float:left; 
@@ -736,7 +770,7 @@ a, a img
 	position:absolute; 
 	top:100px; 
 	left:40px; 
-	background:url(bg-test-animations.png) no-repeat left center; 
+	background:url(images/bg-test-animations.png) no-repeat left center; 
 	z-index:1; 
 }
 
@@ -753,7 +787,7 @@ a, a img
 	width:240px; 
 	height:117px; 
 	position:absolute; 
-	background:url(bg-customize-features.png) no-repeat left center; 
+	background:url(images/bg-customize-features.png) no-repeat left center; 
 	top:0; 
 	left:0; 
 	z-index:1; 

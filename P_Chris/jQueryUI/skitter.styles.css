@@ -26,12 +26,37 @@
 /* =Thumbs
 	Change width and height to customization dimension thumb
 -------------------------------------------------------------- */
-.box_skitter .container_thumbs { position:relative;overflow:hidden;height:50px; }
-.box_skitter .info_slide_thumb { height:50px;-moz-border-radius:0;-webkit-border-radius:0;border-radius:0;overflow:hidden;top:auto;top:0;left:0;padding:0 !important;opacity:1.0; }
+.box_skitter .container_thumbs 
+{ 
+	position:relative;
+	overflow:hidden;
+	height:50px; 
+}
+
+.box_skitter .info_slide_thumb 
+{ 
+	height:50px;
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+	border-radius:0;
+	overflow:hidden;
+	top:auto;
+	top:0;
+	left:0;
+	padding:0 !important;opacity:1.0; 
+}
+
 .box_skitter .info_slide_thumb .image_number { overflow:hidden;width:100px;height:50px;position:relative;margin:0 !important; padding:0 !important; -moz-border-radius:0 !important;-webkit-border-radius:0 !important;border-radius:0 !important;}
 .box_skitter .info_slide_thumb .image_number img { position:absolute;top:-30px;left:-30px;height:100px;}
 .box_skitter .box_scroll_thumbs { padding:0; }
-.box_skitter .box_scroll_thumbs .scroll_thumbs { position:absolute;bottom:60px;left:50px;background:#ccc;background:-moz-linear-gradient(-90deg, #555, #fff);background:-webkit-gradient(linear, left top, left bottom, from(#555), to(#fff));width:200px;height:10px;overflow:hidden;text-indent:-9999em;z-index:101; cursor:pointer;border:0px solid #333; }
+.box_skitter .box_scroll_thumbs .scroll_thumbs 
+{ 
+	position:absolute;
+	bottom:60px;
+	left:50px;
+	background:#ccc;
+	background:-moz-linear-gradient(-90deg, #555, #fff);
+	background:-webkit-gradient(linear, left top, left bottom, from(#555), to(#fff));width:200px;height:10px;overflow:hidden;text-indent:-9999em;z-index:101; cursor:pointer;border:0px solid #333; }
 
 /* =Dots
 -------------------------------------------------------------- */
@@ -62,9 +87,37 @@
 -------------------------------------------------------------- */
 #overlay_skitter { position:absolute; top:0; left:0; width:100%; z-index:9998; opacity:1; background:#000; }
 
-.box_skitter .focus_button {position:absolute;top:50%;z-index:100;width:42px;height:42px;overflow:hidden;text-indent:-9999em;margin-top:-25px;background:url(../images/focus-button.png) no-repeat left top;opacity:0;}
-.box_skitter .play_pause_button {position:absolute;top:50%;z-index:151;width:42px;height:42px;overflow:hidden;text-indent:-9999em;margin-top:-25px;background:url(../images/pause-button.png) no-repeat left top;opacity:0;}
-.box_skitter .play_pause_button.play_button {background:url(../images/play-button.png) no-repeat left top;}
+.box_skitter .focus_button 
+{
+	position:absolute;
+	top:50%;
+	z-index:100;
+	width:42px;
+	height:42px;
+	overflow:hidden;
+	text-indent:-9999em;
+	margin-top:-25px;
+	background:url(images/focus-button.png) no-repeat left top;
+	opacity:0;
+}
+
+.box_skitter .play_pause_button 
+{
+	position:absolute;
+	top:50%;
+	z-index:151;
+	width:42px;
+	height:42px;
+	overflow:hidden;
+	text-indent:-9999em;
+	margin-top:-25px;background:url(images/pause-button.png) no-repeat left top;
+	opacity:0;
+}
+
+.box_skitter .play_pause_button.play_button 
+{
+	background:url(images/play-button.png) no-repeat left top;
+}
 
 /* =Example for dimenions
 -------------------------------------------------------------- */

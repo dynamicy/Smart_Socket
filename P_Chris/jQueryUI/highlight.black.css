@@ -14,7 +14,8 @@ div.highlight pre{
 }
 
 /* tabs */
-div.highlight ul.tabs {
+div.highlight ul.tabs 
+{
 	overflow: hidden;
 	padding: 5px 0 5px 0;
 	margin: 0;
@@ -24,7 +25,8 @@ div.highlight ul.tabs {
 	background:#111;
 	font-size:12px;
 }
-div.highlight ul.tabs li {
+div.highlight ul.tabs li 
+{
 	padding: 0;
 	margin: 0 5px;
 	float: left;
@@ -34,14 +36,16 @@ div.highlight ul.tabs li {
 	color: #CCC;
 	cursor: pointer;
 }
-div.highlight ul.tabs li.active {
+div.highlight ul.tabs li.active 
+{
 	border-bottom: none;
 	cursor: default;
 	color: #cc9966;
 }
 
 /* pre */
-div.highlight pre.code ol {
+div.highlight pre.code ol 
+{
 	margin: 0;
 	padding:0 0 0 45px;
 	background:#555; 
