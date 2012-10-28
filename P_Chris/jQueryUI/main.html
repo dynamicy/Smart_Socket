@@ -18,8 +18,10 @@
 
 <script type="text/javascript">
 	var box_skitter_large = null;
-	$(document).ready(function() {
-		$('.box_skitter_large').skitter({
+	$(document).ready(function() 
+	{
+		$('.box_skitter_large').skitter(
+		{
 			numbers_align: "center", 
  			dots: true, 
  			preview: true, 
@@ -28,7 +30,8 @@
  			controls: true, 
  			controls_position: "leftTop", 
  			progressbar: true, 
- 			progressbar_css: { 
+ 			progressbar_css: 
+ 			{ 
 				top:'5px', 
 				left:'590px', 
 				height:10, 
@@ -49,78 +52,20 @@
 </head>
 
 <body>
-	<div id="page">
-		<header id="header">
-			<div class="content-width">
-				<h1><a href="/projects/jquery/skitter">Skitter - Slideshow for anytime!</a></h1>
-					<nav>
-			<a href="#home" rel="page-home" class="active">Media</a>
-			<a href="#documentation" rel="page-documentation">Appliances</a>
-			<a href="#updatelog" rel="page-updatelog">Weather</a>
-			<a href="#download" rel="page-download">News</a>
-			<a href="#comments" rel="page-comments">OSGI Status</a>
-		</nav>
-		</div>
-			<a href="#" id="bt-lang">Language</a>
-			<div id="box-languages">
-				<ul>
-										<li><a href="?lang=en_US"><img src="images/flags/en_US.png"></a></li>
-										<li><a href="?lang=es_ES"><img src="images/flags/es_ES.png"></a></li>
-										<li><a href="?lang=fr_FR"><img src="images/flags/fr_FR.png"></a></li>
-										<li><a href="?lang=it_IT"><img src="images/flags/it_IT.png"></a></li>
-										<li><a href="?lang=ja_JP"><img src="images/flags/ja_JP.png"></a></li>
-										<li><a href="?lang=pt_BR"><img src="images/flags/pt_BR.png"></a></li>
-										<li><a href="?lang=ru_RU"><img src="images/flags/ru_RU.png"></a></li>
-									</ul>
-			</div>
-		</header>
-		<article id="page-home" class="page active">
-			<div id="bg-test-animations"></div>
-			<a href="#" id="bt-view-live">View Animations</a>
-			<div id="box-live-test">
-				<ul class="live-animation">
-										<li><a href="#" rel="cube">cube</a></li>
-										<li><a href="#" rel="cubeRandom">cubeRandom</a></li>
-										<li><a href="#" rel="block">block</a></li>
-										<li><a href="#" rel="cubeStop">cubeStop</a></li>
-										<li><a href="#" rel="cubeHide">cubeHide</a></li>
-										<li><a href="#" rel="cubeSize">cubeSize</a></li>
-										<li><a href="#" rel="horizontal">horizontal</a></li>
-										<li><a href="#" rel="showBars">showBars</a></li>
-										<li><a href="#" rel="showBarsRandom">showBarsRandom</a></li>
-										<li><a href="#" rel="tube">tube</a></li>
-										<li><a href="#" rel="fade">fade</a></li>
-										<li><a href="#" rel="fadeFour">fadeFour</a></li>
-										<li><a href="#" rel="paralell">paralell</a></li>
-										<li><a href="#" rel="blind">blind</a></li>
-										<li><a href="#" rel="blindHeight">blindHeight</a></li>
-										<li><a href="#" rel="blindWidth">blindWidth</a></li>
-										<li><a href="#" rel="directionTop">directionTop</a></li>
-										<li><a href="#" rel="directionBottom">directionBottom</a></li>
-										<li><a href="#" rel="directionRight">directionRight</a></li>
-										<li><a href="#" rel="directionLeft">directionLeft</a></li>
-										<li><a href="#" rel="cubeStopRandom">cubeStopRandom</a></li>
-										<li><a href="#" rel="cubeSpread">cubeSpread</a></li>
-										<li><a href="#" rel="cubeJelly">cubeJelly</a></li>
-										<li><a href="#" rel="glassCube">glassCube</a></li>
-										<li><a href="#" rel="glassBlock">glassBlock</a></li>
-										<li><a href="#" rel="circles">circles</a></li>
-										<li><a href="#" rel="circlesInside">circlesInside</a></li>
-										<li><a href="#" rel="circlesRotate">circlesRotate</a></li>
-										<li><a href="#" rel="cubeShow">cubeShow</a></li>
-										<li><a href="#" rel="upBars">upBars</a></li>
-										<li><a href="#" rel="downBars">downBars</a></li>
-										<li><a href="#" rel="hideBars">hideBars</a></li>
-										<li><a href="#" rel="swapBars">swapBars</a></li>
-										<li><a href="#" rel="swapBarsBack">swapBarsBack</a></li>
-										<li><a href="#" rel="swapBlocks">swapBlocks</a></li>
-										<li><a href="#" rel="cut">cut</a></li>
-										<li><a href="#" rel="random">random</a></li>
-										<li><a href="#" rel="randomSmart">randomSmart</a></li>
-									</ul>
-			</div>
-			<section class="border-skitter content-width">
-				<div class="box_skitter box_skitter_large">
+<div id="page">
+<header id="header">
+<div class="content-width">
+<nav>
+	<a href="#home" rel="page-home" class="active">Media</a>
+	<a href="#documentation" rel="page-documentation">Appliances</a>
+	<a href="#updatelog" rel="page-updatelog">Weather</a>
+	<a href="#download" rel="page-download">News</a>
+</nav>
+</div>
+</header>
+	<article id="page-home" class="page active">
+	<section class="border-skitter content-width">
+<div class="box_skitter box_skitter_large">
 					<ul>
 						<li><a href="#cut"><img src="images/001.jpg" class="cut" /></a><div class="label_text"><p>cut</p></div></li>
 <li><a href="#swapBlocks"><img src="images/002.jpg" class="swapBlocks" /></a><div class="label_text"><p>swapBlocks</p></div></li>
@@ -296,386 +241,25 @@
 		</article>
 		<article id="page-documentation" class="page">
 			<section class="content-width">
-				<h1>Documentation</h1>
-
-				<h2>Attributes</h2>
-
-								<dl>
-					<dt>animateNumberActive</dt>
-					<dd>
-						<p class="definition-description">Animation/style active number/dot</p>
-						<p class="dd-default"><strong>Default</strong> <span>{backgroundColor:'#cc3333', color:'#fff'}</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>array</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({animateNumberActive: {backgroundColor:'#000', color:'#ccc'}});</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>animateNumberOut</dt>
-					<dd>
-						<p class="definition-description">Animation/style number/dot</p>
-						<p class="dd-default"><strong>Default</strong> <span>{backgroundColor:'#333', color:'#fff'}</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>array</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({animateNumberOut: {backgroundColor:'#000', color:'#ccc'}});</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>animateNumberOver</dt>
-					<dd>
-						<p class="definition-description">Animation/style hover number/dot</p>
-						<p class="dd-default"><strong>Default</strong> <span>{backgroundColor:'#000', color:'#fff'}</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>array</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({animateNumberOver: {backgroundColor:'#000', color:'#ccc'}});</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>animation</dt>
-					<dd>
-						<p class="definition-description">Default animation</p>
-						<p class="dd-default"><strong>Default</strong> <span>null or defined in &lt;a&gt; class</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>cube, cubeRandom, block, cubeStop, cubeHide, cubeSize, horizontal, showBars, showBarsRandom, tube, fade, fadeFour, paralell, blind, blindHeight, blindWidth, directionTop, directionBottom, directionRight, directionLeft, cubeStopRandom, cubeSpread, cubeJelly, glassCube, glassBlock, circles, circlesInside, circlesRotate, cubeShow, upBars, downBars, hideBars, swapBars, swapBarsBack, swapBlocks, cut, random, randomSmart</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({animation: 'fade'});</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>auto_play</dt>
-					<dd>
-						<p class="definition-description">Sets whether the slideshow will start automatically</p>
-						<p class="dd-default"><strong>Default</strong> <span>true</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>false</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({ auto_play: false; });</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>controls</dt>
-					<dd>
-						<p class="definition-description">Option play/pause manually</p>
-						<p class="dd-default"><strong>Default</strong> <span>false</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>true, false</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({controls: true});</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>controls_position</dt>
-					<dd>
-						<p class="definition-description">Position of button controls</p>
-						<p class="dd-default"><strong>Default</strong> <span>center</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>center, leftTop, rightTop, leftBottom, rightBottom</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({controls_position: 'rightBottom'});</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>dots</dt>
-					<dd>
-						<p class="definition-description">Navigation with dots</p>
-						<p class="dd-default"><strong>Default</strong> <span>false</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>true, false</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({dots: true});</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>easing_default</dt>
-					<dd>
-						<p class="definition-description">Easing default</p>
-						<p class="dd-default"><strong>Default</strong> <span>null</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>null, ease type</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({easing_default: 'easeOutBack'});</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>enable_navigation_keys</dt>
-					<dd>
-						<p class="definition-description">Enable navigation keys</p>
-						<p class="dd-default"><strong>Default</strong> <span>false</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>true, false</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({enable_navigation_keys: true});</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>focus</dt>
-					<dd>
-						<p class="definition-description">Focus slideshow</p>
-						<p class="dd-default"><strong>Default</strong> <span>false</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>true, false</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({focus: true});</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>focus_position</dt>
-					<dd>
-						<p class="definition-description">Position of button focus slideshow</p>
-						<p class="dd-default"><strong>Default</strong> <span>center</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>center, leftTop, rightTop, leftBottom, rightBottom</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({focus_position: 'leftTop'});</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>fullscreen</dt>
-					<dd>
-						<p class="definition-description">Fullscreen mode</p>
-						<p class="dd-default"><strong>Default</strong> <span>false</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>true, false</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({fullscreen: true});</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>hideTools</dt>
-					<dd>
-						<p class="definition-description">Hide numbers and navigation</p>
-						<p class="dd-default"><strong>Default</strong> <span>false</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>true, false</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({hideTools: true});</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>interval</dt>
-					<dd>
-						<p class="definition-description">Interval between transitions</p>
-						<p class="dd-default"><strong>Default</strong> <span>2500</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>integer</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({interval: 3000});</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>label</dt>
-					<dd>
-						<p class="definition-description">Label display</p>
-						<p class="dd-default"><strong>Default</strong> <span>true</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>true, false</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({label: false});</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>mouseOutButton</dt>
-					<dd>
-						<p class="definition-description">Function call to go out the navigation buttons</p>
-						<p class="dd-default"><strong>Default</strong> <span>function() { $(this).stop().animate({opacity:0.5}, 200); }</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>function() { $(this).stop().animate({opacity:0.2}, 500); }</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({ mouseOutButton: function() { $(this).stop().animate({opacity:0.2}, 500); });</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>mouseOverButton</dt>
-					<dd>
-						<p class="definition-description">Function call to go over the navigation buttons</p>
-						<p class="dd-default"><strong>Default</strong> <span>function() { $(this).stop().animate({opacity:0.5}, 200); }</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>function() { $(this).stop().animate({opacity:0.2}, 500); }</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({ mouseOverButton: function() { $(this).stop().animate({opacity:0.2}, 500); });</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>navigation</dt>
-					<dd>
-						<p class="definition-description">Navigation display</p>
-						<p class="dd-default"><strong>Default</strong> <span>true</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>true, false</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({navigation: false});</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>numbers</dt>
-					<dd>
-						<p class="definition-description">Numbers display</p>
-						<p class="dd-default"><strong>Default</strong> <span>true</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>true, false</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({numbers: false});</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>numbers_align</dt>
-					<dd>
-						<p class="definition-description">Alignment of numbers/dots/thumbs</p>
-						<p class="dd-default"><strong>Default</strong> <span>left</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>center, left, right</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({numbers_align: 'center'});</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>onLoad</dt>
-					<dd>
-						<p class="definition-description">Callback</p>
-						<p class="dd-default"><strong>Default</strong> <span>null</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>null, function</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({onLoad: function(self) { console.log(self.settings.animation); } });</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>preview</dt>
-					<dd>
-						<p class="definition-description">Preview with dots</p>
-						<p class="dd-default"><strong>Default</strong> <span>false</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>true, false</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({dots: true, preview: true});</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>show_randomly</dt>
-					<dd>
-						<p class="definition-description">Randomly sliders</p>
-						<p class="dd-default"><strong>Default</strong> <span>false</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>true, false</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({show_randomly: true});</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>stop_over</dt>
-					<dd>
-						<p class="definition-description">Stop animation to move mouse over it.</p>
-						<p class="dd-default"><strong>Default</strong> <span>true</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>false</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({ stop_over: false; });</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>thumbs</dt>
-					<dd>
-						<p class="definition-description">Navigation with thumbs</p>
-						<p class="dd-default"><strong>Default</strong> <span>false</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>true, false</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({thumbs: true});</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>velocity</dt>
-					<dd>
-						<p class="definition-description">Velocity of animation</p>
-						<p class="dd-default"><strong>Default</strong> <span>1</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>0 to 2 (float)</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({velocity: 0.5});</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>width_label</dt>
-					<dd>
-						<p class="definition-description">Width label</p>
-						<p class="dd-default"><strong>Default</strong> <span>null</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>css property (300px, auto)</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({width_label: '300px'});</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>with_animations</dt>
-					<dd>
-						<p class="definition-description">Specific animations</p>
-						<p class="dd-default"><strong>Default</strong> <span>[]</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>['paralell', 'glassCube', 'swapBars']</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({ with_animations: ['paralell', 'glassCube', 'swapBars']; });</span></p>
-					</dd>
-				</dl>
-								<dl>
-					<dt>xml</dt>
-					<dd>
-						<p class="definition-description">Loading data from XML file</p>
-						<p class="dd-default"><strong>Default</strong> <span>false</span></p>
-						<p class="dd-accept"><strong>Accept</strong> <span>true, false</span></p>
-						<p class="dd-code"><strong>Example</strong> <span>$('.box_skitter_large').skitter({xml: "xml/slides.xml"});</span></p>
-					</dd>
-				</dl>
-								<div class="clear"></div>
+				<h1>Appliance</h1>
+				<div class="clear"></div>
 			</section>
 		</article>
 		<article id="page-updatelog" class="page">
 			<section class="content-width">
-				<h1>Updatelog</h1>
+				<h1>Weather</h1>
 				<div id="box-updatelog">
 					<dl>
-						<dt>04/09/2012</dt>
-							<dd>- Bug jquery 1.8 fixed: update jquery-color-animation</dd>
-						<dt>19/04/2012</dt>
-							<dd>- Bug fixed: in IE was jumping two slides to start.</dd>
-							<dd>- Bug fixed: conflict between the options <strong>progressbar</strong> and <strong>auto_play</strong>.</dd>
-							<dd>- New animations: <a href="?animation=swapBlocks">swapBlocks</a>, <a href="?animation=cut">cut</a></dd>
-						<dt>07/04/2012</dt>
-							<dd>- Added with_animations: specific animations.</dd>
-							<dd>- Added auto_play: sets whether the slideshow will start automatically.</dd>
-							<dd>- Thumbs: improved code.</dd>
-						<dt>02/02/2012</dt>
-							<dd>- Bug fixed: start slideshow with mouse over</dd>
-							<dd>- Bug fixed: animations circles, circlesInside and circlesRotate on Webkit.</dd>
-							<dd>- New animations: <a href="?animation=hideBars">hideBars</a>, <a href="?animation=swapBars">swapBars</a>, <a href="?animation=swapBarsBack">swapBarsBack</a></dd>
-						<dt>26/12/2011</dt>
-							<dd>- Redesign of the site!</dd>
-							<dd>- Added <a href="index.php?enable_navigation_keys=true">enable navigation keys</a></dd>
-						<dt>18/12/2011</dt>
-							<dd>- Added progress bar</dd>
-							<dd>- Option does not stop the slideshow go over.</dd>
-							<dd>- Modifications to existing animations.</dd>
-							<dd>- New animations: <a href="?animation=cubeShow">cubeShow</a>, <a href="?animation=upBars">upBars</a>, <a href="?animation=downBars">downBars</a></dd>
-							<dd>- Bug fixed: stop slideshow to blur window.</dd>
-						<dt>08/12/2011</dt>
-							<dd>- Controls: <a href="index.php?controls_position=center">option play/pause manually.</a></dd>
-							<dd>- <a href="index.php?focus_position=center">Focus slideshow</a></dd>
-						<dt>05/11/2011</dt>
-							<dd>- New option: <a href="index.php?type_navigation=dots_preview">preview to go over the points</a> .</dd>
-							<dd>- Bug fixed: problem of memory consumption to blur the window with skitter working. <strong>Hint of <a href="http://thiagosf.net/projects/jquery/skitter/#comment-355473307">Dan Partac</a></strong></dd>
-						<dt>28/10/2011</dt>
-							<dd>- New option: alignment of numbers, dots and thumbs.</dd>
-						<dt>08/09/2011</dt>
-							<dd>- New animations: <a href="?animation=circles">circles</a>, <a href="?animation=circlesInside">circlesInside</a> and <a href="?animation=circlesRotate">circlesRotate</a></dd>
-							<dd>- Callback onLoad: calling a user-defined function to load images</dd>
-							<dd>- Added <a href="https://github.com/zachstronaut/jquery-animate-css-rotate-scale">rotate-scale plugin</a>: to the effect of rotation</dd>
-						<dt>05/08/2011</dt>
-							<dd>- New animations: <a href="?animation=glassCube">glassCube</a>, <a href="?animation=glassBlock">glassBlock</a></dd>
-							<dd>- Bug fixed hideTools</dd>
-						<dt>30/05/2011</dt>
-							<dd>- Display <a href="multiple.php">multiple instances</a> on the same page!</dd>
-						<dt>28/05/2011</dt>
-							<dd>- New animation: <a href="?animation=randomSmart">randomSmart</a></dd>
-							<dd>- Change in the animation: <a href="?animation=random">random</a></dd>
-							<dd>- New mode: <a href="index.php?other_options=show_randomly">ramdomly sliders</a>. <strong>Hint of <a href="http://blog.it0091.com/2011/04/28/jquery-skitter-slideshow-display-images-randomly-on-each-page/" target="_blank">Team IT0091</a></strong></dd>
-							<dd>- <strong>jQueryUI</strong> removed and added plugins compatible: <strong>jQuery easing</strong> and <strong>jQuery animate colors</strong></dd>
-						<dt>15/05/2011</dt>
-							<dd>- Added <a href="http://wordpress.org/extend/plugins/wp-skitter-slideshow/">plugin</a> for Wordpress</dd>
-						<dt>09/05/2011</dt>
-							<dd>- Control over the width of the label. <strong>Hint of Ronny</strong></dd>
-						<dt>08/05/2011</dt>
-							<dd>- <a href="index.php?type_navigation=dots">Navigation with dots</a></dd>
-							<dd>- New animation: <a href="?animation=cubeJelly">cubeJelly</a></dd>
-							<dd>- Restructuring HTML plugin</dd>
-							<dd>- Bug fixed navigation thumbs</dd>
-						<dt>07/05/2011</dt>
-							<dd>- Added option to load <a href="index.php?type_loading=xml">data via XML</a>.</dd>
-						<dt>23/04/2011</dt>
-							<dd>- Added <a href="fullscreen.php">fullscreen</a> mode</dd>
-						<dt>21/04/2011</dt>
-							<dd>- Fixed bug in loading images in IE9</dd>
-							<dd>- Update animations: <a href="?animation=directionTop">directionTop</a>, <a href="?animation=directionBottom">directionBottom</a>, <a href="?animation=directionRight">directionRight</a>, <a href="?animation=directionLeft">directionLeft</a> and <a href="?animation=block">block</a></dd>
-						<dt>20/04/2011</dt>
-							<dd>- Update jQuery and jQuery UI</dd>
-						<dt>16/01/2011</dt>
-							<dd>- New animations: <a href="?animation=cubeStopRandom">cubeStopRandom</a>, <a href="?animation=cubeSpread">cubeSpread</a></dd>
-						<dt>04/01/2011</dt>
-							<dd>- Update thumbnail browsing. Now the position of the mouse will move the thumbnails</dd>
-							<dd>- Fix the problem with the effects: cubeStop, cubeHide, cubSize.</dd>
-						<dt>09/10/2010</dt>
-							<dd>- Added the type of thumbnail browsing.</dd>
-						<dt>04/08/2010</dt>
-							<dd>- Creation of Skitter Slideshow!</dd>
 					</dl>
 				</div>
 			</section>
 		</article>
 		<article id="page-download" class="page">
 			<section class="content-width">
-				<h1>Download</h1>
-				<div id="box-download">
-					<div id="box-wp" class="bt-download-small">
-						<a href="http://wordpress.org/extend/plugins/wp-skitter-slideshow/" id="bt-download-wp"></a>
-						<a href="http://wordpress.org/extend/plugins/wp-skitter-slideshow/">Plugin for Wordpress</a>
-					</div>
-					<div id="box-stable" class="bt-download-big">
-						<a href="https://github.com/thiagosf/SkitterSlideshow/zipball/master" id="bt-download-stable"></a>
-						<a href="https://github.com/thiagosf/SkitterSlideshow/zipball/master">Stable version</a>
-					</div>
-					<div id="box-helper" class="bt-download-small">
-						<a href="/projects/cakephp/skitter_helper/" id="bt-download-helper"></a>
-						<a href="/projects/cakephp/skitter_helper/">Helper for CakePHP</a>
-					</div>
-					<div id="box-donate">
-						<form action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="hosted_button_id" value="HX6GLMFNNJWVQ"><input type="image" src="http://thiagosf.net/projects/jquery/skitter/images/donate-button.png" border="0" name="submit" alt="Help support the development of this plugin!"><img alt="" border="0" src="https://www.paypalobjects.com/pt_BR/i/scr/pixel.gif" width="1" height="1"></form>
-					</div>
-					<div class="clear"></div>
-				</div>
-							</section>
+				<h1>News</h1>
+				<div class="clear"></div>
+			</div>
+			</section>
 		</article>
 		<article id="page-comments" class="page">
 			<section class="content-width">
@@ -714,40 +298,30 @@
 
 		<div id="bt-up">Up!</div>
 	</div>
-	<footer id="footer">
-		<a href="http://thiagosf.net" id="credits">thiagosf.net</a>
-		<section>
-					<script type="text/javascript">
-			var addthis_share = {
+
+<section>
+	<script type="text/javascript">
+			var addthis_share = 
+			{
 			    url: "http://thiagosf.net/projects/jquery/skitter/"
 			}
-			</script>
-			<!-- AddThis Button BEGIN -->
-			<div class="addthis_toolbox addthis_default_style">
-				<a class="addthis_button_facebook_like" fb:like:layout="button_count" fb:like:href="http://thiagosf.net/projects/jquery/skitter/"></a>
-				<a class="addthis_button_tweet" tw:url="http://thiagosf.net/projects/jquery/skitter/" tw:via="thiago9"></a>
-				<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-				<a class="addthis_button_delicious" style="margin:2px 20px 0 0;"></a>
-				<a class="addthis_counter addthis_pill_style"></a>
-			</div>
-			<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4eee0ade5d8c7b38"></script>
-			<!-- AddThis Button END -->
-				</section>
+	</script>		
+</section>
 		<div id="back-footer"></div>
-	</footer>
+</footer>
 
-		<script type="text/javascript">
+<script type="text/javascript">
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-1966000-13']);
 	  _gaq.push(['_trackPageview']);
 
-	  (function() {
+	  (function() 
+	  {
 		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	  })();
-
-	</script>
+</script>
 	
 </body>
 </html>
