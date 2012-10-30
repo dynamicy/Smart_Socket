@@ -4,12 +4,15 @@
 <meta name="charset" value="utf-8" />
 <link rel="shortcut icon" href="images/favicon.ico">
 <link href='http://fonts.googleapis.com/css?family=Mako' rel='stylesheet' type='text/css'>
-<link href="example.css" rel="stylesheet" type="text/css">
-
-<link type="text/css" href="styles.css" media="all" rel="stylesheet" />
-<link type="text/css" href="skitter.styles.css" media="all" rel="stylesheet" />
-<link type="text/css" href="highlight.black.css" media="all" rel="stylesheet" />
-
+<!--CSS-->
+<link type="text/css" href="example.css" rel="stylesheet">
+<link type="text/css" href="styles.css" media="all" rel="stylesheet">
+<link type="text/css" href="skitter.styles.css" media="all" rel="stylesheet">
+<link type="text/css" href="highlight.black.css" media="all" rel="stylesheet">
+<link type="text/css" href="jquery-wijmo.css" rel="stylesheet" title="rocket-jqueryui">
+<link href="jquery.wijmo-complete.all.2.2.0.min.css" rel="stylesheet" type="text/css">
+<link href="jquery.zrssfeed.css" rel="stylesheet" type="text/css">
+<!--JS-->
 <script type="text/javascript" src="jquery-1.8.1.min.js"></script>
 <script type="text/javascript" src="jquery.easing.1.3.js"></script>
 <script type="text/javascript" src="jquery.animate-colors-min.js"></script>
@@ -19,17 +22,20 @@
 <script type="text/javascript" src="jquery.mousewheel.js"></script>
 <script type="text/javascript" src="page.js"></script>
 <script type="text/javascript" src="jquery.zweatherfeed.min.js"></script>
-<script src="http://yui.yahooapis.com/3.7.3/build/yui/yui-min.js"></script>
+<script type="text/javascript" src="jquery.wijmo-open.all.2.2.0.min.js"></script>
+<script type="text/javascript" src="jquery.wijmo-complete.all.2.2.0.min.js"></script>
+<script type="text/javascript" src="jquery.zrssfeed.min.js"></script>
 
-<!--Theme-->
-<link href="http://cdn.wijmo.com/themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" title="rocket-jqueryui" />
-  
-<!--Wijmo Widgets CSS-->
-<link href="http://cdn.wijmo.com/jquery.wijmo-complete.all.2.2.0.min.css" rel="stylesheet" type="text/css" />
-  
-<!--Wijmo Widgets JavaScript-->
-<script src="http://cdn.wijmo.com/jquery.wijmo-open.all.2.2.0.min.js" type="text/javascript"></script>
-<script src="http://cdn.wijmo.com/jquery.wijmo-complete.all.2.2.0.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function () 
+{
+	$('#news').rssfeed('http://news.rti.org.tw/News_RSS.aspx', 
+	{
+		limit: 5,
+		linktarget: '_blank'
+	});
+});
+</script>
 
 <script type="text/javascript">
 	var box_skitter_large = null;
@@ -66,22 +72,27 @@
 </script>
 
 <script type="text/javascript">
-$(document).ready(function () {
-	$('#test').weatherfeed(['UKXX0085','EGXX0011','UKXX0061','CAXX0518','CHXX0049']);
+$(document).ready(function () 
+{
+	$('#test').weatherfeed(['TWXX0021', 'TWXX0019','TWXX0013']);
 });
 </script>
 
- <style type='text/css'>
+<style type='text/css'>
     #results{ width: 40%; margin-left: 30%; border: 1px solid gray; padding: 5px; height: 200px; overflow: auto; } 
-  </style>
-  <script type='text/javascript'>
+</style>
+  
+<script type='text/javascript'>
     // Parses returned response and extracts
     // the title, links, and text of each news story.
-    function top_stories(o){
+    function top_stories(o)
+    {
       var items = o.query.results.item;
       var output = '';
       var no_items=items.length;
-      for(var i=0;i<no_items;i++){
+      
+      for(var i=0;i<no_items;i++)
+      {
         var title = items[i].title;
         var link = items[i].link;
         var desc = items[i].description;
@@ -90,7 +101,7 @@ $(document).ready(function () {
       // Place news stories in div tag
       document.getElementById('results').innerHTML = output;  
     }
-    </script>
+</script>
 
 </head>
 
@@ -295,15 +306,8 @@ $(document).ready(function () {
 			<section class="content-width">
 				<h1>News</h1>
 				
-				<div id='results'></div>
-  <script src='http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22http%3A%2F%2Frss.news.yahoo.com%2Frss%2Ftopstories%22&format=json&callback=cbfunc'>
-  </script> 
+<div id="news"></div>
 				
-				<div class="clear">
-				
-				
-				
-			</div>
 			</section>
 		</article>
 		<article id="page-comments" class="page">
