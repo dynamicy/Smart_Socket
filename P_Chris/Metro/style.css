@@ -1,0 +1,597 @@
+* 
+{
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+#dim, .page, .page p, .page a 
+{
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", sans-serif;
+	font-weight: 300;
+	line-height: 20px;
+	letter-spacing: 0px;
+	color: #222;
+	text-align: justify;
+}
+
+.page a,
+.page p,
+.page div 
+{
+	font-size: 15px;
+}
+
+header, nav 
+{
+	display: block;
+	position: relative;	
+}	
+
+img, a, *:focus 
+{
+	outline: none;
+}
+
+a 
+{
+	text-decoration: none;
+}
+
+.c 
+{
+	text-align: center;
+}
+
+.l 
+{
+	text-align: left;
+}
+
+.r 
+{
+	text-align: right;
+}
+
+.j 
+{
+	text-align: justify;
+}
+
+.b 
+{
+	font-weight: bold;
+}
+
+.i 
+{
+	font-style: italic;
+}
+
+span.hl 
+{
+	font-weight: bold;
+	color: #444;
+}
+
+.fl 
+{
+	float: left;
+}
+
+.fr 
+{
+	float: right;
+}
+
+.active, .active:hover, .active *, .active *:hover 
+{
+	cursor: default;
+}
+
+h1, h2, h3, h4, h5 
+{
+	font-weight: normal;
+}
+
+.clear, form br 
+{
+	display: block;
+	clear: both;
+	float: none;
+	line-height: 0px;
+	font-size: 0px;
+}
+
+.notext 
+{
+	line-height: 0px;
+	font-size: 0px;
+}
+
+.noheight 
+{
+	height: 0px;
+	line-height: 0px;
+	font-size: 0px;
+	overflow: hidden;
+}
+
+.hidden 
+{
+	display: none;
+}
+
+.forcew 
+{
+	display: inline-block;
+}
+
+body 
+{
+	background: #eee url(bg.jpg) center top;
+}
+
+#dim 
+{
+	min-width: 1000px;
+	overflow: hidden;
+	text-align: center;
+}
+
+header 
+{
+	padding-bottom: 40px;
+}
+
+.page 
+{
+	position: relative;
+	width: 900px;
+	margin: 50px auto 50px auto;
+	padding: 5px;
+}
+
+.bg 
+{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	background: white;
+	box-shadow: 0px 3px 15px -10px #000;
+	-moz-box-shadow: 0px 3px 15px -10px #000;
+	-webkit-box-shadow: 0px 3px 15px -10px #000;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;	
+}
+
+.page .inner 
+{
+	position: relative;
+	padding: 45px 45px 85px 45px;
+	box-shadow: 0px 0px 100px #f1f1f1 inset;
+	background: white;
+}
+
+#doc_banner 
+{
+	margin: 100px 0px 100px -155px;
+}
+
+.page .inner a 
+{
+	border-bottom: 1px dotted #222;
+}
+
+.page .inner a:hover 
+{
+	color: #000;
+	border-color: #000;
+}
+
+.page .inner h2.description a 
+{
+	color: #555;
+	border-color: #555;
+}
+
+.page .inner h2.description a:hover 
+{
+	color: #111;
+	border-color: #111;
+}
+
+nav a 
+{
+	border: 0px !important;
+}
+
+.page h1 
+{
+	font-size: 30px;
+}
+
+.page h2 
+{
+	margin-top: 10px;
+	font-size: 22px;
+	color: #555;
+}
+
+.page h2.description 
+{
+	margin: 20px 100px 0px 30px;
+	font-size: 15px;
+	font-style: italic;
+}
+
+.page h3 
+{
+	margin: 40px 0px 20px 0px;
+	font-size: 22px;
+}
+
+.page .inner p 
+{
+	margin-left: 30px;
+}
+
+.page .inner ul 
+{
+	margin: 20px 0px 0px 50px;
+	list-style: circle;
+}
+
+.page .inner p 
+{
+	margin-top: 20px;
+	list-style: circle;
+}
+
+.sep 
+{
+	width: 840px;
+	height: 4px;
+	margin: 50px 0px 0px -15px;
+	background: url(static.png) 0px -206px;
+}
+
+nav 
+{
+	margin-top: 30px;
+}
+
+nav a, nav span 
+{
+	margin-top: 10px;
+	float: left;
+	display: block;
+	line-height: 80px;
+	height: 80px;
+	color: #555;	
+	margin-right: 30px;
+	font-size: 12px;
+}
+
+nav a 
+{
+	width: 80px;
+	margin-right: 10px;
+	background-image: url(logos.png);
+}
+
+#kmlogo 
+{
+	background-position: 0px -80px;
+}
+
+#kmlogo:hover 
+{
+	background-position: 0px 0px;
+}
+
+#fblogo {
+	background-position: -80px -80px;
+}
+
+#fblogo:hover {
+	background-position: -80px 0px;
+}
+
+#cclogo {
+	background-position: -160px -80px;
+}
+
+#cclogo:hover {
+	background-position: -160px 0px;
+}
+
+
+
+body.dark {
+}
+
+body.dark .page * {
+	text-shadow: none;
+	color: #ccc;	
+}
+
+body.dark .page .bg {
+	background: #000;
+	box-shadow: 0px 3px 15px -5px #000;
+	-moz-box-shadow: 0px 3px 15px -5px #000;
+	-webkit-box-shadow: 0px 3px 15px -5px #000;
+}
+
+body.dark .page .inner {
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	background: #111;
+}
+
+body.dark .inner a {
+	color: #999;
+	border-bottom: 1px dotted #555;
+}
+
+body.dark .inner a:hover {
+	color: #bbb;
+	border-bottom: 1px dotted #777;
+}
+
+
+
+.doc {
+	margin-left: 155px;
+	padding-bottom: 115px;
+}
+
+.doc h3 {
+	margin-top: 100px;
+}
+
+.doc ul {
+	margin: 10px 0px 0px 50px !important;
+	list-style: upper-alpha !important;
+}
+
+.doc ul li {
+	margin-bottom: 10px;
+}
+
+.doc ul li ul {
+	margin: 10px 0px 15px 30px !important;
+	list-style: decimal !important;
+}
+
+.doc ul li ul li {
+	margin-bottom: 5px;
+}
+
+
+
+#ws {
+	width: 1000px;
+	margin: 10px auto;
+}
+
+#wslogo 
+{
+	width: 233px;
+	height: 98px;
+	float: left;
+	background: url(sprite.png) 0px 0px;
+}
+
+#wsmotto 
+{
+	margin: 7px 7px 0px 0px;
+	width: 361px;
+	height: 90px;
+	float: right;
+	background: url(sprite.png) 0px -98px;
+}
+
+#ws-features 
+{
+	margin: 0 auto;
+}
+
+#ws-examples,
+#ws-examples .inner,
+.ws-example 
+{
+	position: relative;
+}
+
+#ws-examples 
+{
+	width: 100%;
+	overflow: hidden;
+	padding: 75px 0px 0px 0px;
+	margin-top: -75px;
+	height: 555px;
+}
+
+#ws-examples .inner 
+{
+	left: 0px;
+	width: 300%;
+	margin: 0px !important;
+	padding: 0px !important;
+	background: transparent !important;
+	box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+}
+
+.ws-example 
+{
+	width: 33.33%;
+	float: left;
+	min-height: 1px;
+}
+
+.ws-ex-inner 
+{
+	width: 1000px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.ws-example p.desc 
+{
+	margin-top: 20px;
+	padding: 10px 20px;
+	font-family: arial, helvetica !important;
+	font-size: 20px;
+	color: #222;
+	text-shadow: 0px 1px 0px #cc8b6e;
+	-moz-text-shadow: 0px 1px 0px #cc8b6e;
+	-webkit-text-shadow: 0px 1px 0px #cc8b6e;
+	text-align: center;
+}
+
+#ws-ex-nav 
+{
+	width: 450px;
+	margin: 30px auto 0px auto;
+	padding: 20px;
+	position: relative;
+}
+
+.ws-ex-nav-bg 
+{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	box-shadow: 0px 5px 20px -2px black;
+	-moz-box-shadow: 0px 5px 20px -2px black;
+	-webkit-box-shadow: 0px 5px 20px -2px black;
+	background: black;
+	background: -moz-linear-gradient(top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.75) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.55)), color-stop(100%,rgba(0,0,0,0.75))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.75) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.75) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.75) 100%); /* IE10+ */
+	background: linear-gradient(top, rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.75) 100%); /* W3C */
+	filter: alpha(opacity=65);	
+}
+
+.ws-ex-nav-inner {
+	position: relative;
+	text-align: left;
+}
+
+.ws-ex-nav-inner h3 {
+	font-weight: bold;
+	color: #cec8c3;
+}
+
+.examples {
+	font-family: helvetica, arial, serif;
+	font-weight: normal;
+	list-style: none;
+	margin-top: 15px;
+}
+
+.examples li a {
+	font-size: 17px;
+	border: 0px !important;
+	color: #b7b0a9;
+}
+
+.examples li a:hover,
+.ws-active .ws-ex 
+{
+	color: #f3ddcc;
+}
+
+#setweather 
+{
+	width: 280px;
+	height: 495px;
+	text-align: left;
+	font-family: arial, helvetica !important;
+	font-size: 16px;
+	color: #222;
+	text-shadow: 0px 1px 0px #cc8b6e;
+	-moz-text-shadow: 0px 1px 0px #cc8b6e;
+	-webkit-text-shadow: 0px 1px 0px #cc8b6e;
+	left: 0px !important;
+	margin: 0px !important;
+	display: block;
+	position: relative;
+}
+
+#setweather h3 
+{
+	margin: 10px 0px;
+	font-family: arial, helvetica !important;
+	font-size: 20px;
+	color: #222;
+	text-shadow: 0px 1px 0px #cc8b6e;
+	-moz-text-shadow: 0px 1px 0px #cc8b6e;
+	-webkit-text-shadow: 0px 1px 0px #cc8b6e;
+}
+
+#setweather input 
+{
+	margin-left: 10px;
+}
+
+.iconlink 
+{
+	border: 0px !important;
+}
+
+.iconlink img 
+{
+	vertical-align: middle;
+}
+
+/* WeatherSlider Style */
+
+#weatherslider 
+{
+	width: 990px;
+	height: 495px;
+}
+
+#ws-widgets 
+{
+	width: 1000px;
+	margin: 0 auto;
+}
+
+#ws-widgets .ws-widget 
+{
+	width: 240px;
+	height: 240px;
+	float: left;
+	margin: 255px 5px 0px 5px;
+}
+
+#ws-weathers 
+{
+	width: 690px;
+	height: 495px;
+	position: absolute;
+	left: 50%;
+	margin-left: -195px;
+	top: 0px;
+}
+
+#ws-weathers .ws-infobox 
+{
+	display: none !important;
+}
