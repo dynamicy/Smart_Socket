@@ -302,19 +302,7 @@ a, a img
 	padding-left:80px; 
 }
 
-#bt-up 
-{ 
-	position:fixed; 
-	top: 50%; 
-	right:50px; 
-	width:100px; 
-	height:100px; 
-	opacity:0.2; 
-	background:url(images/bt-up.png) no-repeat left top; 
-	text-indent:-9999em; 
-	overflow:hidden; 
-	cursor:pointer; 
-}
+
 
 /* =Buttons
 -------------------------------------------------------------- */

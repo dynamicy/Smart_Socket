@@ -50,43 +50,7 @@ var options_skitter = {
 
 $(document).ready(function() {
 
-	// var code = $('#box-your-code pre').text().split("\n");
-	// var new_code = '';
-	// var class_name = '';
-	// $.each(code, function(i, line) {
-	// 	class_name = (i % 2 == 0) ? 'odd' : 'even';
-	// 	new_code += '<div class="'+class_name+'">'+line+'</div>';
-	// });
-	// $('#box-your-code').html(new_code);
-
-	var btUpX = $('#bt-up').offset().left,
-		btUpY = $('#bt-up').offset().top,
-		btUpArea = 100,
-		isAnimatingBtUp = false,
-		leftBtUp = 0,
-		topBtUp = 0;
-
-	$('#bt-up').click(function() {
-		$('html,body').animate({ scrollTop: 0 }, 700, 'easeOutQuad');
-		return false;
-	});
-
-	$(document).mousemove(function(e) {
-		if ((Math.abs(e.clientX - btUpX) < btUpArea && Math.abs(e.clientY - btUpY) < btUpArea) || e.clientX + 50 > btUpX) {
-			topBtUp = (e.clientY - 100) < 100 ? 110 : e.clientY - 50;
-			topBtUp = (topBtUp + 200) > $(window).height() ? $(window).height() - 155 : topBtUp;
-			leftBtUp = (e.clientX + 60) > $(window).width() ? $(window).width() - 115 : e.clientX - 50;
-			$('#bt-up').stop().animate({top: topBtUp, left: leftBtUp, opacity:1}, 200, 'easeOutQuad');
-			isAnimatingBtUp = false;
-		}
-		else if (!isAnimatingBtUp && $('#bt-up').offset().top != btUpY && $('#bt-up').offset().left != btUpX) {
-			isAnimatingBtUp = true;
-			$('#bt-up').stop().animate({top: btUpY, left: btUpX, opacity:0.2}, 500, 'easeOutQuad', function() {
-				isAnimatingBtUp = false;
-			});
-		}
-	});
-
+	
 	$('pre.code').highlight({source:1, zebra:1, indent:'space', list:'ol'});
 
 	$('#bt-apply').backgroundOver();
