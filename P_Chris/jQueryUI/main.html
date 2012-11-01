@@ -1,112 +1,366 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en-us">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>jQuery OneByOne Slider Plugin</title>
-  	<script src="jquery-1.8.1.min.js"></script>
-    <script src="jquery.onebyone.min.js"></script>              
-	<script src="jquery.touchwipe.min.js"></script> 
-    <script type="text/javascript" charset="utf-8">	
-	 $(document).ready(function() { 
-		
-        $('#banner').oneByOne({
-			className: 'oneByOne1',	             
-			easeType: 'random',
-			slideShow: true
-		});  
-		
-		
-	 });
-   	
-	 
-    </script> 
-    <link href="jquery.onebyone.css" rel="stylesheet" type="text/css">
-    <link href="example1.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="css/animate.css">     
-	<style type="text/css" media="screen">
-		#wrapper{              
-			width: 100%;     
-			-webkit-user-select: none;	  			
-		}
-       
-		#ep1{
-			position:absolute;
-			left: 36px;
-			top: 50px; 
-	
-		}
+<title></title>
+<meta name="charset" value="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="shortcut icon" href="images/favicon.ico">
+<link href='http://fonts.googleapis.com/css?family=Mako' rel='stylesheet' type='text/css'>
+<!--CSS-->
+<link type="text/css" href="example.css" rel="stylesheet">
+<link type="text/css" href="styles.css" media="all" rel="stylesheet">
+<link type="text/css" href="skitter.styles.css" media="all" rel="stylesheet">
+<link type="text/css" href="highlight.black.css" media="all" rel="stylesheet">
+<link type="text/css" href="jquery-wijmo.css" rel="stylesheet" title="rocket-jqueryui">
+<link type="text/css" href="jquery.wijmo-complete.all.2.2.0.min.css" rel="stylesheet">
+<link type="text/css" href="jquery.zrssfeed.css" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="weatherslider.css">
+<!--JS-->
+<script type="text/javascript" src="jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="jquery.animate-colors-min.js"></script>
+<script type="text/javascript" src="jquery.skitter.min.js"></script>
+<script type="text/javascript" src="highlight.js"></script>
+<script type="text/javascript" src="sexy-bookmarks-public.js"></script>
+<script type="text/javascript" src="jquery.mousewheel.js"></script>
+<script type="text/javascript" src="page.js"></script>
+<script type="text/javascript" src="jquery.zweatherfeed.min.js"></script>
+<script type="text/javascript" src="jquery.zrssfeed.min.js"></script>
+<script type="text/javascript" src="jquery-animate-background-position.js"></script>
+<script type="text/javascript" src="weatherslider.kreaturamedia.jquery-min.js"></script>
+<script type="text/javascript" src="example.js"></script>
+		<script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-3549989-2']);
+            _gaq.push(['_trackPageview']);
 
-    
-		.otherExample{ 
-			position: absolute;
-			left: 36px;
-			top: 520px;
-		}
-		.otherExample a{ 
-			display: block;
-			float: left;
-			margin-right: 16px;
-			color: #0066FF;
-		}    
- 		.otherExample a:hover{ 
-			color: #B22222;
-			text-decoration: underline;
-		}     		
-		
-	</style>
-	
-	
+            (function() 
+            {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = 'ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function() 
+            {
+                $('#news').rssfeed('http://news.rti.org.tw/News_RSS.aspx', 
+                {
+                    limit: 3,
+                    linktarget: '_blank'
+                });
+            });
+        </script>
+        <script type="text/javascript">
+            var box_skitter_large = null;
+            $(document).ready(function() 
+            {
+                $('.box_skitter_large').skitter(
+                {
+                    numbers_align: "center",
+                    dots: true,
+                    preview: true,
+                    focus: true,
+                    focus_position: "leftTop",
+                    controls: true,
+                    controls_position: "leftTop",
+                    progressbar: true,
+                    progressbar_css: 
+                    {
+                        top: '5px',
+                        left: '590px',
+                        height: 10,
+                        borderRadius: '2px',
+                        width: 200,
+                        backgroundColor: '#000',
+                        opacity: .7
+                    },
+                    animateNumberOver: 
+                    {
+                        'backgroundColor': '#555'
+                    },
+                    enable_navigation_keys: true,
+                    onLoad: function(self) 
+                    {
+                        if (this.thumbs) $('.border-skitter').height(350);
+                        box_skitter_large = self;
+                    }
+                });
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function() 
+            {
+                $('#test').weatherfeed(['TWXX0021', 'TWXX0019', 'TWXX0013']);
+            });
+        </script>
+        <style type='text/css'>
+            #results 
+            { 
+            	width: 40%; 
+            	margin-left: 30%; 
+            	border: 1px solid gray; 
+            	padding: 5px; 
+            	height: 200px; 
+            	overflow: auto; 
+            }
+        </style>
+        <script type='text/javascript'>
+            // Parses returned response and extracts
+            // the title, links, and text of each news story.
+            function top_stories(o) 
+            {
+                var items = o.query.results.item;
+                var output = '';
+                var no_items = items.length;
+
+                for (var i = 0; i < no_items; i++) 
+                {
+                    var title = items[i].title;
+                    var link = items[i].link;
+                    var desc = items[i].description;
+                    output += "<h3><a href='" + link + "'>" + title + "</a></h3>" + desc + "<hr/>";
+                }
+                // Place news stories in div tag
+                document.getElementById('results').innerHTML = output;
+            }
+        </script>
 </head>
-
 <body>
-	<div id="wrapper">
+        <div id="page">
+            <header id="header">
+                <div class="content-width">
+                    <nav>
+                        <a href="#home" rel="page-home" class="active">Media</a>
+                        <a href="#documentation" rel="page-documentation">Appliances</a>
+                        <a href="#updatelog" rel="page-updatelog">Weather</a>
+                    </nav>
+                </div>
+            </header>
+            <article id="page-home" class="page active">
+                <section class="border-skitter content-width">
+                    <video controls="controls" id="vid1" width="800" height="600">
+                        <source src="http://cdn.wijmo.com/movies/wijmo.theora.ogv" type='video/ogg; codecs="theora, vorbis"'>
+                            <source src="http://cdn.wijmo.com/movies/wijmo.mp4video.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                                HTML5 is required to see this video.
+                    </video>
+                </section>
+                <div id="box-customize-features">
+                    <div id="bg-customize-features">
+                    </div>
+                </div>
+                <div id="box-bts-config" class="content-width">
+                    <a href="#" id="bt-config" class="bt-config">Configuration</a>
+                    <a href="#" id="bt-apply">Apply</a>
+                </div>
+                <div id="box-config">
+                    <section class="content-width">
+                        <nav id="nav-config">
+                            <a href="#box-animations" class="active">Animation</a>
+                            <a href="#box-loading">Loading</a>
+                            <a href="#box-navigation">Navigation</a>
+                            <a href="#box-options">Options</a>
+                            <a href="#box-views">Views</a>
+                            <a href="#box-your-code">Your code</a>
+                        </nav>
+                        <div id="box-all-config" class="content-width">
+                            <div id="box-animations" class="item-config content-width">
+                                <ul class="list-buttons">
+                                    <li>
+                                        <a href="#" rel="cube" class="">cube</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" rel="cubeRandom" class="">cubeRandom</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" rel="block" class="">block</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" rel="cubeStop" class="">cubeStop</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" rel="cubeHide" class="">cubeHide</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" rel="cubeSize" class="">cubeSize</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" rel="horizontal" class="">horizontal</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" rel="showBars" class="">showBars</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" rel="showBarsRandom" class="">showBarsRandom</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" rel="tube" class="">tube</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" rel="fade" class="">fade</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" rel="fadeFour" class="">fadeFour</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" rel="paralell" class="">parallel</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="box-loading" class="item-config content-width">
+                                <ul class="list-buttons">
+                                    <li>
+                                        <a href="#" rel="html" class="">HTML</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" rel="xml" class="">XML</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="box-navigation" class="item-config content-width">
+                                <ul class="list-buttons">
+                                    <li>
+                                        <a href="#" rel="numbers" class="">Numbers</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" rel="thumbs" class="">Thumbs</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" rel="dots" class="">Dots</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" rel="dots_preview" class="">Dots with preview</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="box-options" class="item-config content-width">
+                                <ul class="list-buttons">
+                                    <li>
+                                        <a href="#" rel="hideTools" class="">Hide Tools</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" rel="show_randomly" class="">Randomly Sliders</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" rel="controls" class="select-item ">Play/Pause</a>
+                                        <ul class="list-select">
+                                            <li>
+                                                <a href="#" rel="controls_position" position="center" class="">Center</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" rel="controls_position" position="leftTop" class="">Left Top</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" rel="controls_position" position="rightTop" class="">Right Top</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" rel="controls_position" position="leftBottom" class="">Left Bottom</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" rel="controls_position" position="rightBottom" class="">Right Bottom</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" rel="focus" class="select-item ">Focus Slideshow</a>
+                                        <ul class="list-select">
+                                            <li>
+                                                <a href="#" rel="focus_position" position="center" class="">Center</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" rel="focus_position" position="leftTop" class="">Left Top</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" rel="focus_position" position="rightTop" class="">Right Top</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" rel="focus_position" position="leftBottom" class="">Left Bottom</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" rel="focus_position" position="rightBottom" class="">Right Bottom</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" rel="numbers_align" class="select-item ">Numbers/dots align</a>
+                                        <ul class="list-select">
+                                            <li>
+                                                <a href="#" rel="numbers_align" position="center" class="">Center</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" rel="numbers_align" position="left" class="">Left</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" rel="numbers_align" position="right" class="">Right</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" rel="progressbar" class="">Progress Bar</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" rel="enable_navigation_keys" class="">Enable Navigation Keys</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div id="box-banner-help">
+                </div>
+            </article>
+            <article id="page-documentation" class="page">
+                <section class="content-width">
+                    <h1>
+                        Appliance
+                    </h1>
+                    <div class="clear">
+                    </div>
+                </section>
+            </article>
+            <article id="page-updatelog" class="page">
+                <table>
+                    <tr>
+                        <td>
+                            <div id="ws-examples">
+                                <div class="ws-example">
+                                    <div id="weatherslider">
+                                        <span class="ws-location">
+                                            Taipei, TW
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="news">
+                            </div>
+                        </td>
+            </article>
+            <div class="clear">
+            </div>
+            <div id="bt-up">
+                Up!
+            </div>
+        </div>
+        </footer>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-1966000-13']);
+            _gaq.push(['_trackPageview']);
 
-      	<div id="ep1"><img src="example1.gif" alt="example" /></div>
-		<div id="banner">  				
-		<div class="oneByOne_item">     
-			<span class="text1">iOS Friendly</span>			
-			<span class="text2">Drag and throw the banner</span>									
-			<img src="book1.png" class="img1" />
-			<img src="book2.png" class="img2" />
-		</div>
-		<div class="oneByOne_item">                      
-			<img src="monitor.png" class="img3" data-animate="lightSpeedIn" />
-			<img src="fsw.png" class="img4" data-animate="lightSpeedIn" />
-			<img src="slider-fsw-logo.png" class="img5" data-animate="lightSpeedIn" />
-			<span class="text3" data-animate="bounceIn">Maintainable Animation</span>			
-			<span class="text4" data-animate="lightSpeedIn">A lightSpeedIn animation here</span>						
-			<span class="text4" data-animate="fadeInLeftBig">A fadeInLeftBig animation here</span>									
-			<span class="text4" data-animate="fadeInRightBig">A fadeInRightBig animation here</span>												
-		</div>
-		<div class="oneByOne_item slide3">
-			<img src="wordpress-256x256.png" class="wp3" alt=""></img>			            
-			<img src="wordpress-128x128.png" class="wp2" alt=""></img>			    
-			<img src="wordpress-64x64.png" class="wp1" alt=""></img>  			
-			<span class="txt1"><a href="http://themeforest.net/user/sike">I'm WordPress</a></span>			
-			<span class="txt2">Above is a hyperlink ;)</span>												
-		</div>
+            (function() 
+            {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = 'ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    </body>
 
-		<div class="oneByOne_item">
-			<span class="wp1">Touch Screen</span>			
-			<span class="wp2">Please Wipe Left or Right</span>															
-			<img src="wordpress-64x64.png" class="wp1" alt=""></img>
-			<img src="wordpress-128x128.png" class="wp2" alt=""></img>			
-			<img src="wordpress-256x256.png" class="wp3" alt=""></img>
-		</div>                                                                                              
-
-		<div class="oneByOne_item">                                 	
-			<img src="bigimage.jpg"  class="bigImage" ></img>
-			<span class="slide5Txt1">Support Big Image</span>								
-			<span class="slide5Txt2">Unlimited Text block</span>											
-		</div>	
-		
-		</div>    
-	
-        <div class="otherExample"><a href="example2.html">Example 2</a> <a href="responsive.html">Responsive Example</a></div>	
-        	
-        </div>          
-    </div>
-
-</body>
 </html>
