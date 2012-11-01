@@ -1,27 +1,26 @@
 ﻿@charset "UTF-8";
-/*
- * Example of zRSSFeed Styling
- *
- * Version: 1.1.9
- * (c) Copyright 2011-2012, Zazar Ltd
- *
- */
 
-body {
-	margin: 1em 3em;
+body 
+{
+	margin: 0em 0em;
 	font-family: Tahoma, Genevam, sans-serif;
 }
 
-.rssFeed {
+.rssFeed 
+{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 90%;
-	margin: 2em 3em;
+	margin: 20em 20em;
 }
-.rssFeed a {
+
+.rssFeed a 
+{
 	color: #444;
 	text-decoration: none;
 }
-.rssFeed a:hover {
+
+.rssFeed a:hover 
+{
 	color: #000;
 	text-decoration: underline;
 }

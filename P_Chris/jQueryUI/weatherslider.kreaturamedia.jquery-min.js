@@ -28,13 +28,13 @@
                 a(b).css("width", 1300)
             }
             if (a(b).width() < 240) {
-                a(b).css("width", 240)
+                a(b).css("width", 640)
             }
             if (a(b).height() > 600) {
                 a(b).css("height", 600)
             }
             if (a(b).height() < 200) {
-                a(b).css("height", 200)
+                a(b).css("height", 480)
             }
             if (a(b).css("position") == "static") {
                 a(b).css("position", "relative")

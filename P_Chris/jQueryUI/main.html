@@ -129,17 +129,18 @@
         </script>
 </head>
 <body>
-        <div id="page">
-            <header id="header">
-                <div class="content-width">
-                    <nav>
-                        <a href="#home" rel="page-home" class="active">Media</a>
-                        <a href="#documentation" rel="page-documentation">Appliances</a>
-                        <a href="#updatelog" rel="page-updatelog">Weather</a>
-                    </nav>
-                </div>
-            </header>
-            <article id="page-home" class="page active">
+<div id="page">
+	<header id="header">
+		<div class="content-width">
+			<nav>
+				<a href="#home" rel="page-home" class="active">Media</a>
+                <a href="#documentation" rel="page-documentation">Appliances</a>
+                <a href="#updatelog" rel="page-updatelog">Weather</a>
+                <a href="#updatelog" rel="page-updatelog">News</a>
+            </nav>
+        </div>
+     </header>
+     	<article id="page-home" class="page active">
                 <section class="border-skitter content-width">
                     <video controls="controls" id="vid1" width="800" height="600">
                         <source src="http://cdn.wijmo.com/movies/wijmo.theora.ogv" type='video/ogg; codecs="theora, vorbis"'>
@@ -320,32 +321,32 @@
                     </div>
                 </section>
             </article>
-            <article id="page-updatelog" class="page">
-                <table>
-                    <tr>
-                        <td>
-                            <div id="ws-examples">
-                                <div class="ws-example">
-                                    <div id="weatherslider">
-                                        <span class="ws-location">
-                                            Taipei, TW
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div id="news">
-                            </div>
-                        </td>
+            <article id="page-updatelog" class="page">         
+            	<div id="ws-examples">
+            		<div class="ws-example">
+            			<div id="weatherslider">
+            				<span class="ws-location">Taipei, TW</span>
+            			</div>
+            		</div>
+            	</div>    
             </article>
+             <article id="page-documentation" class="page">
+                <section class="content-width">
+                    <h1>
+                        News
+                    </h1>
+                      <div id="news">
+                    </div>
+                </section>
+            </article>
+
             <div class="clear">
             </div>
             <div id="bt-up">
                 Up!
             </div>
-        </div>
-        </footer>
+</div>
+
         <script type="text/javascript">
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-1966000-13']);
@@ -361,6 +362,5 @@
                 s.parentNode.insertBefore(ga, s);
             })();
         </script>
-    </body>
-
+</body>
 </html>
