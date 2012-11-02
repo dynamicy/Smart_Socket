@@ -10,8 +10,6 @@
 <link type="text/css" href="styles.css" media="all" rel="stylesheet">
 <link type="text/css" href="skitter.styles.css" media="all" rel="stylesheet">
 <link type="text/css" href="highlight.black.css" media="all" rel="stylesheet">
-<link type="text/css" href="jquery-wijmo.css" rel="stylesheet" title="rocket-jqueryui">
-<link type="text/css" href="jquery.wijmo-complete.all.2.2.0.min.css" rel="stylesheet">
 <link type="text/css" href="jquery.zrssfeed.css" rel="stylesheet">
 <link type="text/css" rel="stylesheet" href="weatherslider.css">
 <!--JS-->
@@ -43,16 +41,6 @@
                 var s = document.getElementsByTagName('script')[0];
                 s.parentNode.insertBefore(ga, s);
             })();
-        </script>
-        <script type="text/javascript">
-            $(document).ready(function() 
-            {
-                $('#osgi').rssfeed('https://raw.github.com/dynamicy/Smart_Socket/master/sample/des.xml', 
-                {
-                    limit: 10,
-                    linktarget: '_blank'
-                });
-            });
         </script>
         <script type="text/javascript">
             $(document).ready(function() 
@@ -189,6 +177,8 @@ scrolling="no" frameborder="0" align="center"></iframe>
 				            document.write("</td></tr>");
 				            document.write(x[i].getElementsByTagName("STATUS")[0].childNodes[0].nodeValue);
 				            document.write("</td></tr>");  
+				            document.write(x[i].getElementsByTagName("SERVICE1")[0].childNodes[0].nodeValue);
+				            document.write("</td></tr>");  
 				        }
 				        document.write("</table>");
 				    </script>
@@ -196,14 +186,14 @@ scrolling="no" frameborder="0" align="center"></iframe>
                 </section>
             </article>
             <article id="page-updatelog" class="page">         
-           <div id="osgi">
+           <div id="news"></div>
             </article>
              <article id="page-documentation" class="page">
                 <section class="content-width">
                     <h1>
                         News
                     </h1>
-                      <div id="osgi">
+                      <div id="news">
                     </div>
                 </section>
             </article>    
