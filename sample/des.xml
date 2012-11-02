@@ -6,7 +6,7 @@
    <TYPE>Control</TYPE>
    <PATH>192.168.0.1</PATH>
    <STATUS>On</STATUS>
-   <SERVICE1>UPnP_Status_Request</SERVICE2>
+   <SERVICE1>UPnP_Status_Request</SERVICE1>
 </BUNDLE>
 <BUNDLE>
    <NAME>MMN_SmartSocketBundle.Service_SmartSocket_Interface</NAME>
