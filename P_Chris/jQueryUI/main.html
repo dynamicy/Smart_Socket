@@ -134,8 +134,8 @@
 			<nav>
 				<a href="#home" rel="page-home" class="active">Media</a>
                 <a href="#documentation" rel="page-documentation">Appliances</a>
-                <a href="#updatelog" rel="page-updatelog">Weather</a>
                 <a href="#updatelog" rel="page-updatelog">News</a>
+                <a href="#download" rel="page-download">Weather</a>
             </nav>
         </div>
      </header>
@@ -146,6 +146,7 @@ scrolling="no" frameborder="0" align="center"></iframe>
 
 
             </article>
+
             <article id="page-documentation" class="page">
                 <section class="content-width">
                     <h1>
@@ -171,12 +172,16 @@ scrolling="no" frameborder="0" align="center"></iframe>
 				            document.write("<tr><td>");
 				            document.write(x[i].getElementsByTagName("NAME")[0].childNodes[0].nodeValue);
 				            document.write("</td><td>");
+				            document.write("<tr><td>");
 				            document.write(x[i].getElementsByTagName("TYPE")[0].childNodes[0].nodeValue);
 				            document.write("</td></tr>");
+				            document.write("<tr><td>");
 				            document.write(x[i].getElementsByTagName("PATH")[0].childNodes[0].nodeValue);
 				            document.write("</td></tr>");
+				            document.write("<tr><td>");
 				            document.write(x[i].getElementsByTagName("STATUS")[0].childNodes[0].nodeValue);
 				            document.write("</td></tr>");  
+				            document.write("<tr><td>");
 				            document.write(x[i].getElementsByTagName("SERVICE1")[0].childNodes[0].nodeValue);
 				            document.write("</td></tr>");  
 				        }
@@ -185,15 +190,16 @@ scrolling="no" frameborder="0" align="center"></iframe>
 
                 </section>
             </article>
-            <article id="page-updatelog" class="page">         
-           <div id="news"></div>
+            <article id="page-updatelog" class="page"> 
+	            <section class="content-width">        
+            	<h1>News</h1>
+            	<div id="news"></div>
             </article>
-             <article id="page-documentation" class="page">
+            
+            <article id="page-download" class="page">
                 <section class="content-width">
-                    <h1>
-                        News
-                    </h1>
-                      <div id="news">
+                    <h1>Weather</h1>
+                      <div id="test">
                     </div>
                 </section>
             </article>    

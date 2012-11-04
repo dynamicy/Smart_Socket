@@ -1,0 +1,329 @@
+.boxsizingBorder {
+	box-sizing: border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+}
+
+#gsma_search * { -webkit-padding-start: 0px; }
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+#gsma_search {
+	width: 100%;	
+	max-width: 100%;
+
+}
+
+#gsma_search_form {
+	float: left;
+	position: relative;
+	height: 24px;
+	width: 100%;
+}
+
+#gsma_form_holder {
+	width: 100%;
+	position: relative;
+	z-index: 4;
+}
+
+#gsma_form_holder table {
+	border-spacing: 0;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	border-collapse: separate;
+}
+
+#gsma_table {
+	height: 330px !important;
+	height: auto !important;
+	min-height: 330px !important;
+}
+
+#gsma_phone_pic {
+	height: 170px !important;
+	height: auto !important;
+	min-height: 170px !important;
+}
+
+
+#gsma_form_holder table td { padding: 0; margin: 0; float:left;}
+#gsma_form_holder table td.searchInput { width: 100%; }
+/*#gsma_form_holder table td.buttonGo { width: 10%; }*/
+
+#gsma_form_holder #gsma_searchfield {
+	width: 100%;
+	padding: 0 150px 0 24px;
+	position: relative;
+	float: left;
+	height: 23px;
+	font:  12px Arial;
+	background: #fff url("search-watermark.gif") no-repeat center right;
+	border: 1px solid #ccc !important;
+	-webkit-appearance: none;
+}
+.gsma_search_icon {
+	position: absolute;
+	top: 5px;
+	left: 3px;
+	width: 19px;
+	height: 14px;
+	z-index: 10;
+}
+
+#gsma_search_button {
+	background: #333;
+	color: #fff;
+	font: bold 12px Arial;
+	padding: 4px 0px;
+	width: 100%;
+	margin: 0;
+	border: none;
+	height: 23px;
+	float: right;
+	text-align: center;
+	
+}
+
+#gsma_search_button:hover { background: #444; }
+#gsma_search_button:active { box-shadow: inset 1px 1px 5px 2px #333;}
+
+.gsma_button { 
+	padding: 3px 0;
+	margin: 10px 0 3px 0; 
+	text-decoration: none;
+	display:block;
+	position: relative;
+	background: #333 !important;
+	color: #fff !important;
+	font: bold 12px Arial !important;
+	text-align: center;
+	box-shadow: none;
+}
+
+
+a.gsma_full_specs_link {
+	width: 75%;
+	display: block;
+	margin: 10px auto 0 auto; padding:8px 5px;
+	clear:both;
+	font: bold 13px Arial !important;
+	color: #fff !important;
+	border-top: 1px solid #818181;
+	text-align: center;
+	text-decoration: none;
+	background: #aaa;
+	box-shadow: inset 0px 2px 4px 0px #999;
+	text-shadow: 1px 1px 2px #666;
+}
+
+.gsma_full_specs_link { position: relative; left: 40px;}
+a.gsma_full_specs_link:hover { color: #eee !important; }
+
+.gsma_button:hover {
+	background: #454545 !important;
+	color: #efefef !important;
+}
+
+#gsma_search_results {
+	overflow: hidden;
+	border: 1px solid #d5d5d5;
+	border-top: none;
+	position: absolute;
+	top:23px; left:0;
+	width: 100%;
+	min-height: 424px;
+}
+
+.gsma_autocomplete {
+	width: 78px;
+	height: 600px !important;
+	height: auto !important;
+	min-height: 600px !important;
+	float: left;
+	background: #f4f4f4;
+	position: absolute; 
+	top:0; left:0;
+	z-index: 3;
+	box-shadow: inset -1px 0px 2px 0px #d5d5d5;
+	-ms-box-shadow: inset -1px 0px 2px 0px #d5d5d5;
+	-moz-box-shadow: inset -1px 0px 2px 0px #d5d5d5;
+	-webkit-box-shadow: inset -1px 0px 2px 0px #d5d5d5;
+	-o-box-shadow: inset -1px 0px 2px 0px #d5d5d5;
+}
+
+.gsma_autocomplete ul {
+	padding: 0 0 0 0;
+	margin: 5px 0;
+	height: auto !important;
+	height: 100%;
+	min-height: 100%;
+}
+.gsma_autocomplete li {
+	width: 100%;
+	clear:both;
+	list-style: none;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+
+.gsma_autocomplete li a:hover { color: #444; }
+.gsma_autocomplete li a {
+	float: left;
+	font: bold 13px Arial;
+	text-decoration: none;
+	display: block;
+	color: #777;
+	border-bottom: 1px solid #e5e5e5;
+	width: 100%;
+	text-align: center;
+	padding: 5px 0;
+	margin: 0;
+	position: relative;
+	background: url('gsma_li.gif') repeat-y -35px 0px;
+}
+	.gsma_autocomplete li a:hover { background: #eee; 
+		box-shadow: inset -1px 0px 0px 0px #d5d5d5;
+		-moz-box-shadow: inset -1px 0px 0px 0px #d5d5d5;
+		-ms-box-shadow: inset -1px 0px 0px 0px #d5d5d5;
+		-o-box-shadow: inset -1px 0px 0px 0px #d5d5d5;
+		-webkit-box-shadow: inset -1px 0px 0px 0px #d5d5d5;
+		background: url('gsma_li_hover.gif') repeat-y 0px 0px;
+	}
+
+.gsma_autocomplete li a.gsma_current {
+	background: #fff;
+	box-shadow: -4px 0px 4px #bcbcbc;
+	-ms-box-shadow: -4px 0px 4px #bcbcbc;
+	-webkit-box-shadow: -4px 0px 4px #bcbcbc;
+	-o-box-shadow: -4px 0px 4px #bcbcbc;
+	-moz-box-shadow: -4px 0px 4px #bcbcbc;
+	color: #000;
+	margin-bottom: 2px;
+	margin-top: -1px;
+	border-bottom: 0 !important;
+}
+.gsma_autocomplete span { display: block; width: 100%; text-align:center; }
+.gsma_autocomplete-selected { border-color: #333 !important; }
+.gsma_autocomplete img {
+	float: left;
+	padding-right: 3px;
+	width: 56px;
+	margin: 0 6px;
+}
+
+
+#gsma_phone_detail {
+	float: left;
+	width: 99%;
+	min-width: 290px !important;
+	height: 451px !important;
+	height: auto !important;
+	min-height: 451px !important;
+	padding: 1% 1% 0 1%;
+	background: #fff;
+	position: relative;
+	z-index: 2;
+}
+	#gsma_phone_detail table, #gsma_phone_detail #gsma_phone_pic {
+		/* padding-left: 210px; */
+		padding-left: 82px;
+	}
+
+	#gsma_phone_detail #animate { 
+		height: 540px !important;
+		height: auto !important;
+		min-height: 540px !important;
+	}
+
+	#gsma_phone_detail table {
+		font: normal 12px Arial;
+		width: 100%;
+		border-collapse: separate;
+	}
+
+	#gsma_phone_detail table th {
+		border-bottom: 1px solid #efefef;
+		color: #000;
+		font: bold 12px Arial;
+		padding: 3px 6px;
+		vertical-align: top;
+		text-transform: uppercase;
+	}
+
+	#gsma_phone_detail table td {
+		text-align: left;
+		background: #F9F9F9;
+		border-bottom: 1px solid #f0f0f0;
+		line-height: 16px;
+		font: normal 12px Arial;
+		padding: 3px 0;
+	}
+	#gsma_phone_detail table td.ttl {
+		color: #7D7464;
+		width: 77px;
+		font: bold 12px Arial;
+		padding: 3px 0;
+		line-height: 16px;
+		text-align: left;
+	}
+	#gsma_phone_detail table tr:last-child td {
+		border-bottom: none;
+	}
+	#gsma_phone_detail table td.ttl a {
+		color: #7D7464;
+	}
+
+
+#gsma_phone_pic {
+	width: 143px;
+	margin: 0 auto;
+	clear: both;
+	display: block;
+	border:none;
+}
+
+#gsma_search img { border: none; }
+
+#gsma_phone_links {
+	float: left;
+	max-width: 100%;
+	background: white;
+	margin: 0 0 15px 0;
+}
+
+#gsma_phone_links a {
+	display:block;
+	font: 12px Arial;
+	color: #b23f33;
+	margin: 0 0 0px 0;
+	padding: 3% 2%;
+	width: 45%;
+	float: left;
+}
+	#gsma_phone_links a:hover {
+		background: #f5f5f5;
+		text-decoration: none;
+	}
+
+#gsma_phone_links a:nth-child(-n+2) {
+	border-bottom: 1px solid #eee;
+}
+
+#gsma_phone_links a:nth-child(2n+1) {
+	border-right: 1px solid #eee;
+}
+
+
+.gsma_clear { height: 0; clear:both; }
+.gsma_full_width { width: 100%; }
+.gsma_hide, .gsma_autocomplete-hide { display: none; }
+.gsma_left { float: left;}
+
