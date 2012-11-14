@@ -1,0 +1,138 @@
+html, body {
+	margin:0;
+	padding:0;
+}
+#buynow {
+	position:absolute;
+	top:0px;
+	right:10px;
+}
+
+#page-wrap {
+	width:100%;
+	margin: 0 auto;
+}
+#top {
+	background:url(../images/top_pixel.jpg) 0 0 repeat-x;
+	text-align:center;
+}
+.example_div {
+	width:100%;
+	height:673px;
+}
+.theCenterer {
+	width:1025px;
+	margin:auto;
+	padding-top:70px;
+}
+.theCenterer img {
+	border:0;
+}
+.theCenterer img:hover {
+filter:alpha(opacity=85); -moz-opacity:0.85; opacity:0.85; -khtml-opacity:0.85;
+}
+
+.divTitle {
+	padding-bottom:0px;
+}
+.skinNo {
+	width:138px;
+	height:35px;
+	font: 24px 'Questrial', sans-serif;
+	color:#FFFFFF;
+	text-indent:9px;
+	background:url(../images/bg_shin_no.png) 0 3px no-repeat;
+	margin:0;
+}
+
+.skinName {
+	font: 34px 'Questrial', sans-serif;
+	color:#000000;
+	text-align:right;
+	text-transform:uppercase;
+}
+
+
+#div1 {
+	background:url(../images/div1_bg.jpg) top center no-repeat;
+}
+#div2 {
+	background:url(../images/div2_bg.jpg) top center no-repeat;
+}
+#div3 {
+	background:url(../images/div3_bg.jpg) top center no-repeat;
+}
+#div4 {
+	background:url(../images/div4_bg.jpg) top center no-repeat;
+}
+#div5 {
+	background:url(../images/div1_bg.jpg) top center no-repeat;
+}
+#div6 {
+	background:url(../images/div4_bg.jpg) top center no-repeat;
+}
+
+
+#footer {
+	background:#000000;
+	width:987px;
+	margin:0 auto;
+	color:#FFFFFF;
+}
+#footer .ulGeneral {
+	padding:14px 0px 0 0px;
+}
+#footer .bg_shadow {
+	background:url(../images/shadow_footer.png) 0 0 no-repeat;
+	padding:14px 20px 0 80px;
+}
+#footer .ulGeneral li {
+	float:none;
+	background: url(../images/list_li.png) 0 6px no-repeat;
+	padding:5px 0px 5px 28px;
+}
+#footer .ulGeneral li:hover {
+	background: url(../images/list_li_hover.png) 0 6px no-repeat;
+}
+#footer .ulGeneral a {
+	font: 16px 'Arimo', sans-serif;
+	color:#FFFFFF;
+	text-decoration:none;
+	text-transform:uppercase;
+}
+#footer .ulGeneral a:hover {
+	color:#00adef;
+}
+#footer .bg_shadow img {
+	float:left; margin:0px 10px 0px 0px; border-color:#3a3a3a;
+}
+#footer .bg_shadow div {
+	line-height:1.5em;
+	clear:both;
+	padding:0 0 15px 0;
+}
+#footer .bg_shadow div a {
+	line-height:1.7em;
+}
+
+#footer h3 {
+	color:#00adef;
+	font: bold 28px 'Arimo', sans-serif;
+}
+	
+#footer ul {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+#footer ul li {
+	float:left;
+	display:block;
+}
+
+
+
+.float-block {
+	float:left;
+	display:block;
+}

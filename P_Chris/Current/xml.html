@@ -1,0 +1,145 @@
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" type="text/css" media="all" href="style.css">
+<link rel='stylesheet' id='prettyphoto-css'  href='prettyPhoto.css' type='text/css' media='all'>
+<link rel='stylesheet' id='radykal-fancy-gallery-css'  href='jquery.fancygallery.css' type='text/css' media='all'>
+<link rel='stylesheet' id='uniform-default-css'  href='uniform.default.css' type='text/css' media='all'>
+
+<script type='text/javascript' src='http://radykal.de/codecanyon/wordpress/wp-includes/js/jquery/jquery.js?ver=1.7.2'></script>
+<script type='text/javascript' src='jquery.prettyPhoto.js'></script>
+<script type='text/javascript' src='jquery.uniform.min.js'></script>
+<script type='text/javascript' src='jquery.fancygallery.min.js'></script>
+
+<script type='text/javascript'>
+	var optionsSc = {"apiKey":"LFSDttxBaGVSYZfSitrA","autoPlay":null,"randomize":"1"};
+</script>
+
+<script type='text/javascript'>
+    jQuery(document).ready(function() {
+        jQuery('#fancygallery-gallery-wp').fancygallery({
+            backgroundColor: '#F5F5F5',
+            titleColor: '#383634',
+            thumbWidth: 140,
+            thumbHeight: 79,
+            thumbOpacity: 0.6,
+            imagesPerPage: 6,
+            titleHeight: 20,
+            borderThickness: 3,
+            rowOffset: 15,
+            columnOffset: 15,
+            shadowOffset: 0,
+            textFadeDirection: 'normal',
+            shadowImage: 'http://radykal.de/codecanyon/wordpress/wp-content/plugins/radykal-fancy-gallery/images/fancygallery/shadow.png',
+            hoverImage: 'http://radykal.de/codecanyon/wordpress/wp-content/uploads/2012/02/hover_icon_cm_white.png',
+            hoverImageEffect: 'fade',
+            arrowPosition: 'top',
+            selectAlbum: '',
+            dropdown: 1,
+            divider: 1,
+            showTitle: 0,
+            slideTitle: 1,
+            inverseHoverEffect: 1,
+            boxOptions: {
+                theme: 'pp_default',
+                allow_resize: 1,
+                overlay_gallery: 1,
+                autoplay_slideshow: 0,
+                deeplinking: 1
+            }
+        });
+    });
+</script>
+ 
+</head>
+<body>
+<div id="content" role="main">
+    <article id="post-109" class="post-109 page type-page status-publish hentry">
+        <div class="entry-content">
+            <div id="fancygallery-gallery-wp" class="fg-panel">
+                <div title="Mixed">
+                    <script type='text/javascript'>
+                        if (window.XMLHttpRequest) 
+                        { // code for IE7+, Firefox, Chrome, Opera, Safari
+                            xmlhttp = new XMLHttpRequest();
+                        }
+                        else 
+                        { // code for IE6, IE5
+                            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                        }
+                        xmlhttp.open("GET", "des.xml", false);
+                        xmlhttp.send();
+                        xmlDoc = xmlhttp.responseXML;
+
+                        var x = xmlDoc.getElementsByTagName("BUNDLE");
+                        for (i = 0; i < x.length; i++) 
+                        {
+                            if (x[i].getElementsByTagName("NAME")[0].childNodes[0].nodeValue == "MMN_WidgetTVBundle.SERVICE_WidgetTV_Interface") 
+                            {
+                                if (x[i].getElementsByTagName("STATUS")[0].childNodes[0].nodeValue == "On") 
+                                {
+                                    document.write("<a href=\"widgettvon.png\">");
+                                    document.write("<img src=\"widgettvon.png\" alt=\"Widget TV\" title=\"Widget TV\">");
+                                    document.write("</a>");
+                                }
+                                else 
+                                {
+                                    document.write("<a href=\"widgettvoff.png\">");
+                                    document.write("<img src=\"widgettvoff.png\" alt=\"Widget TV\" title=\"Widget TV\">");
+                                    document.write("</a>");
+                                }
+                            }
+                            else if (x[i].getElementsByTagName("NAME")[0].childNodes[0].nodeValue == "MMN_SmartSocketBundle.Service_SmartSocket_Interface") 
+                            {
+                                if (x[i].getElementsByTagName("STATUS")[0].childNodes[0].nodeValue == "On") 
+                                {
+                                    document.write("<a href=\"smartsocketon.png\">");
+                                    document.write("<img src=\"smartsocketon.png\" alt=\"Smart Socket\" title=\"Smart Socket\">");
+                                    document.write("</a>");
+                                }
+                                else 
+                                {
+                                    document.write("<a href=\"smartsocketoff.png\">");
+                                    document.write("<img src=\"smartsocketoff.png\" alt=\"Another title\" title=\"Smart Socket\">");
+                                    document.write("</a>");                                    
+                                }
+                            }
+                            else if (x[i].getElementsByTagName("NAME")[0].childNodes[0].nodeValue == "MMN_SmartPhoneBundle.SERVICE_SmartPhone_Interface") 
+                            {
+                                if (x[i].getElementsByTagName("STATUS")[0].childNodes[0].nodeValue == "On") 
+                                {
+                                    document.write("<a href=\"mobileon\">");
+                                    document.write("<img src=\"mobileon.png\" alt=\"Smart Phone\" title=\"Smart Phone\">");
+                                    document.write("</a>");
+                                }
+                                else 
+                                {
+                                    document.write("<a href=\"mobileoff\">");
+                                    document.write("<img src=\"mobileoff.png\" alt=\"Smart Phone\" title=\"Smart Phone\">");
+                                    document.write("</a>");
+                                }
+                            }
+                            else if (x[i].getElementsByTagName("NAME")[0].childNodes[0].nodeValue == "MMN_MediaServerBundle.SERVICE_MediaServer_Interface") 
+                            {
+                                if (x[i].getElementsByTagName("STATUS")[0].childNodes[0].nodeValue == "On") 
+                                {
+                                    document.write("<a href=\"mediaserveron.png\">");
+                                    document.write("<img src=\"mediaserveron.png\" alt=\"Media Server\" title=\"Media Server\">");
+                                    document.write("</a>");
+                                }
+                                else 
+                                {
+                                    document.write("<a href=\"mediaserveroff.png\">");
+                                    document.write("<img src=\"mediaserveroff.png\" alt=\"Media Server\" title=\"Media Server\">");
+                                    document.write("</a>");
+                                }
+                            }
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+.supertabs {
+  overflow: hidden;
+}
+
+.supertabs-overflow {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.supertabs > div {
+  float: left;
+}
