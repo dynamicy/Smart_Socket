@@ -79,25 +79,27 @@ int main(int argc, char **argv)
 	// Open outputfile for output
 	output = fopen("medialist.xml", "wt"); 
 
+	fprintf(output, "<ROOT>\n");
+
 	/* Start with the outside directory */
-	outer_dir = opendir(".");
+	outer_dir = opendir("./video");
 
 	while((ptr = readdir(outer_dir)) != NULL) 
 	{   
 		char pathname[512];
 
 		sprintf(pathname,"%s", ptr->d_name);
-
 		/* Check MIME Type, if it's not NULL */
 		if((inner_dir = opendir(pathname)) == NULL) 
 		{   
 			printf("http://%s/%s: file\n", ip_addr, ptr->d_name);
-			fprintf(output, "http://%s/%s\n", ip_addr, ptr->d_name);
+			fprintf(output, "<ITEM>http://%s/%s</ITEM>\n", ip_addr, ptr->d_name);
 			fflush(output);
 		}   
 		else 
 			closedir(inner_dir);
 	}   
+	fprintf(output, "</ROOT>");
 	closedir(outer_dir);
 	fclose(output);
 	return 0;

@@ -1,13 +1,15 @@
 .ws-container,
 .ws-fullbg,
 .ws-bottombg,
-.ws-icy {
+.ws-icy 
+{
 	border-radius: 6px;
 	-moz-border-radius: 6px;
 	-webkit-border-radius: 6px;
 }
 
-.ws-container {
+.ws-container 
+{
 	margin: 0px auto;
 	background: #a3b8c9; /* Old browsers */
 	background: -moz-linear-gradient(top, #a3b8c9 0%, #414e5e 99%); /* FF3.6+ */
@@ -26,18 +28,20 @@
 
 
 /* Common */
-
-.ws-container * {
+.ws-container * 
+{
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", sans-serif;
 	font-weight: 200;
 }
 
 .ws-container img,
-.ws-container div {
+.ws-container div 
+{
 	position: absolute;
 }
 
-.ws-inner {
+.ws-inner 
+{
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
@@ -46,15 +50,16 @@
 	top: 0px;
 }
 
-.ws-location {
+.ws-location 
+{
 	display: none;
 }
 
 
 
 /* Navigation */
-
-.ws-nav {
+.ws-nav 
+{
 	position: absolute;
 	z-index: 2000;
 	display: none;
@@ -66,22 +71,26 @@
 	width: 25px;
 }
 
-.ws-nav:hover {
+.ws-nav:hover 
+{
 	opacity: 1;
 	color: #eee;
 }
 
-.ws-prev-arrow {
+.ws-prev-arrow 
+{
 	left: 10px;
 }
 
-.ws-next-arrow {
+.ws-next-arrow 
+{
 	background-position: right -25px;
 	right: 10px;
 }
 
 .ws-prev-text,
-.ws-next-text {
+.ws-next-text 
+{
 	font-family: arial, sans-serif;
 	font-weight: bold;
 	color: #fff;
@@ -94,24 +103,24 @@
 	font-size: 14px;
 }
 
-.ws-prev-text {
+.ws-prev-text 
+{
 	left: 25px;
 	padding-left: 10px;
 }
 
-.ws-next-text {
+.ws-next-text 
+{
 	right: 25px;
 	padding-right: 10px;
 	text-align: right;
 }
 
-
-
 /* Loading */
-
-.ws-loading {
-	width: 200px;
-	height: 40px;
+.ws-loading 
+{
+	width: 1024px;
+	height: 200px;
 	position: absolute;
 	left: 50%;
 	margin-left: -100px;
@@ -512,7 +521,6 @@
 
 
 /* Lightnings */
-
 .ws-lightnings {
 	left: 50%;
 	top: 0px;
