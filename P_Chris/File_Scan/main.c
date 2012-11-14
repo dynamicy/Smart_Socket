@@ -37,7 +37,6 @@ int print_addresses(const int domain)
 	}
 
 	ifs = ifconf.ifc_len / sizeof(ifr[0]);
-	printf("interfaces = %d:\n", ifs);
 	
 	for (i = 0; i < ifs; i++) 
 	{
@@ -50,36 +49,34 @@ int print_addresses(const int domain)
 			return 0;
 		}
 
-		printf("%s - %s\n", ifr[i].ifr_name, ip);
-
 		if(strcmp(ifr[i].ifr_name, "eth0") == 0)
 		{
 			strcpy(ip_addr, ip);
 		}		
 	}
-
-	printf("=====>IP:%s\n", ip_addr);
-
 	close(s);
 
 	return 1;
 }
+
 /* Recusive check the mime type of all files */
 int main(int argc, char **argv)
 {
-	FILE *output;
-	DIR *outer_dir;
-	DIR *inner_dir;
-	struct dirent *ptr;
+	FILE *output = NULL;
+	DIR *outer_dir = NULL;
+	DIR *inner_dir = NULL;
+	struct dirent *ptr = NULL;
 	int domains[] = { AF_INET, AF_INET6 };
-	int i;
+	int i = 0;
+	char *pch = NULL;
 
 	print_addresses(domains[0]);
 
 	// Open outputfile for output
-	output = fopen("medialist.xml", "wt"); 
+	output = fopen("playlist.xml", "wt"); 
 
-	fprintf(output, "<ROOT>\n");
+	fprintf(output, "<playlist xmlns=\"http://xspf.org/ns/0/\" version=\"1\">\n");
+	fprintf(output, "<trackList>\n");
 
 	/* Start with the outside directory */
 	outer_dir = opendir("./video");
@@ -89,17 +86,28 @@ int main(int argc, char **argv)
 		char pathname[512];
 
 		sprintf(pathname,"%s", ptr->d_name);
-		/* Check MIME Type, if it's not NULL */
-		if((inner_dir = opendir(pathname)) == NULL) 
-		{   
-			printf("http://%s/%s: file\n", ip_addr, ptr->d_name);
-			fprintf(output, "<ITEM>http://%s/%s</ITEM>\n", ip_addr, ptr->d_name);
-			fflush(output);
-		}   
-		else 
-			closedir(inner_dir);
-	}   
-	fprintf(output, "</ROOT>");
+		if(strcmp(pathname, ".") != 0 && strcmp(pathname, "..") != 0)
+		{
+			pch = strtok(pathname, ".");
+			{
+				/* Check MIME Type, if it's not NULL */
+				if((inner_dir = opendir(pathname)) == NULL) 
+				{   
+					fprintf(output, "<track>\n");
+					fprintf(output, "<title>%s</title>\n", pathname);
+					fprintf(output, "<location>http://%s/video/%s.mp4</location>\n", ip_addr, pathname);
+					fprintf(output, "<image>http://%s/images/%s.jpg</image>\n", ip_addr, pathname);
+					fprintf(output, "</track>\n");
+					fflush(output);
+				}   
+				else 
+					closedir(inner_dir);
+			}
+		}
+	} 
+  
+	fprintf(output, "</trackList>");
+	fprintf(output, "</playlist>");
 	closedir(outer_dir);
 	fclose(output);
 	return 0;
