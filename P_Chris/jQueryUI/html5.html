@@ -1,0 +1,26 @@
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/dark-hive/jquery-ui.css">
+<link rel="stylesheet" href="templates/default/css/osmplayer_default.css">
+<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.js"></script>
+<script type="text/javascript" src="bin/osmplayer.compressed.js"></script>
+<script type="text/javascript" src="templates/default/osmplayer.default.js"></script>
+<script type="text/javascript">
+      $(function() 
+      {
+        $("#osmplayer").osmplayer(
+        {
+          width: '100%',
+          height: '100%',
+          playlist: 'http://fermat.twbbs.org/playlist.xml'
+        });
+      });
+</script>
+</head>
+<body>
+<!--<div id="osmplayer" autoplay="autoplay"></div>-->
+<div id="osmplayer"></div>
+</body>
+</html>

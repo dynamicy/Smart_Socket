@@ -1,0 +1,62 @@
+﻿@charset "UTF-8";
+
+body 
+{
+	top: 1em;
+	margin: 1em 1em;
+	font-family: Tahoma, Genevam, sans-serif;
+}
+
+.rssFeed 
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	width: 200px;
+	margin-bottom: 0.5em;
+}
+
+.rssFeed a 
+{
+	color: #444;
+	text-decoration: none;
+}
+.rssFeed a:hover {
+	color: #000;
+	text-decoration: underline;
+}
+
+.rssHeader 
+{ 
+	padding: 0em 0; 
+}
+
+.rssBody 
+{ 
+	/* news border */
+	border: 2px solid #666; 
+}
+
+.rssRow h4, .rssRow p, .rssRow div 
+{
+	margin: 0;
+	padding: 0.7em;
+}
+
+#ticker1
+{ 
+	z-index:5000;
+}
+
+#ticker1 .odd 
+{ 
+	background-color:transparent; 
+/*	background-color: #e8e8fc; */
+}
+#ticker1 .even 
+{ 
+	background-color:transparent; 
+/*	background-color: #d4d4e8; */
+}
+
+#ticker2 .odd { background-color: #e8fce8; }
+#ticker2 .even { background-color: #d4e8d4; }

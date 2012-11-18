@@ -1,0 +1,134 @@
+/*
+  Resets
+*/
+
+.fg-panel a, .fg-panel img, .fg-panel ul, .fg-panel li  { 
+    text-decoration: none;
+	list-style-type: none;
+	list-style: none;
+	background: none;
+	outline: none; 
+	margin: 0px;
+	padding: 0px;
+	border: 0;
+	vertical-align: baseline;
+	font-size: 100%;
+	max-width: 100%;
+}
+
+/*
+  Main styles
+*/
+
+.fg-panel > div > a {
+	display: none;
+}
+
+.fg-line {
+	border: 0px;
+ 	border-top: solid 1px #EAEAEA; /* the top color of the line */
+	border-bottom: solid 1px #fff;  /* the bottom color of the line */
+	display: block;
+	clear: both !important;
+	margin: 10px 0px !important;
+}
+
+.fg-prev	{
+	background: url('../images/arrows_sprite.png') no-repeat 0px 0px !important; /* the path of the previous button image */
+	width: 20px; /* the width of the previous button image */
+	height: 27px; /* the width of the previous button image */
+	margin-top: 4px !important;
+	z-index: 1003;
+	float: left;
+}
+
+.fg-next	{
+	background: url('../images/arrows_sprite.png') no-repeat -20px 0px !important; /* the path of the next button image */
+	width: 20px; /* the width of the next button image */
+	height: 27px; /* the width of the next button image */
+	margin: 4px 0px 0px 10px !important;
+	z-index: 1004;
+	float: left;
+}
+
+.fg-prev-over	{
+	background: url('../images/arrows_sprite.png') no-repeat 0px -27px !important;
+}
+
+.fg-next-over	{
+	background: url('../images/arrows_sprite.png') no-repeat -20px -27px !important;
+}
+
+.fg-thumbHolder	{
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	clear: both !important;
+}
+
+.fg-listItem {
+	position: relative;
+	float: left;
+	list-style: none !important;
+	margin-left: 0 !important;
+}
+
+a.fg-image {
+	position: absolute;
+	z-index: 2;
+	overflow: hidden;
+	border: 1px solid #cccccc;
+	border-bottom: none;
+}
+
+img.fg-thumb	{
+	margin: auto !important;
+	display: none;
+}
+
+.fg-title	{
+	font-size: 12px; /* the size of the title */
+	max-width: 100%;
+	height: 0;
+	position: absolute;
+	z-index: 100;
+	border: 1px solid #cccccc;
+	border-top: none;
+}
+
+.fg-shadow	{
+	position: absolute;
+	z-index: 0;
+}
+
+.fg-hover-image {
+	position: absolute;
+	display: none;
+	z-index: 3;
+}
+
+.fg-error {
+	padding: 5px !important;
+	background: #ffd2d3;
+	border: 1px solid #df8f90;
+	color: #000;	
+}
+
+/* 
+  Helper 
+*/
+.clearfix:after {  
+    content: ".";  
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+ 
+* + html .clearfix { 
+    display: inline-block;
+}
+ 
+* html .clearfix { 
+	height: 1%;
+}

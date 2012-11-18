@@ -1,0 +1,157 @@
+<html>
+<head>
+<title></title>
+<script src="scripts/jquery-1.8.2.min.js"></script>
+<script>
+		$(document).ready(function()
+		{
+		
+			// set the wrapper width and height to match the img size
+			$('#wrapper').css({'width':$('#wrapper img').width(),
+							  'height':$('#wrapper img').height()
+			})
+			
+			//tooltip direction
+			var tooltipDirection;
+						 
+			for (i=0; i<$(".pin").length; i++)
+			{				
+				// set tooltip direction type - up or down             
+				if ($(".pin").eq(i).hasClass('pin-down')) {
+					tooltipDirection = 'tooltip-down';
+				} else {
+					tooltipDirection = 'tooltip-up';
+					}
+			
+				// append the tooltip
+				$("#wrapper").append("<div style='left:"+$(".pin").eq(i).data('xpos')+"px;top:"+$(".pin").eq(i).data('ypos')+"px' class='" + tooltipDirection +"'>\
+													<div class='tooltip'>" + $(".pin").eq(i).html() + "</div>\
+											</div>");
+			}    
+			
+			// show/hide the tooltip
+			$('.tooltip-up, .tooltip-down').mouseenter(function(){
+						$(this).children('.tooltip').fadeIn(100);
+					}).mouseleave(function(){
+						$(this).children('.tooltip').fadeOut(100);
+					})
+		});
+    </script>
+	<style>
+		body {
+			text-align: center;
+			font: 13px Arial,Helvetica;		
+		}
+		
+		/* Relative positioning*/
+		#wrapper {
+			position: relative;
+			margin: 50px auto 20px auto;
+			border: 1px solid #fafafa;
+			-moz-box-shadow: 0 3px 3px rgba(0,0,0,.5);
+			-webkit-box-shadow: 0 3px 3px rgba(0,0,0,.5);
+			box-shadow: 0 3px 3px rgba(0,0,0,.5);
+		}
+		
+		/* Hide the original tooltips contents */
+		.pin {
+			display: none;
+		}
+		
+		/* Begin styling the tooltips and pins */
+		.tooltip-up, .tooltip-down {
+			position: absolute;
+/*			background: url(arrow-up-down.png);*/
+			width: 150px;
+			height: 120px;
+		}
+		
+		.tooltip-down {
+			background-position: 0 -52px;
+		}
+		
+		.tooltip {
+			display: none;
+			width: 200px;
+			cursor: help;
+			text-shadow: 0 1px 0 #fff;
+			position: absolute;
+			top: 10px;
+			left: 50%;
+			z-index: 999;
+			margin-left: -115px;
+			padding:15px;
+			color: #222;
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			border-radius: 5px;
+			-moz-box-shadow: 0 3px 0 rgba(0,0,0,.7);
+			-webkit-box-shadow: 0 3px 0 rgba(0,0,0,.7);
+			box-shadow: 0 3px 0 rgba(0,0,0,.7);
+			background: #fff1d3;
+			background: -webkit-gradient(linear, left top, left bottom, from(#fff1d3), to(#ffdb90));
+			background: -webkit-linear-gradient(top, #fff1d3, #ffdb90);
+			background: -moz-linear-gradient(top, #fff1d3, #ffdb90);
+			background: -ms-linear-gradient(top, #fff1d3, #ffdb90);
+			background: -o-linear-gradient(top, #fff1d3, #ffdb90);
+			background: linear-gradient(top, #fff1d3, #ffdb90);			
+		}
+		
+		.tooltip::after {
+			content: '';
+			position: absolute;
+			top: -10px;
+			left: 50%;
+			margin-left: -10px;
+			border-bottom: 10px solid #fff1d3;
+			border-left: 10px solid transparent;
+			border-right :10px solid transparent;
+		}
+		
+		.tooltip-down .tooltip {
+			bottom: 12px;
+			top: auto;
+		}
+		
+		.tooltip-down .tooltip::after {
+			bottom: -10px;
+			top: auto;
+			border-bottom: 0;
+			border-top: 10px solid #ffdb90;
+		}
+		
+		.tooltip h2 {
+			font: bold 1.3em 'Trebuchet MS', Tahoma, Arial;
+			margin: 0 0 10px;
+		}
+		
+		.tooltip ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}		
+	</style>
+</head>
+<body>
+<div id="wrapper">
+   <img width="700" height="446" src="bg.jpg" alt="House">
+   
+   <div class="pin pin-down" data-xpos="310" data-ypos="125">	  
+	  <h2>Electrical Fan</h2>	  
+	  <ul>
+		<li><b>Voltage (V):</b> 490</li>
+		<li><b>Ampere (A):</b> 588</li>
+	  </ul>
+   </div>
+   
+   <div class="pin" data-xpos="500" data-ypos="250">	  
+	  <h2>Light</h2>	  
+	  <ul>
+		<li><b>Voltage (V):</b> 840</li>
+		<li><b>Ampere (A):</b> 382</li>
+	  </ul> 
+   </div>
+</div>
+</script>
+</body>
+</html>
