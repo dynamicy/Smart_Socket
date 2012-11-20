@@ -88,19 +88,19 @@
 /* Big play button */
 .player-ui .minplayer-default-big-play {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
-  width: 80px;
-  height: 80px;
-  margin: -40px 0 0 -40px;
+  width: 200px;
+  height: 200px;
+  margin: -30px 0 0 -20px;
   text-align: center;
   vertical-align: center;
   cursor: pointer !important;
   border: none;
   opacity: 0.9;
   z-index:3;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
+  border-radius: 1px;
+  -webkit-border-radius: 4px;
   -moz-border-radius: 10px;
   background: rgba(23, 35, 34, 0.746094);
   box-shadow: 2px 2px 4px #000;
@@ -580,7 +580,7 @@
   top: 0px;
   right: 0px;
   left: 0px;
-  bottom: 32px;
+  bottom: 50px;
 }
 
 .player-ui .playlist-horizontal .osmplayer-default-playlist-scroll {
