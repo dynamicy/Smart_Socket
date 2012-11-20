@@ -35,7 +35,7 @@ body
 .rssBody 
 { 
 	/* news border */
-	border: 2px solid #666; 
+/* 	border: 2px solid #666;  */
 }
 
 .rssRow h4, .rssRow p, .rssRow div 
@@ -47,18 +47,24 @@ body
 #ticker1
 { 
 	z-index:5000;
+	top:275;
 }
 
 #ticker1 .odd 
-{ 
-	background-color:transparent; 
-/*	background-color: #e8e8fc; */
+{
+	background: rgba(200, 200, 200, 0.5);
 }
 #ticker1 .even 
 { 
-	background-color:transparent; 
-/*	background-color: #d4d4e8; */
+	background: rgba(200, 200, 200, 0.5);
 }
 
-#ticker2 .odd { background-color: #e8fce8; }
-#ticker2 .even { background-color: #d4e8d4; }
+#ticker2 .odd 
+{ 
+	background-color: #e8fce8; 
+}
+
+#ticker2 .even 
+{ 
+	background-color: #d4e8d4; 
+}

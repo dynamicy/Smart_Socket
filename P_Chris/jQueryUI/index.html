@@ -115,22 +115,6 @@
     }
     document.onkeydown = kdHandle;
 </script>
-
-<script type="text/javascript">
-$(document).ready(function () 
-{
-	$('#ticker1').rssfeed('http://feeds.bbc.co.uk/iplayer/highlights/tv/list',
-	{
-		snippet: false
-	}, function(e) 
-	{
-		$(e).find('div.rssBody').vTicker(
-		{
-			showItems: 1
-		});
-	});
-});
-</script>
   
 </head>
 <body class=' features'>
@@ -158,20 +142,20 @@ $(document).ready(function ()
                 <div data-tab="main" class="supertab-active">
                     <div class='content_wrapper'>
                         <section class='features_boxes'>
-                    <iframe src="info.html" width="720" height="500" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" align="center">
+                    <iframe src="info.html" width="790" height="500" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" align="center">
                     </iframe>
                         </section>
                     </div>
                 </div>
                  <div data-tab="osgi">
                     <section class="content-width">
-                      <iframe src="osgi.html" width="720" height="500" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" align="center">
+                      <iframe src="osgi.html" width="790" height="500" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" align="center">
                     </iframe>
                     </section>
                 </div>
                 <div data-tab="video">
                     <section class="content-width">                
-                    	<div id="osmplayer" width="720" height="500" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" align="center"></div>
+                    	<div id="osmplayer" width="790" height="500" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" align="center"></div>
                     </section>                    
                 </div>
             </div>
