@@ -953,6 +953,7 @@ minplayer.prototype.addKeyEvents = function () {
             case 113:
             case 27:
                 a.isFullScreen() && a.fullscreen(!1)
+                //TODO: add keycode event j/k here
             }
         }
     }(this))
