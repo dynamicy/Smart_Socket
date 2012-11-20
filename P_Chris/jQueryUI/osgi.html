@@ -1,43 +1,13 @@
 <html>
 <head>
 <title></title>
-<script src="scripts/jquery-1.8.2.min.js"></script>
-<script>
-		$(document).ready(function()
-		{
-		
-			// set the wrapper width and height to match the img size
-			$('#wrapper').css({'width':$('#wrapper img').width(),
-							  'height':$('#wrapper img').height()
-			})
-			
-			//tooltip direction
-			var tooltipDirection;
-						 
-			for (i=0; i<$(".pin").length; i++)
-			{				
-				// set tooltip direction type - up or down             
-				if ($(".pin").eq(i).hasClass('pin-down')) {
-					tooltipDirection = 'tooltip-down';
-				} else {
-					tooltipDirection = 'tooltip-up';
-					}
-			
-				// append the tooltip
-				$("#wrapper").append("<div style='left:"+$(".pin").eq(i).data('xpos')+"px;top:"+$(".pin").eq(i).data('ypos')+"px' class='" + tooltipDirection +"'>\
-													<div class='tooltip'>" + $(".pin").eq(i).html() + "</div>\
-											</div>");
-			}    
-			
-			// show/hide the tooltip
-			$('.tooltip-up, .tooltip-down').mouseenter(function(){
-						$(this).children('.tooltip').fadeIn(100);
-					}).mouseleave(function(){
-						$(this).children('.tooltip').fadeOut(100);
-					})
-		});
-    </script>
-	<style>
+<link rel='stylesheet' id='prettyphoto-css'  href='styles/prettyPhoto.css' type='text/css' media='all'>
+<script type='text/javascript' src='scripts/jquery-1.8.2.min.js'></script>
+<script type='text/javascript' src='scripts/jquery.prettyPhoto.js'></script>
+<script type='text/javascript' src='scripts/jquery.fancygallery.min.js'></script>
+<script type='text/javascript' src='scripts/osgi.imap.js'></script>
+
+<style>
 		body {
 			text-align: center;
 			font: 13px Arial,Helvetica;		
@@ -61,9 +31,8 @@
 		/* Begin styling the tooltips and pins */
 		.tooltip-up, .tooltip-down {
 			position: absolute;
-/*			background: url(arrow-up-down.png);*/
-			width: 150px;
-			height: 120px;
+			width: 130px;
+			height: 100px;
 		}
 		
 		.tooltip-down {
@@ -134,8 +103,7 @@
 </head>
 <body>
 <div id="wrapper">
-   <img width="700" height="446" src="bg.jpg" alt="House">
-   
+   <img width="700" height="446" src="images/bg.jpg" alt="House"> 
    <div class="pin pin-down" data-xpos="310" data-ypos="125">	  
 	  <h2>Electrical Fan</h2>	  
 	  <ul>
@@ -145,7 +113,6 @@
 		<li><img src="images/pc1.jpeg" width="210"></li>
 	  </ul>
    </div>
-   
    <div class="pin" data-xpos="500" data-ypos="250">	  
 	  <h2>Light</h2>	  
 	  <ul>
@@ -155,6 +122,42 @@
 		<li><img src="images/pc2.jpeg" width="210"></li>
 	  </ul> 
    </div>
+    <div class="pin pin-down" data-xpos="31" data-ypos="205">	  
+	  <h2>Widget TV</h2>	  
+	  <ul>
+		<li><b>Voltage (V):</b> 490</li>
+		<li><b>Ampere (A):</b> 588</li>
+		<li><br></li>
+		<li><img src="images/pc1.jpeg" width="210"></li>
+	  </ul>
+   </div>
+   <div class="pin pin-down" data-xpos="250" data-ypos="305">	  
+	  <h2>Mobile</h2>	  
+	  <ul>
+		<li><b>Voltage (V):</b> 490</li>
+		<li><b>Ampere (A):</b> 588</li>
+		<li><br></li>
+		<li><img src="images/pc1.jpeg" width="210"></li>
+	  </ul>
+   </div>
+   <div class="pin pin-down" data-xpos="150" data-ypos="255"> 
+	  <h2>Smart Socket</h2>	  
+	  <ul>
+		<li><b>Voltage (V):</b> 490</li>
+		<li><b>Ampere (A):</b> 588</li>
+		<li><br></li>
+		<li><img src="images/pc1.jpeg" width="210"></li>
+	  </ul>
+   </div>   
+   <div class="pin pin-down" data-xpos="50" data-ypos="325"> 
+	  <h2>Media Server</h2>	  
+	  <ul>
+		<li><b>Voltage (V):</b> 490</li>
+		<li><b>Ampere (A):</b> 588</li>
+		<li><br></li>
+		<li><img src="images/pc1.jpeg" width="210"></li>
+	  </ul>
+   </div>     
 </div>
 </script>
 </body>
