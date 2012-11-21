@@ -1,6 +1,7 @@
 <html>
 <head>
 <title></title>
+<meta http-equiv="refresh" content="5">
 <link rel='stylesheet' id='prettyphoto-css'  href='styles/prettyPhoto.css' type='text/css' media='all'>
 <script type='text/javascript' src='scripts/jquery-1.8.2.min.js'></script>
 <script type='text/javascript' src='scripts/jquery.prettyPhoto.js'></script>
@@ -67,7 +68,8 @@
 			background: linear-gradient(top, #fff1d3, #ffdb90);			
 		}
 		
-		.tooltip::after {
+		.tooltip::after 
+		{
 			content: '';
 			position: absolute;
 			top: -10px;
@@ -78,12 +80,14 @@
 			border-right :10px solid transparent;
 		}
 		
-		.tooltip-down .tooltip {
+		.tooltip-down .tooltip 
+		{
 			bottom: 12px;
 			top: auto;
 		}
 		
-		.tooltip-down .tooltip::after {
+		.tooltip-down .tooltip::after 
+		{
 			bottom: -10px;
 			top: auto;
 			border-bottom: 0;
@@ -95,7 +99,8 @@
 			margin: 0 0 10px;
 		}
 		
-		.tooltip ul {
+		.tooltip ul 
+		{
 			margin: 0;
 			padding: 0;
 			list-style: none;
@@ -103,49 +108,299 @@
 	</style>
 </head>
 <body>
-
+<div id="iRFloating" style="position:absolute;top:100;left:1000;">
+	    	<p><b>Temperature:</b> = 0</p>
+	    	<p><b>Humidity:</b> = 0</p>
+	    	<p><b>Luminosity:</b> = 10</p>
+</div>
 <div id="wrapper">
-   <img width="700" height="446" src="images/bg.jpg" alt="House"> 
+<img width="700" height="446" src="images/bg.jpg" alt="House"> 
    
    <script type='text/javascript'>
 	// code for IE7+, Firefox, Chrome, Opera, Safari, code for IE6, IE5
 	var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new XMLHttpRequest('Microsoft.XMLHTTP');
+	var xmlapp = window.XMLHttpRequest ? new XMLHttpRequest() : new XMLHttpRequest('Microsoft.XMLHTTP');	
 	
     xmlhttp.open("GET", "http://fermat.twbbs.org/appliance.xml", false);
+    xmlapp.open("GET", "http://fermat.twbbs.org/bundle.xml", false);
+    
     xmlhttp.send();
+    xmlapp.send();
+        
     var xmlDoc = xmlhttp.responseXML;
-
+    var appDoc = xmlapp.responseXML;
+    
     var root = xmlDoc.getElementsByTagName("root");    				
-
+    var bundle = appDoc.getElementsByTagName("root");
+    
     var tagMap = { 'Current':'', 'Temperature':'', 'Humidity':'', 'Luminosity':'', 
     				'Status1':'', 'Status2':'', 'Type1':'', 'Type2':'','Price':'' ,
     				'PriceWarning':'', 'CurrentWarning':'', 'Relay1':'', 'Relay2':''};
-
+    
     $.each(tagMap, function(key, val)
     {
     	var keyElement = root[0].getElementsByTagName(key)[0];
     	if(keyElement)
 	    {	
 	    	tagMap[key] = keyElement.childNodes[0].nodeValue;
-	    	document.writeln(tagMap[key]);
+	    	
+	    	var lightStatus;
+	    	var fanStatus;
+	    	var lightRelay;
+	    	var fanRelay;
+	    	
+	    	if(tagMap['Type1'] == 2)
+	    	{
+		    	lightStatus = tagMap['Status1'];
+		    	lightRelay = tagMap['Relay1'];					    	
+	    	}
+	    	else if(tagMap['Type1'] == 3)
+	    	{
+		    	fanStatus = tagMap['Status1'];
+		    	fanRelay = tagMap['Relay1'];					    			    	
+	    	}
+	    	else
+	    	{
+		    	if(tagMap['Type2'] == 2)
+		    	{
+		    		fanStatus = tagMap['Status2'];
+		    		fanRelay = tagMap['Relay2'];					    	
+		    	}
+		    	else if(tagMap['Type2'] == 3)
+		    	{
+		    		fanStatus = tagMap['Status2'];
+		    		fanRelay = tagMap['Relay2'];					    	
+		    	}
+		    	else
+		    	{
+			    	fanRelay = 0;
+			    	fanStatus = 0;
+			    	lightRelay = 0;
+			    	lightStatus = 0;
+		    	}
+	    	}
 	    	
 	    	document.write("<div class=\"pin pin-down\" data-xpos=\"310\" data-ypos=\"125\">");
 	    	document.write("<h2>Electrical Fan</h2>");
 	    	document.write("<ul>");
-	    	document.write("<li><b>Current (A):</b>");
-	    	document.write(tagMap['Current']);
-	    	document.write("</li>");
-	    	document.write("<li id=\"Fan\"></li>");
+	    	document.write("<li><b>Current: </b>" + tagMap['Current'] + "</li>");
+	    	
+	    	if(fanStatus == 0)
+	    	{
+		    	document.write("<li><b>Status: </b>" + "Off" + "</li>");			    	
+	    	}
+	    	else
+	    	{
+		    	document.write("<li><b>Status: </b>" + "On" + "</li>");			    			    	
+	    	}
+
+	    	document.write("<li><b>Relay: </b>" + fanRelay + "</li>");	 
+	    	
+	    	document.write("<a href=\"images/on.png\">");
+            document.write("<img src=\"images/on.png\" width=\"30\" height=\"30\" alt=\"Widget TV\" title=\"Widget TV\">");
+            document.write("</a>");   	    		
+            document.write(" ");   	    			    	
+            document.write("<a href=\"images/off.png\">");
+            document.write("<img src=\"images/off.png\" width=\"30\" height=\"30\" alt=\"Widget TV\" title=\"Widget TV\">");
+            document.write("</a>");   	    			    	
+            
 	    	document.write("<li><img src=\"images/pc1.jpeg\" width=\"210\"></li>");
 	    	document.write("</ul>");
 	    	document.write("</div>");
+	    	
+	    	document.write("<div class=\"pin pin-down\" data-xpos=\"500\" data-ypos=\"250\">");
+	    	document.write("<h2>Light</h2>");
+	    	document.write("<ul>");
+	    	document.write("<li><b>Current: </b>" + tagMap['Current'] + "</li>");	
+	    	
+	    	if(lightStatus == 0)
+	    	{
+		    	document.write("<li><b>Status: </b>" + "Off" + "</li>");			    	
+	    	}
+	    	else
+	    	{
+		    	document.write("<li><b>Status: </b>" + "On" + "</li>");			    			    	
+	    	}	    	
+	    	document.write("<li><b>Relay:</b>");
+	    	document.write(fanRelay);
+	    	document.write("</li>");
+	    	document.write("<li><a href=\"images/on.png\">");
+            document.write("<img src=\"images/on.png\" width=\"30\" height=\"30\" alt=\"Widget TV\" title=\"Widget TV\">");
+            document.write("</a>");   	    		
+            document.write(" ");   	    			    	
+            document.write("<a href=\"images/off.png\">");
+            document.write("<img src=\"images/off.png\" width=\"30\" height=\"30\" alt=\"Widget TV\" title=\"Widget TV\">");
+            document.write("</a></li>");  
+	    	document.write("<li><img src=\"images/pc2.jpeg\" width=\"210\"></li>");	    	
+	    	document.write("</ul>");
+	    	document.write("</div>");   			    	    		    	
 	    }
     });
 
-
-</script>
-       
-</div>
+    for (i = 0; i < bundle.length; i++) 
+    {   	
+	    	switch(bundle[i].getElementsByTagName("name")[0].childNodes[0].nodeValue)
+	    	{
+	    	case "MMN_WidgetTVBundle.SERVICE_WidgetTV_Interface":    	
+		    		document.write("<div class=\"pin pin-down\" data-xpos=\"31\" data-ypos=\"205\">");
+	    		  	document.write("<h2>Widget TV</h2>");
+		    		document.write("<ul>");
+			    	document.write("<li><b>Type:</b>");
+			    	document.write(bundle[i].getElementsByTagName("type")[0].childNodes[0].nodeValue);
+			    	document.write("</li>");
+			    	document.write("<li><b>Status:</b>");
+			    	document.write(bundle[i].getElementsByTagName("status")[0].childNodes[0].nodeValue);
+			    	document.write("</li>");	  			    	  	
+			    	document.write("<li><b>Service:</b></li>");
+			    	document.write("<li>");
+			    	document.write(bundle[i].getElementsByTagName("service1")[0].childNodes[0].nodeValue);
+			    	document.write("</li>");	    	    	
+			    	document.write("</ul>");
+			    	break;
+	    	case "MMN_SmartSocketBundle.Service_SmartSocket_Interface":
+			    	document.write("<div class=\"pin pin-down\" data-xpos=\"150\" data-ypos=\"255\">");
+			    	document.write("<h2>Smart Socket</h2>");
+		    		document.write("<ul>");
+			    	document.write("<li><b>Type:</b>");
+			    	document.write(bundle[i].getElementsByTagName("type")[0].childNodes[0].nodeValue);
+			    	document.write("</li>");
+			    	document.write("<li><b>Status:</b>");
+			    	document.write(bundle[i].getElementsByTagName("status")[0].childNodes[0].nodeValue);
+			    	document.write("</li>");	  	    	    	
+			    	document.write("<a href=\"images/on.png\">");
+		            document.write("<img src=\"images/on.png\" width=\"30\" height=\"30\" alt=\"Widget TV\" title=\"Widget TV\">");
+		            document.write("</a>");   	    		
+		            document.write(" ");   	    			    	
+		            document.write("<a href=\"images/off.png\">");
+		            document.write("<img src=\"images/off.png\" width=\"30\" height=\"30\" alt=\"Widget TV\" title=\"Widget TV\">");
+		            document.write("</a>");  		    	
+			    	document.write("<li><b>Service:</b></li>");
+			    	document.write("<li>");
+			    	document.write(bundle[i].getElementsByTagName("service1")[0].childNodes[0].nodeValue);
+			    	document.write("</li>");
+			    	document.write("<li>");
+			    	document.write(bundle[i].getElementsByTagName("service2")[0].childNodes[0].nodeValue);
+			    	document.write("</li>");			    	
+			    	document.write("<li>");
+			    	document.write(bundle[i].getElementsByTagName("service3")[0].childNodes[0].nodeValue);
+			    	document.write("</li>");			    	
+			    	document.write("<li>");
+			    	document.write(bundle[i].getElementsByTagName("service4")[0].childNodes[0].nodeValue);
+			    	document.write("</li>");
+			    	document.write("<li>");
+			    	document.write(bundle[i].getElementsByTagName("service5")[0].childNodes[0].nodeValue);
+			    	document.write("</li>");
+			    	document.write("<li>");
+			    	document.write(bundle[i].getElementsByTagName("service6")[0].childNodes[0].nodeValue);
+			    	document.write("</li>");
+			    	document.write("<li>");
+			    	document.write(bundle[i].getElementsByTagName("service7")[0].childNodes[0].nodeValue);
+			    	document.write("</li>");
+			    	document.write("<li>");
+			    	document.write(bundle[i].getElementsByTagName("service8")[0].childNodes[0].nodeValue);
+			    	document.write("</li>");
+			    	document.write("<li>");
+			    	document.write(bundle[i].getElementsByTagName("service9")[0].childNodes[0].nodeValue);
+			    	document.write("</li>");
+			    	document.write("<li>");
+			    	document.write(bundle[i].getElementsByTagName("service10")[0].childNodes[0].nodeValue);
+			    	document.write("</li>");
+			    	document.write("<li>");
+			    	document.write(bundle[i].getElementsByTagName("service11")[0].childNodes[0].nodeValue);
+			    	document.write("</li>");			    				    				    				    				    				    						    	document.write("<li>");
+			    	document.write(bundle[i].getElementsByTagName("service12")[0].childNodes[0].nodeValue);
+			    	document.write("</li>");	    				    	
+			    	document.write("</ul>");
+			    	break;
+	    	case "MMN_SmartPhoneBundle.SERVICE_SmartPhone_Interface":
+			    	document.write("<div class=\"pin pin-down\" data-xpos=\"250\" data-ypos=\"305\">");
+			    	document.write("<h2>Mobile</h2>");
+		    		document.write("<ul>");
+			    	document.write("<li><b>Type:</b>");
+			    	document.write(bundle[i].getElementsByTagName("type")[0].childNodes[0].nodeValue);
+			    	document.write("</li>");
+			    	document.write("<li><b>Status:</b>");
+			    	document.write(bundle[i].getElementsByTagName("status")[0].childNodes[0].nodeValue);
+			    	document.write("</li>");	    			    	
+			    	document.write("<li><b>Service:</b></li>");
+			    	document.write("<li>");
+			    	document.write(bundle[i].getElementsByTagName("service1")[0].childNodes[0].nodeValue);
+			    	document.write("</li>");			    			    	    	
+			    	document.write("</ul>");
+			    	break;
+	    	case "MMN_MediaServerBundle.SERVICE_MediaServer_Interface":
+			    	document.write("<div class=\"pin pin-down\" data-xpos=\"50\" data-ypos=\"325\">");
+			    	document.write("<h2>Media Server</h2>");
+		    		document.write("<ul>");
+			    	document.write("<li><b>Type:</b>");
+			    	document.write(bundle[i].getElementsByTagName("type")[0].childNodes[0].nodeValue);
+			    	document.write("</li>");
+			    	document.write("<li><b>Status:</b>");
+			    	document.write(bundle[i].getElementsByTagName("status")[0].childNodes[0].nodeValue);
+			    	document.write("</li>");	  			    	
+			    	document.write("<li><b>Service:</b></li>");
+			    	document.write("<li>");
+			    	document.write(bundle[i].getElementsByTagName("service1")[0].childNodes[0].nodeValue);
+			    	document.write("</li>");			    	  	
+			    	document.write("<li>");
+			    	document.write(bundle[i].getElementsByTagName("service2")[0].childNodes[0].nodeValue);
+			    	document.write("</li>");			    	  	    	    	
+			    	document.write("</ul>");
+			    	break;
+			default:
+					break;
+	    	}  
+    }
 </script>
 </body>
 </html>
+<script>
+
+  adWidth = 160;//廣告寬度
+
+  nowX = 1000;//目前位置(left)
+  nowY = 100;//目前位置(top)
+
+  fad_style = document.getElementById('iRFloating').style;
+
+  function fadIni()
+  {
+      innerWidth = document.body.clientWidth;
+      innerHeight = document.body.clientHeight;
+  
+      edge = (innerWidth-1000)/2;
+  
+      if( edge > adWidth )
+      {
+          posX = edge + 1000;
+      }
+      else
+      {
+          posX = innerWidth-adWidth;
+      }
+  
+      posY = 100;
+  
+  }
+  function fadRefresh()
+  {
+      offsetX = posX + document.body.scrollLeft - nowX;
+      offsetY = posY + document.body.scrollTop - nowY;
+      nowX += offsetX / 5;
+      nowY += offsetY / 5;
+      fad_style.left = nowX;
+      fad_style.top = nowY;
+  
+      floatID = setTimeout('fadRefresh()', 20 );//Refresh時間
+  }
+  
+  function fadStart()
+  {
+      fadIni();
+      window.onresize=fadIni;
+      fadRefresh();
+  }
+  
+  fadStart();
+
+</script>
