@@ -115,14 +115,13 @@
 </div>
 <div id="wrapper">
 <img width="700" height="446" src="images/bg.jpg" alt="House"> 
-   
    <script type='text/javascript'>
 	// code for IE7+, Firefox, Chrome, Opera, Safari, code for IE6, IE5
 	var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new XMLHttpRequest('Microsoft.XMLHTTP');
 	var xmlapp = window.XMLHttpRequest ? new XMLHttpRequest() : new XMLHttpRequest('Microsoft.XMLHTTP');	
 	
-    xmlhttp.open("GET", "http://fermat.twbbs.org/appliance.xml", false);
-    xmlapp.open("GET", "http://fermat.twbbs.org/bundle.xml", false);
+    xmlhttp.open("GET", "http://localhost/appliance.xml", false);
+    xmlapp.open("GET", "http://localhost/bundle.xml", false);
     
     xmlhttp.send();
     xmlapp.send();
@@ -131,7 +130,7 @@
     var appDoc = xmlapp.responseXML;
     
     var root = xmlDoc.getElementsByTagName("root");    				
-    var bundle = appDoc.getElementsByTagName("root");
+    var bundle = appDoc.getElementsByTagName("bundle");
     
     var tagMap = { 'Current':'', 'Temperature':'', 'Humidity':'', 'Luminosity':'', 
     				'Status1':'', 'Status2':'', 'Type1':'', 'Type2':'','Price':'' ,
@@ -239,9 +238,8 @@
 
     for (i = 0; i < bundle.length; i++) 
     {   	
-	    	switch(bundle[i].getElementsByTagName("name")[0].childNodes[0].nodeValue)
+	    	if(bundle[i].getElementsByTagName("name")[0].childNodes[0].nodeValue == "MMN_WidgetTVBundle.Service_WidgetTV_Interface")
 	    	{
-	    	case "MMN_WidgetTVBundle.SERVICE_WidgetTV_Interface":    	
 		    		document.write("<div class=\"pin pin-down\" data-xpos=\"31\" data-ypos=\"205\">");
 	    		  	document.write("<h2>Widget TV</h2>");
 		    		document.write("<ul>");
@@ -256,8 +254,9 @@
 			    	document.write(bundle[i].getElementsByTagName("service1")[0].childNodes[0].nodeValue);
 			    	document.write("</li>");	    	    	
 			    	document.write("</ul>");
-			    	break;
-	    	case "MMN_SmartSocketBundle.Service_SmartSocket_Interface":
+			}
+			else if(bundle[i].getElementsByTagName("name")[0].childNodes[0].nodeValue == "MMN_SmartSocketBundle.Service_SmartSocket_Interface")
+			{
 			    	document.write("<div class=\"pin pin-down\" data-xpos=\"150\" data-ypos=\"255\">");
 			    	document.write("<h2>Smart Socket</h2>");
 		    		document.write("<ul>");
@@ -311,8 +310,9 @@
 			    	document.write(bundle[i].getElementsByTagName("service12")[0].childNodes[0].nodeValue);
 			    	document.write("</li>");	    				    	
 			    	document.write("</ul>");
-			    	break;
-	    	case "MMN_SmartPhoneBundle.SERVICE_SmartPhone_Interface":
+			}
+			else if(bundle[i].getElementsByTagName("name")[0].childNodes[0].nodeValue == "MMN_SmartPhoneBundle.Service_SmartPhone_Interface")
+	    	{
 			    	document.write("<div class=\"pin pin-down\" data-xpos=\"250\" data-ypos=\"305\">");
 			    	document.write("<h2>Mobile</h2>");
 		    		document.write("<ul>");
@@ -327,8 +327,9 @@
 			    	document.write(bundle[i].getElementsByTagName("service1")[0].childNodes[0].nodeValue);
 			    	document.write("</li>");			    			    	    	
 			    	document.write("</ul>");
-			    	break;
-	    	case "MMN_MediaServerBundle.SERVICE_MediaServer_Interface":
+			}
+			else if(bundle[i].getElementsByTagName("name")[0].childNodes[0].nodeValue == "MMN_MediaServerBundle.Service_MediaServer_Interface")			
+			{
 			    	document.write("<div class=\"pin pin-down\" data-xpos=\"50\" data-ypos=\"325\">");
 			    	document.write("<h2>Media Server</h2>");
 		    		document.write("<ul>");
@@ -346,10 +347,7 @@
 			    	document.write(bundle[i].getElementsByTagName("service2")[0].childNodes[0].nodeValue);
 			    	document.write("</li>");			    	  	    	    	
 			    	document.write("</ul>");
-			    	break;
-			default:
-					break;
-	    	}  
+			}
     }
 </script>
 </body>
