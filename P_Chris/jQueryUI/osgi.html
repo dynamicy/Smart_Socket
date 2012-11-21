@@ -6,6 +6,7 @@
 <script type='text/javascript' src='scripts/jquery.prettyPhoto.js'></script>
 <script type='text/javascript' src='scripts/jquery.fancygallery.min.js'></script>
 <script type='text/javascript' src='scripts/osgi.imap.js'></script>
+<script type='text/javascript' src='scripts/ajax.js'></script>
 
 <style>
 		body {
@@ -102,62 +103,48 @@
 	</style>
 </head>
 <body>
+
 <div id="wrapper">
    <img width="700" height="446" src="images/bg.jpg" alt="House"> 
-   <div class="pin pin-down" data-xpos="310" data-ypos="125">	  
-	  <h2>Electrical Fan</h2>	  
-	  <ul>
-		<li><b>Voltage (V):</b> 490</li>
-		<li><b>Ampere (A):</b> 588</li>
-		<li><br></li>
-		<li><img src="images/pc1.jpeg" width="210"></li>
-	  </ul>
-   </div>
-   <div class="pin" data-xpos="500" data-ypos="250">	  
-	  <h2>Light</h2>	  
-	  <ul>
-		<li><b>Voltage (V):</b> 840</li>
-		<li><b>Ampere (A):</b> 382</li>
-		<li><br></li>		
-		<li><img src="images/pc2.jpeg" width="210"></li>
-	  </ul> 
-   </div>
-    <div class="pin pin-down" data-xpos="31" data-ypos="205">	  
-	  <h2>Widget TV</h2>	  
-	  <ul>
-		<li><b>Voltage (V):</b> 490</li>
-		<li><b>Ampere (A):</b> 588</li>
-		<li><br></li>
-		<li><img src="images/pc1.jpeg" width="210"></li>
-	  </ul>
-   </div>
-   <div class="pin pin-down" data-xpos="250" data-ypos="305">	  
-	  <h2>Mobile</h2>	  
-	  <ul>
-		<li><b>Voltage (V):</b> 490</li>
-		<li><b>Ampere (A):</b> 588</li>
-		<li><br></li>
-		<li><img src="images/pc1.jpeg" width="210"></li>
-	  </ul>
-   </div>
-   <div class="pin pin-down" data-xpos="150" data-ypos="255"> 
-	  <h2>Smart Socket</h2>	  
-	  <ul>
-		<li><b>Voltage (V):</b> 490</li>
-		<li><b>Ampere (A):</b> 588</li>
-		<li><br></li>
-		<li><img src="images/pc1.jpeg" width="210"></li>
-	  </ul>
-   </div>   
-   <div class="pin pin-down" data-xpos="50" data-ypos="325"> 
-	  <h2>Media Server</h2>	  
-	  <ul>
-		<li><b>Voltage (V):</b> 490</li>
-		<li><b>Ampere (A):</b> 588</li>
-		<li><br></li>
-		<li><img src="images/pc1.jpeg" width="210"></li>
-	  </ul>
-   </div>     
+   
+   <script type='text/javascript'>
+	// code for IE7+, Firefox, Chrome, Opera, Safari, code for IE6, IE5
+	var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new XMLHttpRequest('Microsoft.XMLHTTP');
+	
+    xmlhttp.open("GET", "http://fermat.twbbs.org/appliance.xml", false);
+    xmlhttp.send();
+    var xmlDoc = xmlhttp.responseXML;
+
+    var root = xmlDoc.getElementsByTagName("root");    				
+
+    var tagMap = { 'Current':'', 'Temperature':'', 'Humidity':'', 'Luminosity':'', 
+    				'Status1':'', 'Status2':'', 'Type1':'', 'Type2':'','Price':'' ,
+    				'PriceWarning':'', 'CurrentWarning':'', 'Relay1':'', 'Relay2':''};
+
+    $.each(tagMap, function(key, val)
+    {
+    	var keyElement = root[0].getElementsByTagName(key)[0];
+    	if(keyElement)
+	    {	
+	    	tagMap[key] = keyElement.childNodes[0].nodeValue;
+	    	document.writeln(tagMap[key]);
+	    	
+	    	document.write("<div class=\"pin pin-down\" data-xpos=\"310\" data-ypos=\"125\">");
+	    	document.write("<h2>Electrical Fan</h2>");
+	    	document.write("<ul>");
+	    	document.write("<li><b>Current (A):</b>");
+	    	document.write(tagMap['Current']);
+	    	document.write("</li>");
+	    	document.write("<li id=\"Fan\"></li>");
+	    	document.write("<li><img src=\"images/pc1.jpeg\" width=\"210\"></li>");
+	    	document.write("</ul>");
+	    	document.write("</div>");
+	    }
+    });
+
+
+</script>
+       
 </div>
 </script>
 </body>
