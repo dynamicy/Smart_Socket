@@ -115,7 +115,7 @@
 /* Loading */
 .ws-loading 
 {
-	width: 1024px;
+	width: 750px;
 	height: 200px;
 	position: absolute;
 	left: 50%;
@@ -236,40 +236,40 @@
 	z-index: 20;
 }
 
-	/* CSS3 animation*/
+/* CSS3 animation*/
+.ws-fullbg-animating 
+{
+	animation: fullbg 100s linear 0s infinite normal;
+	-moz-animation: fullbg 100s linear 0s infinite normal;
+	-webkit-animation: fullbg 100s linear 0s infinite normal;
+}
 
-	.ws-fullbg-animating {
-		animation: fullbg 100s linear 0s infinite normal;
-		-moz-animation: fullbg 100s linear 0s infinite normal;
-		-webkit-animation: fullbg 100s linear 0s infinite normal;
+@keyframes fullbg {
+	0% {
+		background-position: 0px 0px;
 	}
+	100% {
+		background-position: -1300px 0px;
+	}
+}
 
-	@keyframes fullbg {
-		0% {
-			background-position: 0px 0px;
-		}
-		100% {
-			background-position: -1300px 0px;
-		}
+@-moz-keyframes fullbg {
+	0% {
+		background-position: 0px 0px;
 	}
+	100% {
+		background-position: -1300px 0px;
+	}
+}
 
-	@-moz-keyframes fullbg {
-		0% {
-			background-position: 0px 0px;
-		}
-		100% {
-			background-position: -1300px 0px;
-		}
+@-webkit-keyframes fullbg {
+	0% {
+		background-position: 0px 0px;
 	}
-
-	@-webkit-keyframes fullbg {
-		0% {
-			background-position: 0px 0px;
-		}
-		100% {
-			background-position: -1300px 0px;
-		}
+	100% {
+		background-position: -1300px 0px;
 	}
+}
 
 .ws-fixed {
 	z-index: 10 !important;
@@ -295,9 +295,7 @@
 	}
 
 
-
 /* Sun and Moon */
-
 .ws-sunmoon {
 	left: 50%;
 	top: 0px;
@@ -307,9 +305,7 @@
 }
 
 
-
 /* Clouds and Fog / Mist */
-
 .ws-cloud1,
 .ws-cloud2,
 .ws-cloud3,
@@ -511,7 +507,6 @@
 	right: 0px;
 	bottom: 0px;
 }
-
 
 
 /* Lightnings */

@@ -70,14 +70,11 @@ pre {
   position: absolute;
   top: 5px;
   left: 50%;
-  
   margin-left: -395px;
-  
-  background: #101112;
-  
+/*   background: #101112; */
   -webkit-border-radius: 9px; 
   -moz-border-radius: 9px;
-/*  -webkit-box-shadow: 0 2px 3px #000;*/  
+ -webkit-box-shadow: 0 2px 3px #000;  
 }
 
 #header 
@@ -129,7 +126,7 @@ pre {
 
 #content .supertabs .supertab 
 {
-  width: 800px;
+  width: 790px;
 }
 
 #content .lhc {
@@ -139,12 +136,11 @@ pre {
 }
 
 #content .rhc {
-  width: 300px;
+  width: 400px;
   float: right;
 }
 
 /* Page specific */
-
 #content .cta {
   display: inline-block;
   margin: 0.5em 0;

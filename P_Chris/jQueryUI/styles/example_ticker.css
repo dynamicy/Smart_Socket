@@ -1,18 +1,14 @@
 ﻿@charset "UTF-8";
-
 body 
 {
-	top: 1em;
-	margin: 1em 1em;
+	width: 750px;	
 	font-family: Tahoma, Genevam, sans-serif;
 }
 
 .rssFeed 
 {
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: small;
-	width: 200px;
-	margin-bottom: 0.5em;
+	width: 350px;
 }
 
 .rssFeed a 
@@ -28,26 +24,25 @@ body
 }
 
 .rssHeader 
-{ 
-	padding: 0em 0; 
+{
+	padding: 0.1px; 
 }
 
 .rssBody 
 { 
-	/* news border */
-/* 	border: 2px solid #666;  */
+	padding: 5px; 
 }
 
 .rssRow h4, .rssRow p, .rssRow div 
 {
 	margin: 0;
-	padding: 0.7em;
+	padding: 10px;
 }
 
 #ticker1
 { 
 	z-index:5000;
-	top:275;
+	top:250;
 }
 
 #ticker1 .odd 
@@ -57,14 +52,4 @@ body
 #ticker1 .even 
 { 
 	background: rgba(200, 200, 200, 0.5);
-}
-
-#ticker2 .odd 
-{ 
-	background-color: #e8fce8; 
-}
-
-#ticker2 .even 
-{ 
-	background-color: #d4e8d4; 
 }

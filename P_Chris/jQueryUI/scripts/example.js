@@ -12,9 +12,7 @@ $(document).ready(function()
 		imgPath : './'
 	});
 	customWeather();
-
 	var isOldIE = $.browser.msie && $.browser.version < 9 ? true : false;
-
 	$('.ws-ex').live('click',function(e)
 	{
 		e.preventDefault();
@@ -38,7 +36,6 @@ $(document).ready(function()
 				}
 				var w = $('#ws-examples').width();
 				var l = parseInt($('#ws-examples .inner').css('left'));
-
 				var fadeOut =  ( ( w - l ) / w ) - 1;
 				var fadeIn =  Math.abs(parseInt($(this).attr('href')));
 
@@ -55,7 +52,6 @@ $(document).ready(function()
 
 			$('li').removeClass('ws-active');
 			$(this).parent().addClass('ws-active');
-
 			$('#ws-examples .inner').stop().animate({
 				left : ( parseInt( $(this).attr('href') ) * $('#ws-examples').width() ) + 'px'
 			}, 1500, 'easeInOutQuart');						
@@ -80,12 +76,10 @@ $(document).ready(function()
 	});
 
 	function customWeather(){
-
 		$('#ws-weathers *').stop().remove();
-
 		$('#ws-weathers').weatherSlider({
 			imgPath : '',
-			locations : ['New York, US'],
+			locations : ['Tainan, TW'],
 			forcedaytime : forcedaytime,
 			forcewcode : forcewcode,
 			forcecurtemp : forcecurtemp,
