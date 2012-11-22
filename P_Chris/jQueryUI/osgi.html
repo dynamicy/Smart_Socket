@@ -1,116 +1,15 @@
 <html>
 <head>
 <title></title>
-<link rel='stylesheet' id='prettyphoto-css'  href='styles/prettyPhoto.css' type='text/css' media='all'>
+<link type="text/css" href="styles/prettyPhoto.css" rel="stylesheet" id="prettyphoto-css" media="all">
+<link type="text/css" href="styles/osgi.style.css" rel="stylesheet">
 <script type='text/javascript' src='scripts/jquery-1.8.3.min.js'></script>
 <script type='text/javascript' src='scripts/jquery.prettyPhoto.js'></script>
 <script type='text/javascript' src='scripts/jquery.fancygallery.min.js'></script>
 <script type='text/javascript' src='scripts/osgi.imap.js'></script>
 <script type='text/javascript' src='scripts/ajax.js'></script>
-<style>
-		body {
-			text-align: center;
-			font: 13px Arial,Helvetica;		
-		}
-		
-		/* Relative positioning*/
-		#wrapper {
-			position: relative;
-			margin: 50px auto 20px auto;
-			border: 1px solid #fafafa;
-			-moz-box-shadow: 0 3px 3px rgba(0,0,0,.5);
-			-webkit-box-shadow: 0 3px 3px rgba(0,0,0,.5);
-			box-shadow: 0 3px 3px rgba(0,0,0,.5);
-		}
-		
-		/* Hide the original tooltips contents */
-		.pin {
-			display: none;
-		}
-		
-		/* Begin styling the tooltips and pins */
-		.tooltip-up, .tooltip-down {
-			position: absolute;
-			width: 130px;
-			height: 100px;
-		}
-		
-		.tooltip-down {
-			background-position: 0 -52px;
-		}
-		
-		.tooltip {
-			display: none;
-			width: 200px;
-			cursor: help;
-			text-shadow: 0 1px 0 #fff;
-			position: absolute;
-			top: 10px;
-			left: 50%;
-			z-index: 999;
-			margin-left: -115px;
-			padding:15px;
-			color: #222;
-			-moz-border-radius: 5px;
-			-webkit-border-radius: 5px;
-			border-radius: 5px;
-			-moz-box-shadow: 0 3px 0 rgba(0,0,0,.7);
-			-webkit-box-shadow: 0 3px 0 rgba(0,0,0,.7);
-			box-shadow: 0 3px 0 rgba(0,0,0,.7);
-			background: #fff1d3;
-			background: -webkit-gradient(linear, left top, left bottom, from(#fff1d3), to(#ffdb90));
-			background: -webkit-linear-gradient(top, #fff1d3, #ffdb90);
-			background: -moz-linear-gradient(top, #fff1d3, #ffdb90);
-			background: -ms-linear-gradient(top, #fff1d3, #ffdb90);
-			background: -o-linear-gradient(top, #fff1d3, #ffdb90);
-			background: linear-gradient(top, #fff1d3, #ffdb90);			
-		}
-		
-		.tooltip::after 
-		{
-			content: '';
-			position: absolute;
-			top: -10px;
-			left: 50%;
-			margin-left: -10px;
-			border-bottom: 10px solid #fff1d3;
-			border-left: 10px solid transparent;
-			border-right :10px solid transparent;
-		}
-		
-		.tooltip-down .tooltip 
-		{
-			bottom: 12px;
-			top: auto;
-		}
-		
-		.tooltip-down .tooltip::after 
-		{
-			bottom: -10px;
-			top: auto;
-			border-bottom: 0;
-			border-top: 10px solid #ffdb90;
-		}
-		
-		.tooltip h2 {
-			font: bold 1.3em 'Trebuchet MS', Tahoma, Arial;
-			margin: 0 0 10px;
-		}
-		
-		.tooltip ul 
-		{
-			margin: 0;
-			padding: 0;
-			list-style: none;
-		}		
-	</style>
 </head>
 <body>
-<div id="iRFloating" style="position:absolute;top:100;left:1000;">
-	    	<p><b>Temperature:</b> = 0</p>
-	    	<p><b>Humidity:</b> = 0</p>
-	    	<p><b>Luminosity:</b> = 10</p>
-</div>
 <div id="wrapper">
 <img width="700" height="446" src="images/bg.jpg" alt="House"> 
    <script type='text/javascript'>
