@@ -92,11 +92,13 @@ function FP_getObjectByID(id,o) {//v1.0
 	    	
 	    	if(tagMap['Type1'] == 2)
 	    	{
+	    		// case: type1 => light
 		    	lightStatus = tagMap['Status1'];
 		    	lightRelay = tagMap['Relay1'];					    	
 	    	}
 	    	else if(tagMap['Type1'] == 3)
 	    	{
+	    		// case: type1 => fan	    	
 		    	fanStatus = tagMap['Status1'];
 		    	fanRelay = tagMap['Relay1'];					    			    	
 	    	}
@@ -104,8 +106,8 @@ function FP_getObjectByID(id,o) {//v1.0
 	    	{
 		    	if(tagMap['Type2'] == 2)
 		    	{
-		    		fanStatus = tagMap['Status2'];
-		    		fanRelay = tagMap['Relay2'];					    	
+		    		lightStatus = tagMap['Status2'];
+		    		lightRelay = tagMap['Relay2'];					    	
 		    	}
 		    	else if(tagMap['Type2'] == 3)
 		    	{
@@ -121,56 +123,70 @@ function FP_getObjectByID(id,o) {//v1.0
 		    	}
 	    	}
 	    	
+	    	// Electrical Fan
 	    	document.write("<div class=\"pin pin-down\" data-xpos=\"310\" data-ypos=\"125\">");
 	    	document.write("<h2>Electrical Fan</h2>");
 	    	document.write("<ul>");
-
 	    	if(fanStatus == 0)
 	    	{
-		    	document.write("<li><b>Status: </b>" + "<img src=\"images/offline.png\" width=\"30\" height=\"30\"></li>");			    				    
+			    document.write("<li><b>Status: </b>" + "<img src=\"images/offline.png\" width=\"20\" height=\"20\"></li>");			    				    
 	    	}
 	    	else
 	    	{
-		    	document.write("<li><b>Status: </b>" + "<img src=\"images/online.png\" width=\"30\" height=\"30\"></li>");			    	
+		    	document.write("<li><b>Status: </b>" + "<img src=\"images/online.png\" width=\"20\" height=\"20\"></li>");			    	
 	    	}
 			document.write("<li><br></li>");
 	    	document.write("<li><b>Current: </b>" + tagMap['Current'] + "</li>");
-	    	document.write("<li><b>Relay: </b>" + fanRelay + "</li>");	 	    	
-	    	document.write("<a href=\"images/on.png\">");
-            document.write("<img src=\"images/on.png\" width=\"50\" height=\"50\" alt=\"Widget TV\" title=\"Widget TV\">");
-            document.write("</a>");   	    		
-            document.write(" ");   	    			    	
-            document.write("<a href=\"images/off.png\">");
-            document.write("<img src=\"images/off.png\" width=\"50\" height=\"50\" alt=\"Widget TV\" title=\"Widget TV\">");
-            document.write("</a>");   	    			    	
-            
+	    	document.write("<li><b>Relay: </b>" + fanRelay + "</li>");	 	    		    			    	
+	    	document.write("<li>");
+	    	if(tagMap['Type1'] == 3)
+	    	{	    	
+	            document.write("<img src=\"images/on.png\" width=\"50\" height=\"50\" onclick=smart_home_req(0, \"div_test\")>");	            
+	            document.write("<img src=\"images/off.png\" width=\"50\" height=\"50\" onclick=smart_home_req(1, \"div_test\")>");	            	            
+//				document.write("type1=3");
+	    	}
+	    	else if(tagMap['Type2'] == 3)
+	    	{
+	            document.write("<img src=\"images/on.png\" width=\"50\" height=\"50\" onclick=smart_home_req(2, \"div_test\")>");	            
+	            document.write("<img src=\"images/off.png\" width=\"50\" height=\"50\" onclick=smart_home_req(3, \"div_test\")>");	            
+//				document.write("type2=3");	            	            	    	
+	    	}
+	    	document.write("</li>");
 	    	document.write("<li><img src=\"images/pc1.jpeg\" width=\"210\"></li>");
 	    	document.write("</ul>");
 	    	document.write("</div>");
 	    	
+	    	// Light
 	    	document.write("<div class=\"pin pin-down\" data-xpos=\"500\" data-ypos=\"250\">");
 	    	document.write("<h2>Light</h2>");
 	    	document.write("<ul>");	    	
 	    	if(lightStatus == 0)
 	    	{
-		    	document.write("<li><b>Status: </b>" + "<img src=\"images/offline.png\" width=\"30\" height=\"30\"></li>");			    	
+		    	document.write("<li><b>Status: </b>" + "<img src=\"images/offline.png\" width=\"20\" height=\"20\"></li>");			    	
 	    	}
 	    	else
 	    	{
-		    	document.write("<li><b>Status: </b>" + "<img src=\"images/online.png\" width=\"30\" height=\"30\"></li>");			    			    	
+		    	document.write("<li><b>Status: </b>" + "<img src=\"images/online.png\" width=\"20\" height=\"20\"></li>");			    			    	
 	    	}	    		  	
 			document.write("<li><br></li>");
 	    	document.write("<li><b>Current: </b>" + tagMap['Current'] + "</li>");		    	
-	    	document.write("<li><b>Relay:</b>");
+	    	document.write("<li><b>Relay: </b>");
 	    	document.write(fanRelay);
 	    	document.write("</li>");
-	    	document.write("<li><a href=\"images/on.png\">");
-            document.write("<img src=\"images/on.png\" width=\"50\" height=\"50\" alt=\"Widget TV\" title=\"Widget TV\">");
-            document.write("</a>");   	    		
-            document.write(" ");   	    			    	
-            document.write("<a href=\"images/off.png\">");
-            document.write("<img src=\"images/off.png\" width=\"50\" height=\"50\" alt=\"Widget TV\" title=\"Widget TV\">");
-            document.write("</a></li>");  
+	    	document.write("<li>");	    	
+	    	if(tagMap['Type1'] == 2)
+	    	{	    	
+	            document.write("<img src=\"images/on.png\" width=\"50\" height=\"50\" onclick=smart_home_req(0, \"div_test\")>");	            
+	            document.write("<img src=\"images/off.png\" width=\"50\" height=\"50\" onclick=smart_home_req(1, \"div_test\")>");	            	            
+//				document.write("type1=2");	            	            	    	
+	    	}
+	    	else if(tagMap['Type2'] == 2)
+	    	{
+	            document.write("<img src=\"images/on.png\" width=\"50\" height=\"50\" onclick=smart_home_req(2, \"div_test\")>");	            
+	            document.write("<img src=\"images/off.png\" width=\"50\" height=\"50\" onclick=smart_home_req(3, \"div_test\")>");	            	            	    	
+//				document.write("type2=2");	            	            	    	
+	    	}
+	    	document.write("</li>");	    	
 	    	document.write("<li><img src=\"images/pc2.jpeg\" width=\"210\"></li>");	    	
 	    	document.write("</ul>");
 	    	document.write("</div>");   			    	    		    	
@@ -187,15 +203,15 @@ function FP_getObjectByID(id,o) {//v1.0
 			    	document.write("<li><b>Status:</b>");
 			    	if(bundle[i].getElementsByTagName("status")[0].childNodes[0].nodeValue == "On")
 			    	{
-			    		document.write("<img src=\"images/online.png\" width=\"30\" height=\"30\">");
+			    		document.write("<img src=\"images/online.png\" width=\"20\" height=\"20\">");
 			    	}
 			    	else
 			    	{
-			    		document.write("<img src=\"images/offline.png\" width=\"30\" height=\"30\">");
+			    		document.write("<img src=\"images/offline.png\" width=\"20\" height=\"20\">");
 			    	}			    	
 			    	document.write("</li>");	  	
 			    	document.write("<li><br></li>");		    		
-			    	document.write("<li><b>Type:</b>");
+			    	document.write("<li><b>Type: </b>");
 			    	document.write(bundle[i].getElementsByTagName("type")[0].childNodes[0].nodeValue);
 			    	document.write("</li>");			    				    		  			    	  	
 			    	document.write("<li><b>Service:</b></li>");
@@ -212,15 +228,15 @@ function FP_getObjectByID(id,o) {//v1.0
 			    	document.write("<li><b>Status:</b>");
 			    	if(bundle[i].getElementsByTagName("status")[0].childNodes[0].nodeValue == "On")
 			    	{
-			    		document.write("<img src=\"images/online.png\" width=\"30\" height=\"30\">");
+			    		document.write("<img src=\"images/online.png\" width=\"20\" height=\"20\">");
 			    	}
 			    	else
 			    	{
-			    		document.write("<img src=\"images/offline.png\" width=\"30\" height=\"30\">");
+			    		document.write("<img src=\"images/offline.png\" width=\"20\" height=\"20\">");
 			    	}			    	
 			    	document.write("</li>");	  	
 			    	document.write("<li><br></li>");		    		
-			    	document.write("<li><b>Type:</b>");
+			    	document.write("<li><b>Type: </b>");
 			    	document.write(bundle[i].getElementsByTagName("type")[0].childNodes[0].nodeValue);
 			    	document.write("</li>");			    				    	
 			    	document.write("<li><b>Service:</b></li>");
@@ -269,18 +285,18 @@ function FP_getObjectByID(id,o) {//v1.0
 			    	document.write("<li><b>Status:</b>");
 			    	if(bundle[i].getElementsByTagName("status")[0].childNodes[0].nodeValue == "On")
 			    	{
-			    		document.write("<img src=\"images/online.png\" width=\"30\" height=\"30\">");
+			    		document.write("<img src=\"images/online.png\" width=\"20\" height=\"20\">");
 			    	}
 			    	else
 			    	{
-			    		document.write("<img src=\"images/offline.png\" width=\"30\" height=\"30\">");
+			    		document.write("<img src=\"images/offline.png\" width=\"20\" height=\"20\">");
 			    	}			    	
 			    	document.write("</li>");	  	
 			    	document.write("<li><br></li>");		    		
-			    	document.write("<li><b>Type:</b>");
+			    	document.write("<li><b>Type: </b>");
 			    	document.write(bundle[i].getElementsByTagName("type")[0].childNodes[0].nodeValue);
 			    	document.write("</li>");			    	
-			    	document.write("<li><b>Service:</b></li>");
+			    	document.write("<li><b>Service: </b></li>");
 			    	document.write("<li>");
 			    	document.write(bundle[i].getElementsByTagName("service1")[0].childNodes[0].nodeValue);
 			    	document.write("</li>");			    			    	    	
@@ -294,18 +310,18 @@ function FP_getObjectByID(id,o) {//v1.0
 			    	document.write("<li><b>Status:</b>");
 			    	if(bundle[i].getElementsByTagName("status")[0].childNodes[0].nodeValue == "On")
 			    	{
-			    		document.write("<img src=\"images/online.png\" width=\"30\" height=\"30\">");
+			    		document.write("<img src=\"images/online.png\" width=\"20\" height=\"20\">");
 			    	}
 			    	else
 			    	{
-			    		document.write("<img src=\"images/offline.png\" width=\"30\" height=\"30\">");
+			    		document.write("<img src=\"images/offline.png\" width=\"20\" height=\"20\">");
 			    	}			    	
 			    	document.write("</li>");	  	
 			    	document.write("<li><br></li>");			    	
-			    	document.write("<li><b>Type:</b>");
+			    	document.write("<li><b>Type: </b>");
 			    	document.write(bundle[i].getElementsByTagName("type")[0].childNodes[0].nodeValue);
 			    	document.write("</li>");		    				    	
-			    	document.write("<li><b>Service:</b></li>");
+			    	document.write("<li><b>Service: </b></li>");
 			    	document.write("<li>");
 			    	document.write(bundle[i].getElementsByTagName("service1")[0].childNodes[0].nodeValue);
 			    	document.write("</li>");			    	  	
@@ -316,5 +332,6 @@ function FP_getObjectByID(id,o) {//v1.0
 			}
     }
 </script>
+<div align="center" id="div_test"></div>
 </body>
 </html>
