@@ -137,19 +137,19 @@ function FP_getObjectByID(id,o) {//v1.0
 	    	}
 			document.write("<li><br></li>");
 	    	document.write("<li><b>Current: </b>" + tagMap['Current'] + "</li>");
+	    	document.write("<li><b>Temperature: </b>" + tagMap['Temperature'] + "</li>");
+	    	document.write("<li><b>Luminosity: </b>" + tagMap['Luminosity'] + "</li>");	    	
 	    	document.write("<li><b>Relay: </b>" + fanRelay + "</li>");	 	    		    			    	
 	    	document.write("<li>");
 	    	if(tagMap['Type1'] == 3)
 	    	{	    	
 	            document.write("<img src=\"images/on.png\" width=\"50\" height=\"50\" onclick=smart_home_req(0, \"div_test\")>");	            
 	            document.write("<img src=\"images/off.png\" width=\"50\" height=\"50\" onclick=smart_home_req(1, \"div_test\")>");	            	            
-//				document.write("type1=3");
 	    	}
 	    	else if(tagMap['Type2'] == 3)
 	    	{
 	            document.write("<img src=\"images/on.png\" width=\"50\" height=\"50\" onclick=smart_home_req(2, \"div_test\")>");	            
-	            document.write("<img src=\"images/off.png\" width=\"50\" height=\"50\" onclick=smart_home_req(3, \"div_test\")>");	            
-//				document.write("type2=3");	            	            	    	
+	            document.write("<img src=\"images/off.png\" width=\"50\" height=\"50\" onclick=smart_home_req(3, \"div_test\")>");         	            	    	
 	    	}
 	    	document.write("</li>");
 	    	document.write("<li><img src=\"images/pc1.jpeg\" width=\"210\"></li>");
@@ -170,6 +170,8 @@ function FP_getObjectByID(id,o) {//v1.0
 	    	}	    		  	
 			document.write("<li><br></li>");
 	    	document.write("<li><b>Current: </b>" + tagMap['Current'] + "</li>");		    	
+	    	document.write("<li><b>Temperature: </b>" + tagMap['Temperature'] + "</li>");
+	    	document.write("<li><b>Luminosity: </b>" + tagMap['Luminosity'] + "</li>");	    	
 	    	document.write("<li><b>Relay: </b>");
 	    	document.write(fanRelay);
 	    	document.write("</li>");
@@ -177,14 +179,12 @@ function FP_getObjectByID(id,o) {//v1.0
 	    	if(tagMap['Type1'] == 2)
 	    	{	    	
 	            document.write("<img src=\"images/on.png\" width=\"50\" height=\"50\" onclick=smart_home_req(0, \"div_test\")>");	            
-	            document.write("<img src=\"images/off.png\" width=\"50\" height=\"50\" onclick=smart_home_req(1, \"div_test\")>");	            	            
-//				document.write("type1=2");	            	            	    	
+	            document.write("<img src=\"images/off.png\" width=\"50\" height=\"50\" onclick=smart_home_req(1, \"div_test\")>");	            	            	    	
 	    	}
 	    	else if(tagMap['Type2'] == 2)
 	    	{
 	            document.write("<img src=\"images/on.png\" width=\"50\" height=\"50\" onclick=smart_home_req(2, \"div_test\")>");	            
 	            document.write("<img src=\"images/off.png\" width=\"50\" height=\"50\" onclick=smart_home_req(3, \"div_test\")>");	            	            	    	
-//				document.write("type2=2");	            	            	    	
 	    	}
 	    	document.write("</li>");	    	
 	    	document.write("<li><img src=\"images/pc2.jpeg\" width=\"210\"></li>");	    	
