@@ -62,8 +62,8 @@ function FP_getObjectByID(id,o) {//v1.0
 	var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new XMLHttpRequest('Microsoft.XMLHTTP');
 	var xmlapp = window.XMLHttpRequest ? new XMLHttpRequest() : new XMLHttpRequest('Microsoft.XMLHTTP');	
 	
-    xmlhttp.open("GET", "http://fermat.twbbs.org/appliance.xml", false);
-    xmlapp.open("GET", "http://fermat.twbbs.org/bundle.xml", false);
+    xmlhttp.open("GET", "http://localhost/appliance.xml", false);
+    xmlapp.open("GET", "http://localhost/bundle.xml", false);
     
     xmlhttp.send();
     xmlapp.send();

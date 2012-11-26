@@ -14,14 +14,14 @@ char ip_addr[20];
 
 int print_addresses(const int domain)
 {
-	int s;
+	int socket_fd = 0;
 	struct ifconf ifconf;
 	struct ifreq ifr[50];
-	int ifs;
-	int i;
+	int ifs = 0;
+	int i = 0;
 
-	s = socket(domain, SOCK_STREAM, 0);
-	if (s < 0) 
+	socket_fd = socket(domain, SOCK_STREAM, 0);
+	if (socket_fd < 0) 
 	{
 		perror("socket");
 		return 0;
@@ -30,7 +30,7 @@ int print_addresses(const int domain)
 	ifconf.ifc_buf = (char *) ifr;
 	ifconf.ifc_len = sizeof ifr;
 
-	if (ioctl(s, SIOCGIFCONF, &ifconf) == -1) 
+	if (ioctl(socket_fd, SIOCGIFCONF, &ifconf) == -1) 
 	{
 		perror("ioctl");
 		return 0;
@@ -48,13 +48,14 @@ int print_addresses(const int domain)
 			perror("inet_ntop");
 			return 0;
 		}
-
+		
+		// interface eth0 / wlan0
 		if(strcmp(ifr[i].ifr_name, "eth0") == 0)
 		{
 			strcpy(ip_addr, ip);
 		}		
 	}
-	close(s);
+	close(socket_fd);
 
 	return 1;
 }
@@ -79,7 +80,7 @@ int main(int argc, char **argv)
 	fprintf(output, "<trackList>\n");
 
 	/* Start with the outside directory */
-	outer_dir = opendir("./video");
+	outer_dir = opendir(argv[1]);
 
 	while((ptr = readdir(outer_dir)) != NULL) 
 	{   
