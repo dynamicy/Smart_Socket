@@ -6,29 +6,28 @@
 <script type='text/javascript' src='scripts/jquery-1.8.3.min.js'></script>
 <script type='text/javascript' src='scripts/jquery.prettyPhoto.js'></script>
 <script type='text/javascript' src='scripts/jquery.fancygallery.min.js'></script>
-<script type='text/javascript' src='scripts/osgi.imap.js'></script>
 <script language="JavaScript">
-<!--
-function FP_preloadImgs() {//v1.0
- var d=document,a=arguments; if(!d.FP_imgs) d.FP_imgs=new Array();
- for(var i=0; i<a.length; i++) { d.FP_imgs[i]=new Image; d.FP_imgs[i].src=a[i]; }
-}
-
-function FP_swapImg() {//v1.0
- var doc=document,args=arguments,elm,n; doc.$imgSwaps=new Array(); for(n=2; n<args.length;
- n+=2) { elm=FP_getObjectByID(args[n]); if(elm) { doc.$imgSwaps[doc.$imgSwaps.length]=elm;
- elm.$src=elm.src; elm.src=args[n+1]; } }
-}
-
-function FP_getObjectByID(id,o) {//v1.0
- var c,el,els,f,m,n; if(!o)o=document; if(o.getElementById) el=o.getElementById(id);
- else if(o.layers) c=o.layers; else if(o.all) el=o.all[id]; if(el) return el;
- if(o.id==id || o.name==id) return o; if(o.childNodes) c=o.childNodes; if(c)
- for(n=0; n<c.length; n++) { el=FP_getObjectByID(id,c[n]); if(el) return el; }
- f=o.forms; if(f) for(n=0; n<f.length; n++) { els=f[n].elements;
- for(m=0; m<els.length; m++){ el=FP_getObjectByID(id,els[n]); if(el) return el; } }
- return null;
-}
+//<!--
+	function FP_preloadImgs() {//v1.0
+	 var d=document,a=arguments; if(!d.FP_imgs) d.FP_imgs=new Array();
+	 for(var i=0; i<a.length; i++) { d.FP_imgs[i]=new Image; d.FP_imgs[i].src=a[i]; }
+	}
+	
+	function FP_swapImg() {//v1.0
+	 var doc=document,args=arguments,elm,n; doc.$imgSwaps=new Array(); for(n=2; n<args.length;
+	 n+=2) { elm=FP_getObjectByID(args[n]); if(elm) { doc.$imgSwaps[doc.$imgSwaps.length]=elm;
+	 elm.$src=elm.src; elm.src=args[n+1]; } }
+	}
+	
+	function FP_getObjectByID(id,o) {//v1.0
+	 var c,el,els,f,m,n; if(!o)o=document; if(o.getElementById) el=o.getElementById(id);
+	 else if(o.layers) c=o.layers; else if(o.all) el=o.all[id]; if(el) return el;
+	 if(o.id==id || o.name==id) return o; if(o.childNodes) c=o.childNodes; if(c)
+	 for(n=0; n<c.length; n++) { el=FP_getObjectByID(id,c[n]); if(el) return el; }
+	 f=o.forms; if(f) for(n=0; n<f.length; n++) { els=f[n].elements;
+	 for(m=0; m<els.length; m++){ el=FP_getObjectByID(id,els[n]); if(el) return el; } }
+	 return null;
+	}
 // -->
 	function smart_home_req(val,obj_name){
 		var msg = new Array();
@@ -43,7 +42,6 @@ function FP_getObjectByID(id,o) {//v1.0
 		//var obj_id='div_test';
 		if(data=="Fail\n"){
 			setTimeout(function(){smart_home_req(val,obj)},1000);
-			//alert("Req Done");
 		}
 		else{
 			var obj = document.getElementById(obj_name);
@@ -51,247 +49,329 @@ function FP_getObjectByID(id,o) {//v1.0
 		}
 	}
 </script>
+    <script type="text/javascript">
+        $(document).ready(function () 
+        {
+            var DataExtractor = function () 
+            {
+                var me = this;
+                me.getBundle = function (handler) 
+                {
+                    $.get('../bundle.xml', function (data) 
+                    {
+                        if (handler && data) 
+                        {
+                            var jRoot = [];
+                            var root = $(data).find('root');
+                            root.children().each(function()
+                            {
+                                var bundle = $(this);
+                                var jBun = {};
+                                bundle.children().each(function () 
+                                {
+                                    jBun[$(this).prop('tagName').toLowerCase()] = $(this).text();
+                                });
+                                //var key = jBun.name == '' ? 'tv' : 'socket'; 
+                                jRoot.push(jBun);
+                            });
+                            handler(jRoot);
+                        }
+                    });
+                };
+
+                me.getAppliance = function (handler) 
+                {
+                    $.get('../appliance.xml', function (data) 
+                    {
+                        if (handler && data) 
+                        {
+                            var jRoot = {};
+                            var root = $(data).find('root');
+                            root.children().each(function()
+                            {
+                                jRoot[$(this).prop('tagName').toLowerCase()] = $(this).text();
+                            });
+                            handler(jRoot);
+                        }
+                    });
+                };
+            };
+
+            var extractor = new DataExtractor();           
+            setInterval(modifyUIData, 3000, extractor);
+
+            function modifyUIData(extractor) 
+            {
+          		// Initial
+            	if(!extractor)
+            	{
+                    var appBtn1 = $('#appButton1');
+	                var appBtn2 = $('#appButton2');
+                    var appBtn3 = $('#appButton3');
+	                var appBtn4 = $('#appButton4');
+                    var appBtn5 = $('#appButton5');
+	                var appBtn6 = $('#appButton6');
+                    var appBtn7 = $('#appButton7');
+	                var appBtn8 = $('#appButton8');
+	                	        
+					appBtn1.hide();
+					appBtn2.hide();
+					appBtn3.hide();
+					appBtn4.hide();
+					appBtn5.hide();
+					appBtn6.hide();
+					appBtn7.hide();
+					appBtn8.hide();																					                	                                       
+	            	return;           	
+            	}
+
+            	// Normal case
+                extractor.getBundle(function (bundles) 
+                {
+                    var tvBundle = bundles[0];
+                    var msBundle = bundles[1];                    
+                    var phoneBundle = bundles[2];                    
+                    var socketBundle = bundles[3];                                                                               
+                    
+                    // Tv
+                    $('#tvName').text(tvBundle.name);
+                    $('#tvType').text(tvBundle.type);
+                    $('#tvStatus').text(tvBundle.status);
+                    $('#tvService1').text(tvBundle.service1);
+                    
+                    // Media Server
+                    $('#msName').text(msBundle.name);
+                    $('#msType').text(msBundle.type);
+                    $('#msStatus').text(msBundle.status);
+                    $('#msService1').text(msBundle.service1); 
+                    $('#msService2').text(msBundle.service2);                     
+
+                    // Mobile
+                    $('#phoneName').text(phoneBundle.name);
+                    $('#phoneType').text(phoneBundle.type);
+                    $('#phoneStatus').text(phoneBundle.status);
+                    $('#phoneService1').text(phoneBundle.service1); 
+                    
+                    // Socket
+                    $('#socketName').text(socketBundle.name);
+                    $('#socketType').text(socketBundle.type);
+                    $('#socketStatus').text(socketBundle.status); 
+                    $('#socketService1').text(socketBundle.service1);
+                    $('#socketService2').text(socketBundle.service2); 
+                    $('#socketService3').text(socketBundle.service3); 
+                    $('#socketService4').text(socketBundle.service4); 
+                    $('#socketService5').text(socketBundle.service5); 
+                    $('#socketService6').text(socketBundle.service6); 
+                    $('#socketService7').text(socketBundle.service7); 
+                    $('#socketService8').text(socketBundle.service8); 
+                    $('#socketService9').text(socketBundle.service9); 
+                    $('#socketService10').text(socketBundle.service10); 
+                    $('#socketService11').text(socketBundle.service11); 
+                    $('#socketService12').text(socketBundle.service12);                                                                                                                                                                                                                             
+
+                    map.updata();
+                });
+                
+                extractor.getAppliance(function (data) 
+                {
+                    var appCurrent = data.current;
+                    var appTemp = data.temperature;              
+                    var appHumi = data.humidity;
+                    var appLumi = data.luminosity;
+                    var appSta1 = data.status1;
+                    var appSta2 = data.status2;
+                    var appType1 = data.type1;
+                    var appType2 = data.type2;
+                    var appPrice = data.price;
+                    var appPriWarn = data.priceWarning;
+                    var appCurrWarn = data.currentWarning;
+                    var appRelay1 = data.relay1;
+                    var appRelay2 = data.relay2; 
+	                var lightrelay = $('#lightrelay');
+	                var lightstatus = $('#lightstatus');	                
+	                var fanrelay = $('#fanrelay');
+	                var fanstatus = $('#fanstatus');                
+                    
+                    var appBtn1 = $('#appButton1');
+	                var appBtn2 = $('#appButton2');
+                    var appBtn3 = $('#appButton3');
+	                var appBtn4 = $('#appButton4');
+                    var appBtn5 = $('#appButton5');
+	                var appBtn6 = $('#appButton6');
+                    var appBtn7 = $('#appButton7');
+	                var appBtn8 = $('#appButton8');     	                	                                                                                                                                                 
+ 	                	                	                
+                    $('#appCurrent').text(appCurrent);
+                    $('#appTemp').text(appTemp);
+                    $('#appHumi').text(appHumi);
+                    $('#appLumi').text(appLumi); 
+                    $('#appStat1').text(appSta1); 
+                    $('#appStat2').text(appSta2); 
+                    $('#appType1').text(appType1);
+                    $('#appType2').text(appType2);
+                    $('#appPrice').text(appPrice);
+                    $('#appPriceWarn').text(appPriWarn);
+                    $('#appCurrWarn').text(appCurrWarn);   
+                    $('#appRelay1').text(appRelay1);
+                    $('#appRelay2').text(appRelay2);  
+                    $('#lightrelay').text(lightrelay);                                            
+                    $('#lightstatus').text(lightstatus);                                            
+                    $('#fanrelay').text(fanrelay);                                            
+                    $('#fanstatus').text(fanstatus);                                            
+                                        
+                    switch(appType1)
+                    {
+	                case "2":
+	                	// light
+	                	lightrelay.text(appRelay1);
+	                	lightstatus.text(appSta1);
+						appBtn5.show();
+						appBtn6.show();	                	
+	                	break;
+	                case "3":
+	                	// fan
+	                	fanrelay.text(appRelay1);
+	                	fanstatus.text(appSta1);	                	
+						appBtn7.show();
+						appBtn8.show();		                	
+	                	break;
+	                default:
+	                	break;    
+                    }
+
+                    switch(appType2)
+                    {
+	                case "2":
+	                	// light	
+	                	lightrelay.text(appRelay2);
+	                	lightstatus.text(appSta2);	                	
+						appBtn1.show();
+						appBtn2.show();		                	                
+	                	break;
+	                case "3":
+	                	// fan	  
+	                	fanrelay.text(appRelay2);
+	                	fanstatus.text(appSta2);	                		                	
+						appBtn3.show();
+						appBtn4.show();		                	              
+	                	break;
+	                default:
+	                	break;    
+                    }
+
+                    map.updata();
+                });
+            }
+
+            var IMap = function () {
+                var me = this;
+
+                me.updata = function () {                  
+                    var pins = $(".pin");
+                    me.clearDirty();
+                    pins.each(function () {
+                        var pin = $(this);
+                        var tooltipDirection = pin.hasClass('pin-down') ? 'tooltip-down' : 'tooltip-up';
+                        var tooltip = $('<div class="tooltip">' + pin.html() + '</div>');
+                        var dirty = $("<div style='left:" + pin.data('xpos') + "px;top:" + pin.data('ypos') + "px' class='" + tooltipDirection + "'></div>");
+                        dirty.append(tooltip);
+                        me.wrapper.append(dirty);
+                    });
+
+                    $('.tooltip-up, .tooltip-down').mouseenter(function () {
+                        $(this).children('.tooltip').fadeIn(100);
+                    }).mouseleave(function () {
+                        $(this).children('.tooltip').fadeOut(100);
+                    })
+                };
+                
+                me.clearDirty = function () {
+                    me.wrapper.find('.tooltip-down').remove();
+                    me.wrapper.find('.tooltip-up').remove();                    
+                }
+
+                me.wrappedImg = $('#wrapper img');
+                if (me.wrappedImg) {
+                    me.wrapper = $('#wrapper').css({
+                        'width': me.wrappedImg.width(),
+                        'height': me.wrappedImg.height()
+                    });                    
+                    me.updata();
+                }
+            };
+
+			modifyUIData();
+            var map = new IMap();
+        });
+    </script>
 </head>
+
 <body>
 <div id="wrapper">
-<img width="700" height="446" src="images/bg.png" alt="House"> 
-   <script type='text/javascript'>
-	// code for IE7+, Firefox, Chrome, Opera, Safari, code for IE6, IE5
-	var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new XMLHttpRequest('Microsoft.XMLHTTP');
-	var xmlapp = window.XMLHttpRequest ? new XMLHttpRequest() : new XMLHttpRequest('Microsoft.XMLHTTP');	
-	
-    xmlhttp.open("GET", "http://fermat.twbbs.org/appliance.xml", false);
-    xmlapp.open("GET", "http://fermat.twbbs.org/bundle.xml", false);
-    
-    xmlhttp.send();
-    xmlapp.send();
-        
-    var xmlDoc = xmlhttp.responseXML;
-    var appDoc = xmlapp.responseXML;
-    
-    var root = xmlDoc.getElementsByTagName("root");    				
-    var bundle = appDoc.getElementsByTagName("bundle");
-    
-    var tagMap = { 'Current':'', 'Temperature':'', 'Humidity':'', 'Luminosity':'', 
-    				'Status1':'', 'Status2':'', 'Type1':'', 'Type2':'','Price':'' ,
-    				'PriceWarning':'', 'CurrentWarning':'', 'Relay1':'', 'Relay2':''};
-    
-    $.each(tagMap, function(key, val)
-    {
-    	var keyElement = root[0].getElementsByTagName(key)[0];
-    	if(keyElement)
-	    {	
-	    	tagMap[key] = keyElement.childNodes[0].nodeValue;
-	    	
-	    	var lightStatus = 0;
-	    	var fanStatus = 0;
-	    	var lightRelay = 0;
-	    	var fanRelay = 0;
-	    	
-	    	switch(tagMap['Type1'])
-	    	{
-		    case 2:
-		    	// case: type1 => light
-		    	lightStatus = tagMap['Status1'];
-		    	lightRelay = tagMap['Relay1'];		
-		    	break;
-		    case 3:
-	    		// case: type1 => fan	    	
-		    	fanStatus = tagMap['Status1'];
-		    	fanRelay = tagMap['Relay1'];					    			    			    	
-			default:
-				break;	
-	    	}
-
-	    	switch(tagMap['Type2'])
-	    	{
-		    case 2:
-		    	// case: type2 => light
-		    	lightStatus = tagMap['Status2'];
-		    	lightRelay = tagMap['Relay2'];	
-		    	break;
-		    case 3:
-	    		// case: type2 => fan	    	
-	    		fanStatus = tagMap['Status2'];
-	    		fanRelay = tagMap['Relay2'];					    			    			    	
-			default:
-				break;	
-	    	}
-	    	
-	    	// Electrical Fan
-	    	document.write("<div class=\"pin pin-down\" data-xpos=\"310\" data-ypos=\"125\">");
-	    	document.write("<h2>Electrical Fan</h2>");
-	    	document.write("<ul>");
-	    	if(fanStatus == 0)
-	    	{
-			    document.write("<li><b>Status: </b>" + "<img src=\"images/offline.png\" width=\"20\" height=\"20\"></li>");			    				    
-	    	}
-	    	else
-	    	{
-		    	document.write("<li><b>Status: </b>" + "<img src=\"images/online.png\" width=\"20\" height=\"20\"></li>");			    	
-	    	}
-	    	document.write("<li><b>Relay: </b>" + fanRelay + "</li>");
-	    	document.write("<br><li>");
-	    	if(tagMap['Type1'] == 3)
-	    	{	    	
-	            document.write("<button type=\"button\" style=\"height: 50px; width: 80px\" onclick=smart_home_req(0,\"div_test\")>Turn On</button>");
-	            document.write("   ");
-	            document.write("<button type=\"button\" style=\"height: 50px; width: 80px\" onclick=smart_home_req(1,\"div_test\")>Turn Off</button>");
-	    	}
-	    	else if(tagMap['Type2'] == 3)
-	    	{
-	            document.write("<button type=\"button\" style=\"height: 50px; width: 80px\" onclick=smart_home_req(2,\"div_test\")>Turn On</button>");	            
-	            document.write("   ");
-	            document.write("<button type=\"button\" style=\"height: 50px; width: 80px\" onclick=smart_home_req(3,\"div_test\")>Turn Off</button>");	            
-	    	}
-	    	document.write("</li>");
-			document.write("<br>");	    	
-	    	document.write("<li><img src=\"images/pc1.jpeg\" width=\"210\"></li>");
-	    	document.write("</ul>");
-	    	document.write("</div>");
-	    	
-	    	// Light
-	    	document.write("<div class=\"pin pin-down\" data-xpos=\"500\" data-ypos=\"250\">");
-	    	document.write("<h2>Light</h2>");
-	    	document.write("<ul>");	    	
-	    	if(lightStatus == 0)
-	    	{
-		    	document.write("<li><b>Status: </b>" + "<img src=\"images/offline.png\" width=\"20\" height=\"20\"></li>");			    	
-	    	}
-	    	else
-	    	{
-		    	document.write("<li><b>Status: </b>" + "<img src=\"images/online.png\" width=\"20\" height=\"20\"></li>");			    			    	
-	    	}	    		  	    	
-	    	document.write("<li><b>Relay: </b>" + fanRelay + "</li>");
-			document.write("<br>");	    	
-	    	document.write("<li>");	    	
-	    	if(tagMap['Type1'] == 2)
-	    	{	    	
-	            document.write("<button type=\"button\" style=\"height: 50px; width: 80px\" onclick=smart_home_req(0,\"div_test\")>Turn On</button>");
-	            document.write("   ");
-	            document.write("<button type=\"button\" style=\"height: 50px; width: 80px\" onclick=smart_home_req(1,\"div_test\")>Turn Off</button>");           
-	    	}
-	    	else if(tagMap['Type2'] == 2)
-	    	{
-	            document.write("<button type=\"button\" style=\"height: 50px; width: 80px\" onclick=smart_home_req(2,\"div_test\")>Turn On</button>");	            
-	            document.write("   ");
-	            document.write("<button type=\"button\" style=\"height: 50px; width: 80px\" onclick=smart_home_req(3,\"div_test\")>Turn Off</button>");	  	            
-	    	}
-	    	document.write("</li>");
-			document.write("<br>");	    	    		    	
-	    	document.write("<li><img src=\"images/pc2.jpeg\" width=\"210\"></li>");	    	
-	    	document.write("</ul>");
-	    	document.write("</div>");   			    	    		    	
-	    }
-    });
-
-    for (i = 0; i < bundle.length; i++) 
-    {   	
-	    	if(bundle[i].getElementsByTagName("name")[0].childNodes[0].nodeValue == "MMN_WidgetTVBundle.Service_WidgetTV_Interface")
-	    	{
-		    		document.write("<div class=\"pin pin-down\" data-xpos=\"31\" data-ypos=\"205\">");
-	    		  	document.write("<h2>Widget TV</h2><ul><li><b>Status:</b>");
-			    	if(bundle[i].getElementsByTagName("status")[0].childNodes[0].nodeValue == "On")
-			    	{
-			    		document.write("<img src=\"images/online.png\" width=\"20\" height=\"20\">");
-			    	}
-			    	else
-			    	{
-			    		document.write("<img src=\"images/offline.png\" width=\"20\" height=\"20\">");
-			    	}			    	
-			    	document.write("</li>");		    		
-			    	document.write("<li><b>Type: </b>");
-			    	document.write(bundle[i].getElementsByTagName("type")[0].childNodes[0].nodeValue);
-			    	document.write("</li>");			    				    		  			    	  	
-			    	document.write("<li><b>Service:</b></li>");
-			    	document.write("<li>");
-			    	document.write(bundle[i].getElementsByTagName("service1")[0].childNodes[0].nodeValue);
-			    	document.write("</li></ul>");
-			}
-			else if(bundle[i].getElementsByTagName("name")[0].childNodes[0].nodeValue == "MMN_SmartSocketBundle.Service_SmartSocket_Interface")
-			{
-			    	document.write("<div class=\"pin pin-down\" data-xpos=\"150\" data-ypos=\"255\">");
-			    	document.write("<h2>Smart Socket</h2><ul><li><b>Status:</b>");
-			    	if(bundle[i].getElementsByTagName("status")[0].childNodes[0].nodeValue == "On")
-			    	{
-			    		document.write("<img src=\"images/online.png\" width=\"20\" height=\"20\">");
-			    	}
-			    	else
-			    	{
-			    		document.write("<img src=\"images/offline.png\" width=\"20\" height=\"20\">");
-			    	}			    	
-			    	document.write("</li>");	  	
-			    	document.write("<li><b>Temperature: </b>" + tagMap['Temperature'] + "</li>");
-			    	document.write("<li><b>Luminosity: </b>" + tagMap['Luminosity'] + "</li>");
-			    	document.write("<li><b>Current: </b>" + tagMap['Current'] + "</li>");			    	
-			    	document.write("<li><b>Type: </b>");
-			    	document.write(bundle[i].getElementsByTagName("type")[0].childNodes[0].nodeValue);
-			    	document.write("</li><li><b>Service:</b></li><li>");
-			    	document.write(bundle[i].getElementsByTagName("service1")[0].childNodes[0].nodeValue);
-			    	document.write("</li><li>");
-			    	document.write(bundle[i].getElementsByTagName("service2")[0].childNodes[0].nodeValue);
-			    	document.write("</li><li>");
-			    	document.write(bundle[i].getElementsByTagName("service3")[0].childNodes[0].nodeValue);
-			    	document.write("</li><li>");
-			    	document.write(bundle[i].getElementsByTagName("service4")[0].childNodes[0].nodeValue);
-			    	document.write("</li><li>");
-			    	document.write(bundle[i].getElementsByTagName("service5")[0].childNodes[0].nodeValue);
-			    	document.write("</li><li>");
-			    	document.write(bundle[i].getElementsByTagName("service6")[0].childNodes[0].nodeValue);
-			    	document.write("</li><li>");
-			    	document.write(bundle[i].getElementsByTagName("service7")[0].childNodes[0].nodeValue);
-			    	document.write("</li><li>");
-			    	document.write(bundle[i].getElementsByTagName("service8")[0].childNodes[0].nodeValue);
-			    	document.write("</li><li>");
-			    	document.write(bundle[i].getElementsByTagName("service9")[0].childNodes[0].nodeValue);
-			    	document.write("</li><li>");
-			    	document.write(bundle[i].getElementsByTagName("service10")[0].childNodes[0].nodeValue);
-			    	document.write("</li><li>");
-			    	document.write(bundle[i].getElementsByTagName("service11")[0].childNodes[0].nodeValue);
-			    	document.write("</li><li>");
-			    	document.write(bundle[i].getElementsByTagName("service12")[0].childNodes[0].nodeValue);
-			    	document.write("</li></ul>");
-			}
-			else if(bundle[i].getElementsByTagName("name")[0].childNodes[0].nodeValue == "MMN_SmartPhoneBundle.Service_SmartPhone_Interface")
-	    	{
-			    	document.write("<div class=\"pin pin-down\" data-xpos=\"250\" data-ypos=\"305\">");
-			    	document.write("<h2>Mobile</h2><ul><li><b>Status:</b>");
-			    	if(bundle[i].getElementsByTagName("status")[0].childNodes[0].nodeValue == "On")
-			    	{
-			    		document.write("<img src=\"images/online.png\" width=\"20\" height=\"20\">");
-			    	}
-			    	else
-			    	{
-			    		document.write("<img src=\"images/offline.png\" width=\"20\" height=\"20\">");
-			    	}			    	
-			    	document.write("</li><li><b>Type: </b>");
-			    	document.write(bundle[i].getElementsByTagName("type")[0].childNodes[0].nodeValue);
-			    	document.write("</li><li><b>Service: </b></li><li>");
-			    	document.write(bundle[i].getElementsByTagName("service1")[0].childNodes[0].nodeValue);
-			    	document.write("</li></ul>");
-			}
-			else if(bundle[i].getElementsByTagName("name")[0].childNodes[0].nodeValue == "MMN_MediaServerBundle.Service_MediaServer_Interface")			
-			{
-			    	document.write("<div class=\"pin pin-down\" data-xpos=\"50\" data-ypos=\"325\">");
-			    	document.write("<h2>Media Server</h2><ul><li><b>Status:</b>");
-			    	if(bundle[i].getElementsByTagName("status")[0].childNodes[0].nodeValue == "On")
-			    	{
-			    		document.write("<img src=\"images/online.png\" width=\"20\" height=\"20\">");
-			    	}
-			    	else
-			    	{
-			    		document.write("<img src=\"images/offline.png\" width=\"20\" height=\"20\">");
-			    	}			    	
-			    	document.write("</li><li><b>Type: </b>");
-			    	document.write(bundle[i].getElementsByTagName("type")[0].childNodes[0].nodeValue);
-			    	document.write("</li><li><b>Service: </b></li><li>");
-			    	document.write(bundle[i].getElementsByTagName("service1")[0].childNodes[0].nodeValue);
-			    	document.write("</li><li>");
-			    	document.write(bundle[i].getElementsByTagName("service2")[0].childNodes[0].nodeValue);
-			    	document.write("</li></ul>");
-			}
-    }
-</script>
-<div align="center" id="div_test"></div>
+    <img width="700" height="446" src="images/bg.png" alt="House"> 
+    <div class="pin pin-down" data-xpos="31" data-ypos="205">
+        <h2>Widget TV</h2><br>
+        <label><b>Status: </b></label><span id="tvStatus"></span><br>
+        <label><b>Type: </b></label><span id="tvType"></span><br>
+        <label><b>Service:</b></label><br>
+        <span id="tvService1"></span><br>
+    </div>
+    <div class="pin pin-down" data-xpos="150" data-ypos="255">
+        <h2>Smart Socket</h2><br> 
+        <label><b>Status: </label><span id="socketStatus"></span><br>            
+        <label><b>Type: </label><span id="socketType"></span><br>    
+        <label><b>Service:</b> </label><br>                                                   
+        <span id="socketService1"></span><br> 
+        <span id="socketService2"></span><br>    
+        <span id="socketService3"></span><br>    
+        <span id="socketService4"></span><br>    
+        <span id="socketService5"></span><br>    
+        <span id="socketService6"></span><br>    
+        <span id="socketService7"></span><br>    
+        <span id="socketService8"></span><br>    
+        <span id="socketService9"></span><br>    
+        <span id="socketService10"></span><br>    
+        <span id="socketService11"></span><br>    
+        <span id="socketService12"></span><br>                                                                                                                                                                       
+    </div>
+    <div class="pin pin-down" data-xpos="250" data-ypos="305">
+        <h2>Mobile</h2><br>
+        <label><b>Status: </b> </label><span id="phoneStatus"></span><br>
+        <label><b>Type:</b> </label><span id="phoneType"></span><br>
+        <label><b>Current: </label><span id="appCurrent"></span><br>                  
+        <label><b>Temperature: </label><span id="appTemp"></span><br>        
+        <label><b>Service:</b> </label><br>                                                           
+        <span id="phoneService1"></span><br>                   
+    </div>
+    <div class="pin pin-down" data-xpos="50" data-ypos="325">
+        <h2>Media Server</h2><br>
+        <label><b>Status:</b> </label><span id="msStatus"></span><br>
+        <label><b>Type:</b> </label><span id="msType"></span><br>
+        <label><b>Service:</b> </label><br>            
+        <span id="msService1"></span><br>
+        <span id="msService2"></span><br>            
+    </div>
+    <div class="pin pin-down" data-xpos="500" data-ypos="250">
+        <h2>Light</h2><br>
+        <label><b>Status:</b> </label><span id="lightstatus"></span><br>
+        <label><b>Relay:</b> </label><span id="lightrelay"></span><br>
+        <button id="appButton1" style="height: 50px; width: 80px" onclick=smart_home_req(0,"div_test")>Turn On</button>
+        <button id="appButton2" style="height: 50px; width: 80px" onclick=smart_home_req(1,"div_test")>Turn Off</button>
+        <button id="appButton3" style="height: 50px; width: 80px" onclick=smart_home_req(2,"div_test")>Turn On</button>
+        <button id="appButton4" style="height: 50px; width: 80px" onclick=smart_home_req(3,"div_test")>Turn Off</button>
+        <br><img src="images/pc2.jpeg" width="210"><br>
+    </div>    
+    <div class="pin pin-down" data-xpos="310" data-ypos="125">
+        <h2>Electrical Fan</h2><br>
+        <label><b>Status:</b> </label><span id="fanstatus"></span><br>
+        <label><b>Relay:</b> </label><span id="fanrelay"></span><br>
+        <button id="appButton5" style="height: 50px; width: 80px" onclick=smart_home_req(0,"div_test")>Turn On</button>
+        <button id="appButton6" style="height: 50px; width: 80px" onclick=smart_home_req(1,"div_test")>Turn Off</button>
+        <button id="appButton7" style="height: 50px; width: 80px" onclick=smart_home_req(2,"div_test")>Turn On</button>
+        <button id="appButton8" style="height: 50px; width: 80px" onclick=smart_home_req(3,"div_test")>Turn Off</button>          
+        <br><img src="images/pc1.jpeg" width="210">	 <br>
+    </div>            
+</div>
+<div align="center" id="div_test"></div>       
 </body>
 </html>
